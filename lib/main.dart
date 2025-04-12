@@ -31,7 +31,7 @@ class Dirassati extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.chooseSonScreen,
+          initialRoute: Routes.studentProfilePage,
           onGenerateRoute: appRouter.generateRoute,
         ));
   }

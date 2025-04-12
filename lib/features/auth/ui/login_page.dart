@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
       image: IconsManager.login,
       forgotPassword: true,
       pageName: 'LOG IN',
-      nextRoute: Routes.homeScreen,
+      nextRoute: Routes.chooseSonScreen,
       formKey: _loginFormKey,
       buttonText: 'LOG IN',
       customField: EmailAndPassword(

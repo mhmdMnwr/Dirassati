@@ -17,4 +17,10 @@ class IconsManager {
   static const String number4 = '$_basePath/number4.png';
   static const String number5 = '$_basePath/number5.png';
   static const String person = '$_basePath/person.png';
+  static const String backButton = '$_basePath/back_button.png';
+  static const String absence = '$_basePath/absence.png';
+  static const String announcement = '$_basePath/announcement.png';
+  static const String schedule = '$_basePath/schedule.png';
+  static const String marks = '$_basePath/marks.png';
+  static const String homeWork = '$_basePath/home_work.png';
 }

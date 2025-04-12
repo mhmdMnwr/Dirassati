@@ -1,0 +1,136 @@
+import 'package:dirasati/core/theming/colors.dart';
+import 'package:dirasati/core/theming/icons.dart';
+import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class TabbedContentSliver extends StatefulWidget {
+  final Student student;
+
+  const TabbedContentSliver({super.key, required this.student});
+
+  @override
+  State<TabbedContentSliver> createState() => _TabbedContentSliverState();
+}
+
+class _TabbedContentSliverState extends State<TabbedContentSliver> {
+  final List<String> items = [
+    "Announcement",
+    "Schedule",
+    "Marks",
+    "Home work",
+    "Absence",
+  ];
+
+  final List<String> icons = [
+    IconsManager.announcement,
+    IconsManager.schedule,
+    IconsManager.marks,
+    IconsManager.homeWork,
+    IconsManager.absence,
+  ];
+
+  int current = 0;
+  final PageController pageController = PageController();
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildListDelegate([
+        _buildTabBar(),
+        _buildContentArea(),
+      ]),
+    );
+  }
+
+  Widget _buildTabBar() {
+    return SizedBox(
+      height: 80.h,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        itemCount: items.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (ctx, index) {
+          return _buildTabItem(index);
+        },
+      ),
+    );
+  }
+
+  Widget _buildTabItem(int index) {
+    return GestureDetector(
+      onTap: () => _handleTabChange(index),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        margin: EdgeInsets.fromLTRB(
+          12.w,
+          12.h,
+          index == 4 ? 12.w : 0.w,
+          12.h,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: ColorsManager.skyBlue, width: 3.2),
+        ),
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  icons[index],
+                  height: 35.h,
+                  width: 35.w,
+                ),
+                if (current == index) SizedBox(width: 10.w),
+                if (current == index)
+                  Text(
+                    items[index],
+                    style: TextStyles.font16BlackBold,
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _handleTabChange(int index) {
+    setState(() => current = index);
+    pageController.animateToPage(
+      current,
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.ease,
+    );
+  }
+
+  Widget _buildContentArea() {
+    return SizedBox(
+      height: 750.h,
+      child: PageView.builder(
+        controller: pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.all(20.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  icons[current],
+                ),
+                SizedBox(height: 20.h),
+                Text("${items[current]} Content",
+                    style: Theme.of(context).textTheme.headlineSmall),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

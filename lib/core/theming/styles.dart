@@ -153,9 +153,19 @@ class TextStyles {
     color: ColorsManager.darkBlue,
   );
 
-  static TextStyle font18WhiteMedium = TextStyle(
-    fontSize: 18.sp,
+  static TextStyle font14WhiteMedium = TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
+    color: Colors.white,
+  );
+  static TextStyle font20Whitebold = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: Colors.white,
+  );
+  static TextStyle font16Whitebold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
     color: Colors.white,
   );
   static TextStyle font24darGraykSeliBold = TextStyle(
