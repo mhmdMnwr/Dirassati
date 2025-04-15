@@ -1,8 +1,13 @@
+import 'package:dirasati/core/di/dependency_injection.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
+import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
+import 'package:dirasati/features/justification/ui/absence_page.dart';
+import 'package:dirasati/features/schedule/ui/schedule_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabbedContentSliver extends StatefulWidget {
@@ -107,6 +112,8 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
     );
   }
 
+//TODO fix the navigation here
+//! TODO
   Widget _buildContentArea() {
     return SizedBox(
       height: 750.h,
@@ -115,20 +122,32 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.all(20.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  icons[current],
-                ),
-                SizedBox(height: 20.h),
-                Text("${items[current]} Content",
-                    style: Theme.of(context).textTheme.headlineSmall),
-              ],
-            ),
-          );
+          if (index == 0 || index == 3 || index == 2) {
+            return Padding(
+              padding: EdgeInsets.all(20.w),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    icons[current],
+                  ),
+                  SizedBox(height: 20.h),
+                  Text("${items[current]} Content",
+                      style: Theme.of(context).textTheme.headlineSmall),
+                ],
+              ),
+            );
+          } else if (index == 1) {
+            return SchedulePage();
+          } else {
+            return BlocProvider(
+              create: (context) => getIt<AbsenceCubit>(),
+              child: AbsencePage(
+                student: widget.student,
+              ),
+            );
+          }
+          //)
         },
       ),
     );

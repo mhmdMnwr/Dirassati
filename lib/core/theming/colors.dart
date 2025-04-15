@@ -12,6 +12,7 @@ class ColorsManager {
   static const Color lighterGray = Color(0xFFEDEDED);
   static const Color moreLightGray = Color(0xFFFDFDFF);
   static const Color moreLighterGray = Color(0xFFF5F5F5);
+  static const Color schedulLighterGray = Color(0xFFD9D9D9);
   static const Color skyBlue = Color(0xFF0077F2);
   static const Color logIn = Color(0xFF476C90);
   static const Color hint = Color(0xFF121212);

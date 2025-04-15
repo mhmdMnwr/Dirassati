@@ -5,6 +5,8 @@ class ApiConstants {
   static const verifyOtp = "auth/verify-otp";
   static const resetPassword = "reset-password";
   static const getMyStudents = "parents/my-students";
+  static const getStudentAbsence = "absences/student";
+  static const sendJustification = "justifications";
 }
 
 class ApiErrors {

@@ -1,4 +1,5 @@
 import 'package:dirasati/core/theming/colors.dart';
+import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:flutter/material.dart';
@@ -50,50 +51,61 @@ class StudentDetails extends StatelessWidget {
         padding: EdgeInsets.only(
           left: 30.w,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 120.h,
+        child: Stack(children: [
+          Positioned(
+            bottom: -5.h,
+            right: 2.w,
+            child: Image.asset(
+              IconsManager.appbarImg,
+              width: 200.w,
+              height: 200.h,
             ),
-            buildStudentDetails(
-              title: 'Family Name',
-              isTitle: true,
-              value: student.lastName,
-            ),
-            buildStudentDetails(
-              title: 'First Name',
-              isTitle: true,
-              value: student.firstName,
-            ),
-            buildStudentDetails(
-              title: 'Birthday',
-              value:
-                  '${student.birthDate.day}/${student.birthDate.month}/${student.birthDate.year}',
-            ),
-            buildStudentDetails(
-              title: 'Gender',
-              value: student.gender,
-            ),
-            buildStudentDetails(
-              title: 'Address',
-              value: student.address,
-            ),
-            buildStudentDetails(
-              title: 'Phone',
-              value: student.phone,
-            ),
-            buildStudentDetails(
-              title: 'Email',
-              value: student.email,
-            ),
-            buildStudentDetails(
-              title: 'Level',
-              value: student.level,
-            ),
-          ],
-        ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 120.h,
+              ),
+              buildStudentDetails(
+                title: 'Family Name',
+                isTitle: true,
+                value: student.lastName,
+              ),
+              buildStudentDetails(
+                title: 'First Name',
+                isTitle: true,
+                value: student.firstName,
+              ),
+              buildStudentDetails(
+                title: 'Birthday',
+                value:
+                    '${student.birthDate.day}/${student.birthDate.month}/${student.birthDate.year}',
+              ),
+              buildStudentDetails(
+                title: 'Gender',
+                value: student.gender,
+              ),
+              buildStudentDetails(
+                title: 'Address',
+                value: student.address,
+              ),
+              buildStudentDetails(
+                title: 'Phone',
+                value: student.phone,
+              ),
+              buildStudentDetails(
+                title: 'Email',
+                value: student.email,
+              ),
+              buildStudentDetails(
+                title: 'Level',
+                value: student.level,
+              ),
+            ],
+          ),
+        ]),
       ),
     );
   }

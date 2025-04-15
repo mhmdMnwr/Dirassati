@@ -5,6 +5,8 @@ import 'package:dirasati/features/auth/data/repo/login_repo.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
 import 'package:dirasati/features/choose%20son/data/repo/get_my_studnets_repo.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
+import 'package:dirasati/features/justification/data/repo/steudent_absence_repo.dart';
+import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -20,4 +22,8 @@ Future<void> setupGetIt() async {
       () => GetMyStudentsRepo(getIt()));
   getIt.registerLazySingleton<GetMyStudentsCubit>(
       () => GetMyStudentsCubit(getIt()));
+
+  getIt.registerLazySingleton<GetStudentAbsenceRepo>(
+      () => GetStudentAbsenceRepo(getIt()));
+  getIt.registerLazySingleton<AbsenceCubit>(() => AbsenceCubit(getIt()));
 }

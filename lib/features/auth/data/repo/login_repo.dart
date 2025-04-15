@@ -4,7 +4,7 @@ import 'package:dirasati/core/Networking/api_service.dart';
 import 'package:dirasati/features/auth/data/model/login%20Model/login_request.dart';
 import 'package:dirasati/features/auth/data/model/login%20Model/login_response.dart';
 import 'package:dirasati/features/auth/data/model/otp%20Model/otp_request.dart';
-import 'package:dirasati/features/auth/data/model/otp%20Model/otp_response.dart';
+import 'package:dirasati/features/auth/data/model/otp%20Model/standard_response.dart';
 import 'package:dirasati/features/auth/data/model/reset_password_request.dart';
 import 'package:dirasati/features/auth/data/model/verify_otp_request.dart';
 
@@ -22,7 +22,7 @@ class LoginRepo {
     }
   }
 
-  Future<ApiResult<OtpResponse>> otpRequest(OtpRequest sendOtpReq) async {
+  Future<ApiResult<StandardResponse>> otpRequest(OtpRequest sendOtpReq) async {
     try {
       final response = await apiService.sendOtp(sendOtpReq);
       return ApiResult.success(response);
@@ -31,7 +31,8 @@ class LoginRepo {
     }
   }
 
-  Future<ApiResult<OtpResponse>> verifyOtp(VerifyOtpRequest verifyOtp) async {
+  Future<ApiResult<StandardResponse>> verifyOtp(
+      VerifyOtpRequest verifyOtp) async {
     try {
       final response = await apiService.verifyOtp(verifyOtp);
       return ApiResult.success(response);

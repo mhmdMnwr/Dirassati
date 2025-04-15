@@ -23,4 +23,14 @@ class IconsManager {
   static const String schedule = '$_basePath/schedule.png';
   static const String marks = '$_basePath/marks.png';
   static const String homeWork = '$_basePath/home_work.png';
+  static const String appbarImg = '$_basePath/appbar_img.png';
+  static const String dailySchedule = '$_basePath/daily_schedule.png';
+  static const String examSchedule = '$_basePath/exam_schedule.png';
+  static const String absent = '$_basePath/absent.png';
+  static const String close = '$_basePath/close.png';
+  static const String nothingToJustify = '$_basePath/nothing_to_justify.png';
+  static const String justificationBackGround =
+      '$_basePath/justification_background.png';
+  static const String justificationWait = '$_basePath/justification_wait.png';
+  static const String justificationSent = '$_basePath/justification_sent.png';
 }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'get_my_students_state.dart';
+part of 'justification_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$GetMyStudentsState<T> {
+mixin _$JustificationState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T studentsData) success,
+    required TResult Function(T standardResponse) success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$GetMyStudentsState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T studentsData)? success,
+    TResult? Function(T standardResponse)? success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$GetMyStudentsState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T studentsData)? success,
+    TResult Function(T standardResponse)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -69,24 +69,24 @@ mixin _$GetMyStudentsState<T> {
 }
 
 /// @nodoc
-abstract class $GetMyStudentsStateCopyWith<T, $Res> {
-  factory $GetMyStudentsStateCopyWith(GetMyStudentsState<T> value,
-          $Res Function(GetMyStudentsState<T>) then) =
-      _$GetMyStudentsStateCopyWithImpl<T, $Res, GetMyStudentsState<T>>;
+abstract class $JustificationStateCopyWith<T, $Res> {
+  factory $JustificationStateCopyWith(JustificationState<T> value,
+          $Res Function(JustificationState<T>) then) =
+      _$JustificationStateCopyWithImpl<T, $Res, JustificationState<T>>;
 }
 
 /// @nodoc
-class _$GetMyStudentsStateCopyWithImpl<T, $Res,
-        $Val extends GetMyStudentsState<T>>
-    implements $GetMyStudentsStateCopyWith<T, $Res> {
-  _$GetMyStudentsStateCopyWithImpl(this._value, this._then);
+class _$JustificationStateCopyWithImpl<T, $Res,
+        $Val extends JustificationState<T>>
+    implements $JustificationStateCopyWith<T, $Res> {
+  _$JustificationStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -99,13 +99,13 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$GetMyStudentsStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$JustificationStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -116,7 +116,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'GetMyStudentsState<$T>.initial()';
+    return 'JustificationState<$T>.initial()';
   }
 
   @override
@@ -133,7 +133,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T studentsData) success,
+    required TResult Function(T standardResponse) success,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -144,7 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T studentsData)? success,
+    TResult? Function(T standardResponse)? success,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -155,7 +155,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T studentsData)? success,
+    TResult Function(T standardResponse)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -203,7 +203,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements GetMyStudentsState<T> {
+abstract class _Initial<T> implements JustificationState<T> {
   const factory _Initial() = _$InitialImpl<T>;
 }
 
@@ -216,13 +216,13 @@ abstract class _$$LoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$GetMyStudentsStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
+    extends _$JustificationStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
     implements _$$LoadingImplCopyWith<T, $Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -233,7 +233,7 @@ class _$LoadingImpl<T> implements Loading<T> {
 
   @override
   String toString() {
-    return 'GetMyStudentsState<$T>.loading()';
+    return 'JustificationState<$T>.loading()';
   }
 
   @override
@@ -250,7 +250,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T studentsData) success,
+    required TResult Function(T standardResponse) success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -261,7 +261,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T studentsData)? success,
+    TResult? Function(T standardResponse)? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -272,7 +272,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T studentsData)? success,
+    TResult Function(T standardResponse)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   }
 }
 
-abstract class Loading<T> implements GetMyStudentsState<T> {
+abstract class Loading<T> implements JustificationState<T> {
   const factory Loading() = _$LoadingImpl<T>;
 }
 
@@ -330,28 +330,28 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
           _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T studentsData});
+  $Res call({T standardResponse});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$GetMyStudentsStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
+    extends _$JustificationStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
     implements _$$SuccessImplCopyWith<T, $Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? studentsData = freezed,
+    Object? standardResponse = freezed,
   }) {
     return _then(_$SuccessImpl<T>(
-      freezed == studentsData
-          ? _value.studentsData
-          : studentsData // ignore: cast_nullable_to_non_nullable
+      freezed == standardResponse
+          ? _value.standardResponse
+          : standardResponse // ignore: cast_nullable_to_non_nullable
               as T,
     ));
   }
@@ -360,14 +360,14 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl(this.studentsData);
+  const _$SuccessImpl(this.standardResponse);
 
   @override
-  final T studentsData;
+  final T standardResponse;
 
   @override
   String toString() {
-    return 'GetMyStudentsState<$T>.success(studentsData: $studentsData)';
+    return 'JustificationState<$T>.success(standardResponse: $standardResponse)';
   }
 
   @override
@@ -376,14 +376,14 @@ class _$SuccessImpl<T> implements Success<T> {
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl<T> &&
             const DeepCollectionEquality()
-                .equals(other.studentsData, studentsData));
+                .equals(other.standardResponse, standardResponse));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(studentsData));
+      runtimeType, const DeepCollectionEquality().hash(standardResponse));
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -396,10 +396,10 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T studentsData) success,
+    required TResult Function(T standardResponse) success,
     required TResult Function(String error) error,
   }) {
-    return success(studentsData);
+    return success(standardResponse);
   }
 
   @override
@@ -407,10 +407,10 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T studentsData)? success,
+    TResult? Function(T standardResponse)? success,
     TResult? Function(String error)? error,
   }) {
-    return success?.call(studentsData);
+    return success?.call(standardResponse);
   }
 
   @override
@@ -418,12 +418,12 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T studentsData)? success,
+    TResult Function(T standardResponse)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(studentsData);
+      return success(standardResponse);
     }
     return orElse();
   }
@@ -466,12 +466,12 @@ class _$SuccessImpl<T> implements Success<T> {
   }
 }
 
-abstract class Success<T> implements GetMyStudentsState<T> {
-  const factory Success(final T studentsData) = _$SuccessImpl<T>;
+abstract class Success<T> implements JustificationState<T> {
+  const factory Success(final T standardResponse) = _$SuccessImpl<T>;
 
-  T get studentsData;
+  T get standardResponse;
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
@@ -489,13 +489,13 @@ abstract class _$$ErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<T, $Res>
-    extends _$GetMyStudentsStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
+    extends _$JustificationStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
     implements _$$ErrorImplCopyWith<T, $Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -521,7 +521,7 @@ class _$ErrorImpl<T> implements Error<T> {
 
   @override
   String toString() {
-    return 'GetMyStudentsState<$T>.error(error: $error)';
+    return 'JustificationState<$T>.error(error: $error)';
   }
 
   @override
@@ -535,7 +535,7 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -548,7 +548,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T studentsData) success,
+    required TResult Function(T standardResponse) success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -559,7 +559,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T studentsData)? success,
+    TResult? Function(T standardResponse)? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -570,7 +570,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T studentsData)? success,
+    TResult Function(T standardResponse)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -618,12 +618,12 @@ class _$ErrorImpl<T> implements Error<T> {
   }
 }
 
-abstract class Error<T> implements GetMyStudentsState<T> {
+abstract class Error<T> implements JustificationState<T> {
   const factory Error({required final String error}) = _$ErrorImpl<T>;
 
   String get error;
 
-  /// Create a copy of GetMyStudentsState
+  /// Create a copy of JustificationState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>

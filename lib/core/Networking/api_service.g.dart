@@ -48,13 +48,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<OtpResponse> sendOtp(OtpRequest otpRequest) async {
+  Future<StandardResponse> sendOtp(OtpRequest otpRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(otpRequest.toJson());
-    final _options = _setStreamType<OtpResponse>(
+    final _options = _setStreamType<StandardResponse>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -65,9 +65,9 @@ class _ApiService implements ApiService {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late OtpResponse _value;
+    late StandardResponse _value;
     try {
-      _value = OtpResponse.fromJson(_result.data!);
+      _value = StandardResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -76,13 +76,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<OtpResponse> verifyOtp(VerifyOtpRequest verifyOtpRequest) async {
+  Future<StandardResponse> verifyOtp(VerifyOtpRequest verifyOtpRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(verifyOtpRequest.toJson());
-    final _options = _setStreamType<OtpResponse>(
+    final _options = _setStreamType<StandardResponse>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -93,9 +93,9 @@ class _ApiService implements ApiService {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late OtpResponse _value;
+    late StandardResponse _value;
     try {
-      _value = OtpResponse.fromJson(_result.data!);
+      _value = StandardResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -153,6 +153,63 @@ class _ApiService implements ApiService {
     late StudentsResponse _value;
     try {
       _value = StudentsResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AbsenceResponse> getStudentAbsence(String studentId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AbsenceResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'absences/student/${studentId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AbsenceResponse _value;
+    try {
+      _value = AbsenceResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<StandardResponse> sendJustification(
+    SendJustificationRequest sendJustificationRequest,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(sendJustificationRequest.toJson());
+    final _options = _setStreamType<StandardResponse>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'justifications',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late StandardResponse _value;
+    try {
+      _value = StandardResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

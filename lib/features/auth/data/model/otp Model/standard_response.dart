@@ -1,14 +1,14 @@
-class OtpResponse {
+class StandardResponse {
   final String status;
   final String message;
 
-  OtpResponse({
+  StandardResponse({
     required this.status,
     required this.message,
   });
 
-  factory OtpResponse.fromJson(Map<String, dynamic> json) {
-    return OtpResponse(
+  factory StandardResponse.fromJson(Map<String, dynamic> json) {
+    return StandardResponse(
       status: json['status'],
       message: json['message'],
     );

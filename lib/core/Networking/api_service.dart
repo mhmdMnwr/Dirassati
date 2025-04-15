@@ -3,10 +3,12 @@ import 'package:dirasati/core/Networking/api_constants.dart';
 import 'package:dirasati/features/auth/data/model/login%20Model/login_request.dart';
 import 'package:dirasati/features/auth/data/model/login%20Model/login_response.dart';
 import 'package:dirasati/features/auth/data/model/otp%20Model/otp_request.dart';
-import 'package:dirasati/features/auth/data/model/otp%20Model/otp_response.dart';
+import 'package:dirasati/features/auth/data/model/otp%20Model/standard_response.dart';
 import 'package:dirasati/features/auth/data/model/reset_password_request.dart';
 import 'package:dirasati/features/auth/data/model/verify_otp_request.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
+import 'package:dirasati/features/justification/data/model/absence_response.dart';
+import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
 
@@ -20,12 +22,12 @@ abstract class ApiService {
   );
 
   @POST(ApiConstants.sendOtp)
-  Future<OtpResponse> sendOtp(
+  Future<StandardResponse> sendOtp(
     @Body() OtpRequest otpRequest,
   );
 
   @POST(ApiConstants.verifyOtp)
-  Future<OtpResponse> verifyOtp(
+  Future<StandardResponse> verifyOtp(
     @Body() VerifyOtpRequest verifyOtpRequest,
   );
 
@@ -37,5 +39,14 @@ abstract class ApiService {
   @GET("${ApiConstants.getMyStudents}/{parentId}")
   Future<StudentsResponse> getMyStudents(
     @Path("parentId") String parentId,
+  );
+  @GET("${ApiConstants.getStudentAbsence}/{studentId}")
+  Future<AbsenceResponse> getStudentAbsence(
+    @Path("studentId") String studentId,
+  );
+
+  @POST(ApiConstants.sendJustification)
+  Future<StandardResponse> sendJustification(
+    @Body() SendJustificationRequest sendJustificationRequest,
   );
 }
