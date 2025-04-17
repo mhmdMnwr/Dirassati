@@ -20,24 +20,30 @@ mixin _$AbsenceState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T absenceResponse) success,
+    required TResult Function(T absenceResponse) loaded,
     required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T absenceResponse)? success,
+    TResult? Function(T absenceResponse)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T absenceResponse)? success,
+    TResult Function(T absenceResponse)? loaded,
     TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,24 +51,30 @@ mixin _$AbsenceState<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
+    required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
+    TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
+    TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,8 +144,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T absenceResponse) success,
+    required TResult Function(T absenceResponse) loaded,
     required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
   }) {
     return initial();
   }
@@ -143,8 +157,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T absenceResponse)? success,
+    TResult? Function(T absenceResponse)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
   }) {
     return initial?.call();
   }
@@ -154,8 +170,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T absenceResponse)? success,
+    TResult Function(T absenceResponse)? loaded,
     TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -169,8 +187,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
+    required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
   }) {
     return initial(this);
   }
@@ -180,8 +200,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
+    TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
   }) {
     return initial?.call(this);
   }
@@ -191,8 +213,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
+    TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -249,8 +273,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T absenceResponse) success,
+    required TResult Function(T absenceResponse) loaded,
     required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
   }) {
     return loading();
   }
@@ -260,8 +286,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T absenceResponse)? success,
+    TResult? Function(T absenceResponse)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
   }) {
     return loading?.call();
   }
@@ -271,8 +299,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T absenceResponse)? success,
+    TResult Function(T absenceResponse)? loaded,
     TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -286,8 +316,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
+    required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
   }) {
     return loading(this);
   }
@@ -297,8 +329,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
+    TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
   }) {
     return loading?.call(this);
   }
@@ -308,8 +342,10 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
+    TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -324,20 +360,20 @@ abstract class Loading<T> implements AbsenceState<T> {
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<T, $Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
-      __$$SuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$LoadedImplCopyWith<T, $Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl<T> value, $Res Function(_$LoadedImpl<T>) then) =
+      __$$LoadedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T absenceResponse});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$AbsenceStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
-    implements _$$SuccessImplCopyWith<T, $Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
+class __$$LoadedImplCopyWithImpl<T, $Res>
+    extends _$AbsenceStateCopyWithImpl<T, $Res, _$LoadedImpl<T>>
+    implements _$$LoadedImplCopyWith<T, $Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl<T> _value, $Res Function(_$LoadedImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of AbsenceState
@@ -347,7 +383,7 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? absenceResponse = freezed,
   }) {
-    return _then(_$SuccessImpl<T>(
+    return _then(_$LoadedImpl<T>(
       freezed == absenceResponse
           ? _value.absenceResponse
           : absenceResponse // ignore: cast_nullable_to_non_nullable
@@ -358,22 +394,22 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl(this.absenceResponse);
+class _$LoadedImpl<T> implements Loaded<T> {
+  const _$LoadedImpl(this.absenceResponse);
 
   @override
   final T absenceResponse;
 
   @override
   String toString() {
-    return 'AbsenceState<$T>.success(absenceResponse: $absenceResponse)';
+    return 'AbsenceState<$T>.loaded(absenceResponse: $absenceResponse)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl<T> &&
+            other is _$LoadedImpl<T> &&
             const DeepCollectionEquality()
                 .equals(other.absenceResponse, absenceResponse));
   }
@@ -387,18 +423,20 @@ class _$SuccessImpl<T> implements Success<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      __$$SuccessImplCopyWithImpl<T, _$SuccessImpl<T>>(this, _$identity);
+  _$$LoadedImplCopyWith<T, _$LoadedImpl<T>> get copyWith =>
+      __$$LoadedImplCopyWithImpl<T, _$LoadedImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T absenceResponse) success,
+    required TResult Function(T absenceResponse) loaded,
     required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
   }) {
-    return success(absenceResponse);
+    return loaded(absenceResponse);
   }
 
   @override
@@ -406,10 +444,12 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T absenceResponse)? success,
+    TResult? Function(T absenceResponse)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
   }) {
-    return success?.call(absenceResponse);
+    return loaded?.call(absenceResponse);
   }
 
   @override
@@ -417,12 +457,14 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T absenceResponse)? success,
+    TResult Function(T absenceResponse)? loaded,
     TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(absenceResponse);
+    if (loaded != null) {
+      return loaded(absenceResponse);
     }
     return orElse();
   }
@@ -432,10 +474,12 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
+    required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
   }) {
-    return success(this);
+    return loaded(this);
   }
 
   @override
@@ -443,10 +487,12 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
+    TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
   }) {
-    return success?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -454,26 +500,28 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
+    TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
 }
 
-abstract class Success<T> implements AbsenceState<T> {
-  const factory Success(final T absenceResponse) = _$SuccessImpl<T>;
+abstract class Loaded<T> implements AbsenceState<T> {
+  const factory Loaded(final T absenceResponse) = _$LoadedImpl<T>;
 
   T get absenceResponse;
 
   /// Create a copy of AbsenceState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
+  _$$LoadedImplCopyWith<T, _$LoadedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -547,8 +595,10 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T absenceResponse) success,
+    required TResult Function(T absenceResponse) loaded,
     required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
   }) {
     return error(this.error);
   }
@@ -558,8 +608,10 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T absenceResponse)? success,
+    TResult? Function(T absenceResponse)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
   }) {
     return error?.call(this.error);
   }
@@ -569,8 +621,10 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T absenceResponse)? success,
+    TResult Function(T absenceResponse)? loaded,
     TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -584,8 +638,10 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
+    required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
   }) {
     return error(this);
   }
@@ -595,8 +651,10 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
+    TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
   }) {
     return error?.call(this);
   }
@@ -606,8 +664,10 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
+    TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -626,5 +686,301 @@ abstract class Error<T> implements AbsenceState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SendingImplCopyWith<T, $Res> {
+  factory _$$SendingImplCopyWith(
+          _$SendingImpl<T> value, $Res Function(_$SendingImpl<T>) then) =
+      __$$SendingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$SendingImplCopyWithImpl<T, $Res>
+    extends _$AbsenceStateCopyWithImpl<T, $Res, _$SendingImpl<T>>
+    implements _$$SendingImplCopyWith<T, $Res> {
+  __$$SendingImplCopyWithImpl(
+      _$SendingImpl<T> _value, $Res Function(_$SendingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SendingImpl<T> implements Sending<T> {
+  const _$SendingImpl();
+
+  @override
+  String toString() {
+    return 'AbsenceState<$T>.sending()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SendingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T absenceResponse) loaded,
+    required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
+  }) {
+    return sending();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T absenceResponse)? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
+  }) {
+    return sending?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T absenceResponse)? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
+    required TResult orElse(),
+  }) {
+    if (sending != null) {
+      return sending();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
+  }) {
+    return sending(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
+  }) {
+    return sending?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
+    required TResult orElse(),
+  }) {
+    if (sending != null) {
+      return sending(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Sending<T> implements AbsenceState<T> {
+  const factory Sending() = _$SendingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$SendSuccessImplCopyWith<T, $Res> {
+  factory _$$SendSuccessImplCopyWith(_$SendSuccessImpl<T> value,
+          $Res Function(_$SendSuccessImpl<T>) then) =
+      __$$SendSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T standarData});
+}
+
+/// @nodoc
+class __$$SendSuccessImplCopyWithImpl<T, $Res>
+    extends _$AbsenceStateCopyWithImpl<T, $Res, _$SendSuccessImpl<T>>
+    implements _$$SendSuccessImplCopyWith<T, $Res> {
+  __$$SendSuccessImplCopyWithImpl(
+      _$SendSuccessImpl<T> _value, $Res Function(_$SendSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? standarData = freezed,
+  }) {
+    return _then(_$SendSuccessImpl<T>(
+      freezed == standarData
+          ? _value.standarData
+          : standarData // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SendSuccessImpl<T> implements SendSuccess<T> {
+  const _$SendSuccessImpl(this.standarData);
+
+  @override
+  final T standarData;
+
+  @override
+  String toString() {
+    return 'AbsenceState<$T>.sendSuccess(standarData: $standarData)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendSuccessImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.standarData, standarData));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(standarData));
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendSuccessImplCopyWith<T, _$SendSuccessImpl<T>> get copyWith =>
+      __$$SendSuccessImplCopyWithImpl<T, _$SendSuccessImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T absenceResponse) loaded,
+    required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
+  }) {
+    return sendSuccess(standarData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T absenceResponse)? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
+  }) {
+    return sendSuccess?.call(standarData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T absenceResponse)? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
+    required TResult orElse(),
+  }) {
+    if (sendSuccess != null) {
+      return sendSuccess(standarData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
+  }) {
+    return sendSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
+  }) {
+    return sendSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
+    required TResult orElse(),
+  }) {
+    if (sendSuccess != null) {
+      return sendSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendSuccess<T> implements AbsenceState<T> {
+  const factory SendSuccess(final T standarData) = _$SendSuccessImpl<T>;
+
+  T get standarData;
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SendSuccessImplCopyWith<T, _$SendSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

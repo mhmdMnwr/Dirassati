@@ -10,9 +10,7 @@ AbsenceResponse _$AbsenceResponseFromJson(Map<String, dynamic> json) =>
     AbsenceResponse(
       success: json['success'] as bool,
       statusCode: (json['statusCode'] as num).toInt(),
-      data: (json['data'] as List<dynamic>)
-          .map((e) => AbsenceData.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: AbsenceData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AbsenceResponseToJson(AbsenceResponse instance) =>

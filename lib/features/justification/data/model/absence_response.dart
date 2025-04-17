@@ -6,7 +6,7 @@ part 'absence_response.g.dart';
 class AbsenceResponse {
   final bool success;
   final int statusCode;
-  final List<AbsenceData> data;
+  final AbsenceData data;
 
   const AbsenceResponse({
     required this.success,

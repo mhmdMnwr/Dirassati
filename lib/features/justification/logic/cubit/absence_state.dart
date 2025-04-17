@@ -5,6 +5,8 @@ part 'absence_state.freezed.dart';
 class AbsenceState<T> with _$AbsenceState<T> {
   const factory AbsenceState.initial() = _Initial;
   const factory AbsenceState.loading() = Loading;
-  const factory AbsenceState.success(T absenceResponse) = Success<T>;
+  const factory AbsenceState.loaded(T absenceResponse) = Loaded<T>;
   const factory AbsenceState.error({required String error}) = Error;
+  const factory AbsenceState.sending() = Sending;
+  const factory AbsenceState.sendSuccess(T standarData) = SendSuccess<T>;
 }

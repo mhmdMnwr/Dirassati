@@ -7,13 +7,13 @@ class SendJustificationRequest {
   final String parent;
   final String absence;
   final String content;
-  final List<String>? attachment;
+  // final List<String>? attachment;
 
   SendJustificationRequest({
     required this.parent,
     required this.absence,
     required this.content,
-    this.attachment,
+    // this.attachment,
   });
 
   factory SendJustificationRequest.fromJson(Map<String, dynamic> json) =>
