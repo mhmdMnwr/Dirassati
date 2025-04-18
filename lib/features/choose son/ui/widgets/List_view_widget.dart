@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
@@ -45,7 +46,7 @@ class ListViewWidget extends StatelessWidget {
                       height: 50.h,
                     ),
                   ),
-                  SizedBox(width: 10.w),
+                  verticalSpace(10),
                   Flexible(
                     // Allows the text to wrap properly
                     child: Text(
@@ -62,25 +63,23 @@ class ListViewWidget extends StatelessWidget {
             Positioned(
               bottom: 25.w,
               right: 20.w,
-              child: Container(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Image.asset(
-                      getLevelImage(int.parse(student.level.substring(0, 1))),
-                      width: 113.w,
-                      height: 169.h,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Image.asset(
+                    getLevelImage(int.parse(student.level.substring(0, 1))),
+                    width: 113.w,
+                    height: 169.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10.w),
+                    child: RotatedBox(
+                      quarterTurns: 3, // 1 turn = 90 degrees
+                      child: Text("Primary",
+                          style: TextStyles.font24darGraykSeliBold),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10.w),
-                      child: RotatedBox(
-                        quarterTurns: 3, // 1 turn = 90 degrees
-                        child: Text("Primary",
-                            style: TextStyles.font24darGraykSeliBold),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
             )
           ],

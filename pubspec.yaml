@@ -36,6 +36,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   flutter_pdfview: ^1.4.0
   flutter_screenutil: ^5.9.3
+  flutter_secure_storage: ^9.2.4
   freezed: ^2.4.5
   freezed_annotation: ^2.4.1
   get_it: ^8.0.3
@@ -46,6 +47,7 @@ dependencies:
   retrofit: ^4.4.2
   retrofit_generator: ^9.1.9
   shared_preferences: ^2.5.2
+  syncfusion_flutter_pdfviewer: ^29.1.38
 
 dev_dependencies:
   flutter_lints: ^5.0.0

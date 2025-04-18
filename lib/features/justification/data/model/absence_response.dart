@@ -4,9 +4,10 @@ part 'absence_response.g.dart';
 
 @JsonSerializable()
 class AbsenceResponse {
+  @JsonKey(name: 'sucess')
   final bool success;
   final int statusCode;
-  final AbsenceData data;
+  final List<AbsenceData> data;
 
   const AbsenceResponse({
     required this.success,
@@ -21,6 +22,7 @@ class AbsenceResponse {
 
 @JsonSerializable()
 class AbsenceData {
+  @JsonKey(name: '_id')
   final String id;
   final String subjectName;
   final bool isJustified;

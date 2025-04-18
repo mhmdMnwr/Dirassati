@@ -1,10 +1,10 @@
 import 'package:dirasati/core/Networking/api_result.dart';
 import 'package:dirasati/core/Networking/api_service.dart';
 import 'package:dirasati/core/Networking/api_error_handler.dart';
-import 'package:dirasati/features/auth/data/model/otp%20Model/standard_response.dart';
 
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
+import 'package:dirasati/features/justification/data/model/send_justification_response.dart';
 
 class GetStudentAbsenceRepo {
   final ApiService apiService;
@@ -20,7 +20,7 @@ class GetStudentAbsenceRepo {
     }
   }
 
-  Future<ApiResult<StandardResponse>> sendJustification(
+  Future<ApiResult<SendJustificationResponse>> sendJustification(
       SendJustificationRequest sendJustificationRequest) async {
     try {
       final response =

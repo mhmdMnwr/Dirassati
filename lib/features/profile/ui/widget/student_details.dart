@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
@@ -21,7 +22,7 @@ class StudentDetails extends StatelessWidget {
           title,
           style: TextStyles.font14WhiteMedium,
         ),
-        SizedBox(height: 5.h),
+        verticalSpace(5),
         SizedBox(
           width: isTitle ? 220.w : 400.w,
           child: Text(
@@ -32,7 +33,7 @@ class StudentDetails extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        SizedBox(height: 15.h)
+        verticalSpace(15)
       ],
     );
   }
@@ -65,8 +66,8 @@ class StudentDetails extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 120.h,
+              verticalSpace(
+                120,
               ),
               buildStudentDetails(
                 title: 'Family Name',

@@ -21,8 +21,15 @@ class AppRouter {
     switch (settings.name) {
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<LoginCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<LoginCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<GetMyStudentsCubit>(),
+              ),
+            ],
             child: LoginScreen(),
           ),
         );
@@ -56,27 +63,11 @@ class AppRouter {
         );
 
       case Routes.studentProfilePage:
-        final student = Student(
-          id: '1',
-          firstName: 'Ameur Mohammed Menouer',
-          lastName: 'Doe',
-          email: 'johndoe@example.com',
-          role: 'Student',
-          classId: '10A',
-          code: 'ST12345',
-          level: '10th Grade',
-          birthDate: DateTime(2007, 5, 15),
-          inscriptionDate: DateTime(2022, 9, 1),
-          gender: 'Male',
-          phone: '123-456-7890',
-          address: '123 Main Street',
-          isAbsent: false,
-        );
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<GetMyStudentsCubit>(),
                   child: StudentProfilePage(
-                    student: student,
+                    student: arguments as Student,
                   ),
                 ));
 

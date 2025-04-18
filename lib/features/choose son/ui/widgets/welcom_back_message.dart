@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +17,7 @@ class WelcomBackMessage extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const SizedBox(width: 12),
+          verticalSpace(12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -22,7 +22,7 @@ class MyAppBar extends StatelessWidget {
             width: 50.w,
           ),
           Text(
-            'Dirassaty',
+            'Dirassati',
             style: TextStyles.font24SkyBlueExtraBold,
           ),
         ],

@@ -1,3 +1,5 @@
+import 'package:dirasati/core/helpers/extensions.dart';
+import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/List_view_widget.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +20,9 @@ class SonsListView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: GestureDetector(
               onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                        '${studentsResponse.data[index].firstName} selected'),
-                  ),
+                context.pushNamed(
+                  Routes.studentProfilePage,
+                  arguments: studentsResponse.data[index],
                 );
               },
               child: ListViewWidget(

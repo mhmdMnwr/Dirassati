@@ -1,4 +1,5 @@
 import 'package:dirasati/core/di/dependency_injection.dart';
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
@@ -89,7 +90,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
                   height: 35.h,
                   width: 35.w,
                 ),
-                if (current == index) SizedBox(width: 10.w),
+                if (current == index) verticalSpace(10),
                 if (current == index)
                   Text(
                     items[index],
@@ -131,7 +132,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
                   Image.asset(
                     icons[current],
                   ),
-                  SizedBox(height: 20.h),
+                  horizontalSpace(20),
                   Text("${items[current]} Content",
                       style: Theme.of(context).textTheme.headlineSmall),
                 ],

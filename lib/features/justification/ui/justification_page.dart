@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/ui/widget/build_add_photo_button.dart';
@@ -8,11 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class JustificationPage extends StatefulWidget {
-  final String parentId;
   final AbsenceData absenceData;
   const JustificationPage({
     super.key,
-    required this.parentId,
     required this.absenceData,
   });
   @override
@@ -69,9 +68,10 @@ class _JustificationPageState extends State<JustificationPage> {
             children: [
               BuildJustificationTitle(
                 subjectName: widget.absenceData.subjectName,
+                absentSinceDate: widget.absenceData.absentSince,
               ),
               Spacer(),
-              SizedBox(height: 20.h),
+              verticalSpace(20),
               ReasonOfAbsenceField(
                 raeasonOfAbsenceKey: reasonOfAbsenceKey,
                 controller: _contentController,
@@ -82,7 +82,6 @@ class _JustificationPageState extends State<JustificationPage> {
               BuildJustifyButton(
                 reasonOfabsenceKey: reasonOfAbsenceKey,
                 absenceId: widget.absenceData.id,
-                parentId: widget.parentId,
                 content: _contentController,
               ),
             ],

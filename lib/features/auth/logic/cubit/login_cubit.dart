@@ -1,3 +1,6 @@
+import 'package:dirasati/core/Networking/dio_factory.dart';
+import 'package:dirasati/core/helpers/constants.dart';
+import 'package:dirasati/core/helpers/shared_pref_helper.dart';
 import 'package:dirasati/features/auth/data/model/login%20Model/login_request.dart';
 import 'package:dirasati/features/auth/data/model/otp%20Model/otp_request.dart';
 import 'package:dirasati/features/auth/data/model/reset_password_request.dart';
@@ -24,10 +27,24 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     response.when(success: (loginResponse) async {
+      await saveUserToken(
+        loginResponse.tokens.accessToken,
+        loginResponse.tokens.refreshToken,
+      );
+
       emit(LoginState.success(loginResponse));
     }, failure: (error) {
       emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
     });
+  }
+
+  Future<void> saveUserToken(String accessToken, String refreshToken) async {
+    await SharedPrefHelper.setSecuredString(
+        SharedPrefKeys.accessToken, accessToken);
+
+    await SharedPrefHelper.setSecuredString(
+        SharedPrefKeys.refreshToken, refreshToken);
+    DioFactory.setTokenIntoHeaderAfterLogin(accessToken);
   }
 
   void emitForgetPasswordStates() async {

@@ -1,4 +1,5 @@
 import 'package:dirasati/core/helpers/extensions.dart';
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
@@ -73,7 +74,7 @@ class MySliverAppbar extends StatelessWidget {
   Widget titleRow(bool isExpanded) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         if (!isExpanded)
           SizedBox(
@@ -87,8 +88,8 @@ class MySliverAppbar extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-        SizedBox(
-          width: 30.w,
+        horizontalSpace(
+          30,
         ),
         ElegantAvatar(
           imagePath: IconsManager.person,

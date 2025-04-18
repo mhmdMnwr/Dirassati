@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/features/schedule/ui/widget/schedule_button.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class SchedulePage extends StatelessWidget {
           ScheduleButton(
               scheduleIcon: IconsManager.schedule,
               scheduleTitle: 'Daily Schedule'),
-          SizedBox(height: 80.h),
+          verticalSpace(80),
           ScheduleButton(
               scheduleIcon: IconsManager.schedule,
               scheduleTitle: 'Exam Schedule'),

@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +37,7 @@ class NothingToJustifyPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 120.h,
-          ),
+          horizontalSpace(120),
           Image.asset(
             IconsManager.nothingToJustify,
             width: 200,

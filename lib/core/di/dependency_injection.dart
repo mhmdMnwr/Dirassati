@@ -25,5 +25,5 @@ Future<void> setupGetIt() async {
 
   getIt.registerLazySingleton<GetStudentAbsenceRepo>(
       () => GetStudentAbsenceRepo(getIt()));
-  getIt.registerLazySingleton<AbsenceCubit>(() => AbsenceCubit(getIt()));
+  getIt.registerFactory<AbsenceCubit>(() => AbsenceCubit(getIt()));
 }

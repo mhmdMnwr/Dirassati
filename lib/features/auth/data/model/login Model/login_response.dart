@@ -1,49 +1,34 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'login_response.g.dart';
+
+@JsonSerializable()
 class LoginResponse {
-  late final Tokens tokens;
-  late final String message;
-  late final int statusCode;
+  final Tokens tokens;
+  final String message;
+
   LoginResponse({
     required this.tokens,
     required this.message,
-    required this.statusCode,
   });
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) {
-    return LoginResponse(
-      tokens: Tokens.fromJson(json['tokens']),
-      message: json['message'],
-      statusCode: json['statusCode'],
-    );
-  }
+  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
+      _$LoginResponseFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return {
-      'tokens': tokens.toJson(),
-      'message': message,
-      'statusCode': statusCode,
-    };
-  }
+  Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 }
 
+@JsonSerializable()
 class Tokens {
-  late final String accessToken;
-  late final String refreshToken;
+  final String accessToken;
+  final String refreshToken;
+
   Tokens({
     required this.accessToken,
     required this.refreshToken,
   });
 
-  factory Tokens.fromJson(Map<String, dynamic> json) {
-    return Tokens(
-      accessToken: json['accessToken'],
-      refreshToken: json['refreshToken'],
-    );
-  }
+  factory Tokens.fromJson(Map<String, dynamic> json) => _$TokensFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return {
-      'accessToken': accessToken,
-      'refreshToken': refreshToken,
-    };
-  }
+  Map<String, dynamic> toJson() => _$TokensToJson(this);
 }

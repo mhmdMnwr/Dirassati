@@ -1,3 +1,4 @@
+import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_state.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/app_bar.dart';
@@ -17,10 +18,8 @@ class ChooseSonPage extends StatefulWidget {
 class _ChooseSonPageState extends State<ChooseSonPage> {
   @override
   void initState() {
-    context
-        .read<GetMyStudentsCubit>()
-        .getMyStudents(parentId: '67df2c150d5b672312953b16');
     super.initState();
+    context.read<GetMyStudentsCubit>().getMe();
   }
 
   @override
@@ -30,21 +29,67 @@ class _ChooseSonPageState extends State<ChooseSonPage> {
         children: [
           Backgroung(),
           MyAppBar(),
-          _blocBuilder(),
+          Column(
+            children: [
+              _parentBlocBuilder(),
+              _sonsBlocBuilder(),
+            ],
+          )
         ],
       ),
     );
   }
 }
 
-Widget _blocBuilder() {
+Widget _parentBlocBuilder() {
+  return BlocBuilder<GetMyStudentsCubit, GetMyStudentsState>(
+    buildWhen: (previous, current) =>
+        current is GetMeloading ||
+        current is GetMesuccess ||
+        current is GetMeerror,
+    builder: (context, state) {
+      return state.whenOrNull(
+            getMeloading: () {
+              return WelcomBackMessage(parentName: '');
+            },
+            getMesuccess: (parentData) {
+              String gender() {
+                if (parentData.data.gender == 'Male') {
+                  return 'Mr.';
+                } else {
+                  return 'Ms.';
+                }
+              }
+
+              context
+                  .read<GetMyStudentsCubit>()
+                  .getMyStudents(parentId: parentData.data.id);
+              return WelcomBackMessage(
+                  parentName:
+                      '${gender()} ${parentData.data.firstName} ${parentData.data.lastName}');
+            },
+            getMeerror: (error) {
+              return WelcomBackMessage(parentName: 'there was a problem');
+            },
+          ) ??
+          SizedBox.shrink();
+    },
+  );
+}
+
+Widget _sonsBlocBuilder() {
   return BlocBuilder<GetMyStudentsCubit, GetMyStudentsState>(
     buildWhen: (previous, current) =>
         current is Loading || current is Success || current is Error,
     builder: (context, state) {
       return state.whenOrNull(
             loading: () => setupLoading(),
-            success: (studentsData) => setupSuccess(studentsData),
+            success: (studentsData) {
+              return Expanded(
+                  child: SonsListView(
+                studentsResponse: studentsData,
+              ));
+            },
             error: (error) => setupError(error),
           ) ??
           SizedBox.shrink();
@@ -53,23 +98,12 @@ Widget _blocBuilder() {
 }
 
 Widget setupError(String error) {
-  return Container(
-    color: Colors.blue,
-  );
-}
-
-Widget setupSuccess(studentsData) {
-  return Column(
-    children: [
-      WelcomBackMessage(parentName: 'Ameur Mohammed Menouer'),
-      Expanded(
-          child: SonsListView(
-        studentsResponse: studentsData,
-      )),
-    ],
-  );
+  return Center(child: Text(error));
 }
 
 Widget setupLoading() {
-  return CircularProgressIndicator();
+  return Center(
+      child: CircularProgressIndicator(
+    color: ColorsManager.mainBlue,
+  ));
 }

@@ -15,15 +15,7 @@ class AbsencePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return JustificationPage(
-        parentId: '68004154e96ba7653ad705fa',
-        absenceData: AbsenceData(
-          absentSince: DateTime.now(),
-          isJustified: false,
-          id: '68003d45e96ba7653ad701b1',
-          subjectName: 'Math',
-          nbOfAbsences: 1,
-        ));
+    return _buildPage(context);
   }
 
   Widget _buildPage(BuildContext context) {
@@ -42,7 +34,7 @@ class AbsencePage extends StatelessWidget {
       builder: (context, state) {
         return state.whenOrNull(
               loading: () => setupLoading(),
-              loaded: (absenceResponse) => setupLoaded(absenceResponse),
+              loaded: (absenceResponse) => setupLoaded(absenceResponse.data[0]),
               error: (error) => setupError(error),
               sending: () => setupSending(),
               sendSuccess: (standardata) => setupSendSuccess(standardata),
@@ -61,8 +53,8 @@ class AbsencePage extends StatelessWidget {
   }
 
   Widget setupLoaded(AbsenceData absenceData) {
-    if (absenceData.isJustified) {
-      return JustificationPage(absenceData: absenceData, parentId: student.id);
+    if (absenceData.isJustified == false) {
+      return JustificationPage(absenceData: absenceData);
     } else {
       return JustificationWaitSentPage(
         waitPage: false,

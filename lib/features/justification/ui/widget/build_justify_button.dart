@@ -1,3 +1,5 @@
+import 'package:dirasati/core/helpers/constants.dart';
+import 'package:dirasati/core/helpers/shared_pref_helper.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
@@ -8,12 +10,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildJustifyButton extends StatefulWidget {
   final GlobalKey<FormState> reasonOfabsenceKey;
-  final String parentId;
+
   final TextEditingController content;
   final String absenceId;
   const BuildJustifyButton(
       {super.key,
-      required this.parentId,
       required this.content,
       required this.absenceId,
       required this.reasonOfabsenceKey});
@@ -26,11 +27,12 @@ class _BuildJustifyButtonState extends State<BuildJustifyButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async {
         if (widget.reasonOfabsenceKey.currentState!.validate()) {
           context.read<AbsenceCubit>().sendJustification(
                 sendJustificationRequest: SendJustificationRequest(
-                  parent: widget.parentId,
+                  parent:
+                      '${await SharedPrefHelper.getSecuredString(SharedPrefKeys.parentId)}',
                   absence: widget.absenceId,
                   content: widget.content.text,
                 ),

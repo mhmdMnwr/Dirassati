@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class JustificationWaitSentPage extends StatelessWidget {
               height: 100.h,
               width: 100.w,
             ),
-            SizedBox(height: 10.h),
+            horizontalSpace(10),
             Text(waitPage ? 'Sending...' : 'Justification sent',
                 style: TextStyles.font22BlackBold),
           ],
