@@ -15,7 +15,7 @@ class DirassatiApp extends StatelessWidget {
         designSize: const Size(412, 917),
         minTextAdapt: true,
         child: MaterialApp(
-          title: 'Doc App',
+          title: 'Dirassati',
           theme: ThemeData(
             primaryColor: Colors.white,
             fontFamily: 'Inter',

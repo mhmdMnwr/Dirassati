@@ -26,10 +26,10 @@ class BuildJustificationTitle extends StatelessWidget {
           subjectName,
           style: TextStyles.font22BlackBold,
         ),
-        horizontalSpace(10),
+        horizontalSpace(20),
         Text(
           '${absentSinceDate!.day}/${absentSinceDate!.month}/${absentSinceDate!.year} ${absentSinceDate!.hour}:${absentSinceDate!.minute}',
-          style: TextStyles.font22BlackBold,
+          style: TextStyles.font16BlackBold,
         ),
       ],
     );

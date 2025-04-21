@@ -6,6 +6,7 @@ import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/ui/absence_page.dart';
+import 'package:dirasati/features/marks/ui/marks_page.dart';
 import 'package:dirasati/features/schedule/ui/schedule_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -123,7 +124,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          if (index == 0 || index == 3 || index == 2) {
+          if (index == 0 || index == 3) {
             return Padding(
               padding: EdgeInsets.all(20.w),
               child: Column(
@@ -140,6 +141,8 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
             );
           } else if (index == 1) {
             return SchedulePage();
+          } else if (index == 2) {
+            return MarksPage();
           } else {
             return BlocProvider(
               create: (context) => getIt<AbsenceCubit>(),

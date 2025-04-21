@@ -10,8 +10,8 @@ class NothingToJustifyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 367,
-      height: 494,
+      width: 367.w,
+      height: 494.h,
       child: Stack(children: [
         _buildBackground(),
         _buildIcon(),
@@ -32,16 +32,16 @@ class NothingToJustifyPage extends StatelessWidget {
 
   Widget _buildIcon() {
     return Positioned(
-      right: 120.w,
+      right: 100.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          horizontalSpace(120),
+          verticalSpace(120),
           Image.asset(
             IconsManager.nothingToJustify,
-            width: 200,
-            height: 200,
+            width: 200.w,
+            height: 200.h,
           ),
           Text(
             'Nothing to Justify',

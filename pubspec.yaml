@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_size_and_fade: ^5.1.1
   build_runner: ^2.4.7
   cupertino_icons: ^1.0.8
   dio: ^5.8.0+1
@@ -47,6 +48,7 @@ dependencies:
   retrofit: ^4.4.2
   retrofit_generator: ^9.1.9
   shared_preferences: ^2.5.2
+  shimmer: ^3.0.0
   syncfusion_flutter_pdfviewer: ^29.1.38
 
 dev_dependencies:

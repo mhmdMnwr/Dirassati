@@ -1,8 +1,8 @@
-import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_state.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/app_bar.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/back_ground.dart';
+import 'package:dirasati/features/choose%20son/ui/widgets/shimmer_loading_card.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/sons_list.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/welcom_back_message.dart';
 import 'package:flutter/material.dart';
@@ -98,12 +98,9 @@ Widget _sonsBlocBuilder() {
 }
 
 Widget setupError(String error) {
-  return Center(child: Text(error));
+  return SonsShimmerList();
 }
 
 Widget setupLoading() {
-  return Center(
-      child: CircularProgressIndicator(
-    color: ColorsManager.mainBlue,
-  ));
+  return SonsShimmerList();
 }
