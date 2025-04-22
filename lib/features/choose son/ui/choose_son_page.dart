@@ -28,7 +28,7 @@ class _ChooseSonPageState extends State<ChooseSonPage> {
       body: Stack(
         children: [
           Backgroung(),
-          MyAppBar(),
+          _appBarBlocBuilder(),
           Column(
             children: [
               _parentBlocBuilder(),
@@ -39,6 +39,35 @@ class _ChooseSonPageState extends State<ChooseSonPage> {
       ),
     );
   }
+}
+
+Widget _appBarBlocBuilder() {
+  return BlocBuilder<GetMyStudentsCubit, GetMyStudentsState>(
+    buildWhen: (previous, current) =>
+        current is GetMeloading ||
+        current is GetMesuccess ||
+        current is GetMeerror,
+    builder: (context, state) {
+      return state.whenOrNull(
+            getMeloading: () {
+              return MyAppBar(
+                showLeadingIcon: false,
+              );
+            },
+            getMesuccess: (parentData) {
+              return MyAppBar(
+                parentModel: parentData,
+              );
+            },
+            getMeerror: (error) {
+              return MyAppBar(
+                showLeadingIcon: false,
+              );
+            },
+          ) ??
+          SizedBox.shrink();
+    },
+  );
 }
 
 Widget _parentBlocBuilder() {

@@ -33,4 +33,8 @@ class IconsManager {
       '$_basePath/justification_background.png';
   static const String justificationWait = '$_basePath/justification_wait.png';
   static const String justificationSent = '$_basePath/justification_sent.png';
+  static const String userInformation = '$_basePath/user_info.png';
+  static const String changePassword = '$_basePath/change_password.png';
+  static const String notifications = '$_basePath/notifications.png';
+  static const String logOut = '$_basePath/logout.png';
 }

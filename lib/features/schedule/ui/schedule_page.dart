@@ -19,11 +19,11 @@ class SchedulePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ScheduleButton(
-              scheduleIcon: IconsManager.schedule,
+              scheduleIcon: IconsManager.dailySchedule,
               scheduleTitle: 'Daily Schedule'),
           verticalSpace(80),
           ScheduleButton(
-              scheduleIcon: IconsManager.schedule,
+              scheduleIcon: IconsManager.examSchedule,
               scheduleTitle: 'Exam Schedule'),
         ],
       ),

@@ -1,8 +1,10 @@
 import 'package:dirasati/core/routing/routes.dart';
+import 'package:dirasati/features/Parent%20account/ui/parent_acount_page.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
 import 'package:dirasati/features/auth/ui/forget_password_page.dart';
 import 'package:dirasati/features/auth/ui/login_page.dart';
 import 'package:dirasati/features/auth/ui/otp_page.dart';
+import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/marks/ui/marks_page.dart';
 import 'package:dirasati/features/profile/ui/student_profile_page.dart';
@@ -72,10 +74,11 @@ class AppRouter {
                   ),
                 ));
       case Routes.marksPage:
+        return MaterialPageRoute(builder: (_) => MarksPage());
+      case Routes.accountPage:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<GetMyStudentsCubit>(),
-                  child: MarksPage(),
+            builder: (_) => AccountPage(
+                  parentModel: arguments as UserData,
                 ));
 
       default:

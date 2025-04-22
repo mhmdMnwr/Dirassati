@@ -1,5 +1,6 @@
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/features/marks/ui/semester_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,7 +12,10 @@ class SemestreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // handle semester tap logic here
+        showDialog(
+          context: context,
+          builder: (context) => const SemesterDetailPage(),
+        );
       },
       child: Padding(
         padding: EdgeInsets.only(bottom: 15.h),
