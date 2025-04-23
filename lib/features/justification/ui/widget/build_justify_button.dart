@@ -1,3 +1,5 @@
+import 'dart:io'; // Add this import
+
 import 'package:dirasati/core/helpers/constants.dart';
 import 'package:dirasati/core/helpers/shared_pref_helper.dart';
 import 'package:dirasati/core/theming/colors.dart';
@@ -10,14 +12,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildJustifyButton extends StatefulWidget {
   final GlobalKey<FormState> reasonOfabsenceKey;
-
   final TextEditingController content;
   final String absenceId;
-  const BuildJustifyButton(
-      {super.key,
-      required this.content,
-      required this.absenceId,
-      required this.reasonOfabsenceKey});
+  final List<File>? imageFiles; // Change File? to List<File>?
+
+  const BuildJustifyButton({
+    super.key,
+    required this.content,
+    required this.absenceId,
+    required this.reasonOfabsenceKey,
+    this.imageFiles, // Update parameter
+  });
 
   @override
   State<BuildJustifyButton> createState() => _BuildJustifyButtonState();
@@ -29,12 +34,26 @@ class _BuildJustifyButtonState extends State<BuildJustifyButton> {
     return InkWell(
       onTap: () async {
         if (widget.reasonOfabsenceKey.currentState!.validate()) {
+          // Handle image files if present
+          if (widget.imageFiles != null && widget.imageFiles!.isNotEmpty) {
+            debugPrint('Images selected: ${widget.imageFiles!.length}');
+            // TODO: Implement multi-image upload logic here.
+            // This will likely require modifying the AbsenceCubit and the API request
+            // to handle multipart/form-data for multiple image uploads.
+            // You might need to iterate through widget.imageFiles and add each
+            // as a part to the multipart request.
+          }
+
+          // Existing justification sending logic
           context.read<AbsenceCubit>().sendJustification(
                 sendJustificationRequest: SendJustificationRequest(
                   parent:
                       '${await SharedPrefHelper.getSecuredString(SharedPrefKeys.parentId)}',
                   absence: widget.absenceId,
                   content: widget.content.text,
+                  // You'll need to adapt how images are sent in the request.
+                  // Sending file paths in the JSON body is usually not sufficient.
+                  // A common approach is using Dio's FormData for multipart requests.
                 ),
               );
         }

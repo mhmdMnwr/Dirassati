@@ -6,5 +6,5 @@ class Routes {
   static const String chooseSonScreen = '/chooseSonScreen';
   static const String studentProfilePage = '/studentProfilePage';
   static const String marksPage = '/marksPage';
-  static const String accountPage = '/accountPage';
+  static const String acountPage = '/accountPage';
 }

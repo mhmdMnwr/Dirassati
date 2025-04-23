@@ -21,16 +21,16 @@ Map<String, dynamic> _$GetMeResponseToJson(GetMeResponse instance) =>
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
-      id: json['_id'] as String,
-      firstName: json['firstName'] as String,
-      lastName: json['lastName'] as String,
-      email: json['email'] as String,
-      role: json['role'] as String,
-      phone: json['phone'] as String,
-      address: json['address'] as String,
-      gender: json['gender'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
+      id: json['_id'] as String?,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
+      email: json['email'] as String?,
+      role: json['role'] as String?,
+      phone: json['phone'] as String?,
+      address: json['address'] as String?,
+      gender: json['gender'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{

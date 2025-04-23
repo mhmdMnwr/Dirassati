@@ -37,4 +37,7 @@ class IconsManager {
   static const String changePassword = '$_basePath/change_password.png';
   static const String notifications = '$_basePath/notifications.png';
   static const String logOut = '$_basePath/logout.png';
+  static const String name = '$_basePath/name_img.png';
+  static const String phone = '$_basePath/phone.png';
+  static const String address = '$_basePath/address.png';
 }

@@ -8,6 +8,7 @@ class ApiConstants {
   static const getStudentAbsence = "absences/student";
   static const sendJustification = "justifications";
   static const getMe = "parents/me";
+  static const updateParent = "parents";
 }
 
 class ApiErrors {

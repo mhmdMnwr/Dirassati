@@ -46,7 +46,7 @@ class ListViewWidget extends StatelessWidget {
                       height: 50.h,
                     ),
                   ),
-                  verticalSpace(10),
+                  horizontalSpace(10),
                   Flexible(
                     // Allows the text to wrap properly
                     child: Text(

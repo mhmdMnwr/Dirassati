@@ -56,7 +56,7 @@ Widget _appBarBlocBuilder() {
             },
             getMesuccess: (parentData) {
               return MyAppBar(
-                parentModel: parentData,
+                parentModel: parentData?.data,
               );
             },
             getMeerror: (error) {

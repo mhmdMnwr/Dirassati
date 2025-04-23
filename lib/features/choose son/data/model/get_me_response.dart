@@ -23,32 +23,58 @@ class GetMeResponse {
 @JsonSerializable()
 class UserData {
   @JsonKey(name: '_id')
-  final String id;
-  final String firstName;
-  final String lastName;
-  final String email;
-  final String role;
-  final String phone;
-  final String address;
-  final String gender;
-  final String createdAt;
-  final String updatedAt;
+  final String? id;
+  final String? firstName;
+  final String? lastName;
+  final String? email;
+  final String? role;
+  final String? phone;
+  final String? address;
+  final String? gender;
+  final String? createdAt;
+  final String? updatedAt;
 
   UserData({
-    required this.id,
-    required this.firstName,
-    required this.lastName,
-    required this.email,
-    required this.role,
-    required this.phone,
-    required this.address,
-    required this.gender,
-    required this.createdAt,
-    required this.updatedAt,
+    this.id,
+    this.firstName,
+    this.lastName,
+    this.email,
+    this.role,
+    this.phone,
+    this.address,
+    this.gender,
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserDataToJson(this);
+
+  UserData copyWith({
+    String? id,
+    String? firstName,
+    String? lastName,
+    String? email,
+    String? role,
+    String? phone,
+    String? address,
+    String? gender,
+    String? createdAt,
+    String? updatedAt,
+  }) {
+    return UserData(
+      id: id ?? this.id,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      email: email ?? this.email,
+      role: role ?? this.role,
+      phone: phone ?? this.phone,
+      address: address ?? this.address,
+      gender: gender ?? this.gender,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
 }

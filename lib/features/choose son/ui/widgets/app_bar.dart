@@ -7,6 +7,7 @@ import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class MyAppBar extends StatelessWidget {
   final UserData? parentModel;
   bool showLeadingIcon;
@@ -43,7 +44,7 @@ class MyAppBar extends StatelessWidget {
       padding: EdgeInsets.only(right: 16.w),
       child: GestureDetector(
         onTap: () {
-          context.pushNamed(Routes.accountPage, arguments: parentModel);
+          context.pushNamed(Routes.acountPage, arguments: parentModel);
         },
         child: Container(
           height: 55.h,

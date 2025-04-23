@@ -24,7 +24,7 @@ class GetMyStudentsCubit extends Cubit<GetMyStudentsState> {
     emit(const GetMyStudentsState.getMeloading());
     final response = await _getMyStudentsRepo.getMe();
     response.when(success: (studentsData) async {
-      await saveParentId(studentsData.data.id);
+      await saveParentId(studentsData.data.id!);
       emit(GetMyStudentsState.getMesuccess(studentsData));
     }, failure: (error) {
       emit(GetMyStudentsState.getMeerror(

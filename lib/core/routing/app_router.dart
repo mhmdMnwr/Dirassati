@@ -75,7 +75,8 @@ class AppRouter {
                 ));
       case Routes.marksPage:
         return MaterialPageRoute(builder: (_) => MarksPage());
-      case Routes.accountPage:
+
+      case Routes.acountPage:
         return MaterialPageRoute(
             builder: (_) => AccountPage(
                   parentModel: arguments as UserData,
