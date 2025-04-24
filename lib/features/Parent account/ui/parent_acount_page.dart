@@ -7,6 +7,7 @@ import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/Parent account/ui/widget/account_header.dart';
 import 'package:dirasati/features/Parent account/ui/widget/account_option.dart';
+import 'package:dirasati/features/change%20password/logic/cubit/change_password_cubit.dart';
 import 'package:dirasati/features/change%20password/ui/change_password.dart';
 import 'package:dirasati/features/choose son/data/model/get_me_response.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_cubit.dart';
@@ -105,7 +106,7 @@ class AccountPage extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => BlocProvider(
-                create: (context) => getIt<UpdateParentCubit>(),
+                create: (context) => getIt<ChangePasswordCubit>(),
                 child: ChangePassword(),
               ),
             );

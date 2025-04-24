@@ -188,7 +188,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<SendJustificationResponse> sendJustification(
+  Future<AbsenceData> sendJustification(
     SendJustificationRequest sendJustificationRequest,
   ) async {
     final _extra = <String, dynamic>{};
@@ -196,7 +196,7 @@ class _ApiService implements ApiService {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(sendJustificationRequest.toJson());
-    final _options = _setStreamType<SendJustificationResponse>(
+    final _options = _setStreamType<AbsenceData>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -207,9 +207,9 @@ class _ApiService implements ApiService {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late SendJustificationResponse _value;
+    late AbsenceData _value;
     try {
-      _value = SendJustificationResponse.fromJson(_result.data!);
+      _value = AbsenceData.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -268,6 +268,36 @@ class _ApiService implements ApiService {
     late GetMeResponse _value;
     try {
       _value = GetMeResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<LoginResponse> changePassword(
+    ChangePasswordRequest changePasswordRequest,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(changePasswordRequest.toJson());
+    final _options = _setStreamType<LoginResponse>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'auth/change-password',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late LoginResponse _value;
+    try {
+      _value = LoginResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

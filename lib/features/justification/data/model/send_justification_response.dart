@@ -3,10 +3,11 @@ part 'send_justification_response.g.dart';
 
 @JsonSerializable()
 class SendJustificationResponse {
-  final String statusCode;
-  final bool sucess;
+  final String? statusCode;
+  final bool? success;
+  final dynamic data;
 
-  SendJustificationResponse({required this.statusCode, required this.sucess});
+  SendJustificationResponse({this.statusCode, this.success, this.data});
 
   factory SendJustificationResponse.fromJson(Map<String, dynamic> json) =>
       _$SendJustificationResponseFromJson(json);

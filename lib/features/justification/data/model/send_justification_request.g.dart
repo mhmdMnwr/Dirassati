@@ -12,6 +12,9 @@ SendJustificationRequest _$SendJustificationRequestFromJson(
       parent: json['parent'] as String,
       absence: json['absence'] as String,
       content: json['content'] as String,
+      attachments: (json['attachments'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$SendJustificationRequestToJson(
@@ -20,4 +23,5 @@ Map<String, dynamic> _$SendJustificationRequestToJson(
       'parent': instance.parent,
       'absence': instance.absence,
       'content': instance.content,
+      'attachments': instance.attachments,
     };

@@ -9,13 +9,15 @@ part of 'send_justification_response.dart';
 SendJustificationResponse _$SendJustificationResponseFromJson(
         Map<String, dynamic> json) =>
     SendJustificationResponse(
-      statusCode: json['statusCode'] as String,
-      sucess: json['sucess'] as bool,
+      statusCode: json['statusCode'] as String?,
+      success: json['success'] as bool?,
+      data: json['data'],
     );
 
 Map<String, dynamic> _$SendJustificationResponseToJson(
         SendJustificationResponse instance) =>
     <String, dynamic>{
       'statusCode': instance.statusCode,
-      'sucess': instance.sucess,
+      'success': instance.success,
+      'data': instance.data,
     };

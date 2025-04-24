@@ -4,10 +4,9 @@ part 'absence_response.g.dart';
 
 @JsonSerializable()
 class AbsenceResponse {
-  @JsonKey(name: 'sucess')
   final bool success;
   final int statusCode;
-  final List<AbsenceData> data;
+  final AbsenceData? data;
 
   const AbsenceResponse({
     required this.success,
@@ -22,19 +21,19 @@ class AbsenceResponse {
 
 @JsonSerializable()
 class AbsenceData {
+  final bool? hasJustificationPending;
   @JsonKey(name: '_id')
-  final String id;
-  final String subjectName;
-  final bool isJustified;
-  final DateTime absentSince;
-  final int nbOfAbsences;
+  final String? id;
+  final String? subjectName;
+  final bool? isJustified;
+  final DateTime? absentSince;
 
   const AbsenceData({
-    required this.id,
-    required this.subjectName,
-    required this.isJustified,
-    required this.absentSince,
-    required this.nbOfAbsences,
+    this.hasJustificationPending,
+    this.id,
+    this.subjectName,
+    this.isJustified,
+    this.absentSince,
   });
 
   factory AbsenceData.fromJson(Map<String, dynamic> json) =>

@@ -23,8 +23,7 @@ class ImagePickerHelper {
 
   static Future<List<File>> showImageSourceActionSheet(BuildContext context,
       {required int currentCount, required int maxLimit}) async {
-    List<File> selectedFiles = [];
-    await showModalBottomSheet(
+    final result = await showModalBottomSheet<List<File>>(
       context: context,
       builder: (BuildContext context) {
         return SafeArea(
@@ -34,26 +33,25 @@ class ImagePickerHelper {
                 leading: const Icon(Icons.photo_library),
                 title: const Text('Gallery (Select Multiple)'),
                 onTap: () async {
-                  Navigator.of(context).pop(); // Close the sheet first
                   final files = await pickMultiImageFromGallery();
-                  selectedFiles.addAll(files);
+                  Navigator.of(context).pop(files); // Return files
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.photo_camera),
                 title: const Text('Camera (Select One)'),
                 onTap: () async {
-                  Navigator.of(context).pop(); // Close the sheet first
                   if (currentCount < maxLimit) {
-                    // Check limit before picking
                     final file = await pickSingleImageFromCamera();
                     if (file != null) {
-                      selectedFiles.add(file);
+                      Navigator.of(context).pop([file]); // Return as list
+                    } else {
+                      Navigator.of(context).pop([]); // No file picked
                     }
                   } else {
-                    // Optional: Show a message if needed, but handled in calling page
                     debugPrint(
                         "Max image limit reached, cannot add via camera.");
+                    Navigator.of(context).pop([]);
                   }
                 },
               ),
@@ -62,8 +60,6 @@ class ImagePickerHelper {
         );
       },
     );
-
-    await Future.delayed(Duration.zero);
-    return selectedFiles;
+    return result ?? [];
   }
 }

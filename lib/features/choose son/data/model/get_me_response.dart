@@ -4,12 +4,12 @@ part 'get_me_response.g.dart';
 
 @JsonSerializable()
 class GetMeResponse {
-  final bool sucess;
+  final bool success;
   final int statusCode;
   final UserData data;
 
   GetMeResponse({
-    required this.sucess,
+    required this.success,
     required this.statusCode,
     required this.data,
   });

@@ -3,10 +3,15 @@ import 'package:dirasati/core/Networking/api_service.dart';
 import 'package:dirasati/core/Networking/dio_factory.dart';
 import 'package:dirasati/features/auth/data/repo/login_repo.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
+import 'package:dirasati/features/change%20password/data/model/repo/change_password_repo.dart';
+import 'package:dirasati/features/change%20password/logic/cubit/change_password_cubit.dart';
 import 'package:dirasati/features/choose%20son/data/repo/get_my_studnets_repo.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
+import 'package:dirasati/features/justification/data/api/cloudinary_service.dart';
 import 'package:dirasati/features/justification/data/repo/steudent_absence_repo.dart';
+import 'package:dirasati/features/justification/data/repo/upload_images.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
+import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
 import 'package:dirasati/features/parent%20info/data/repo/update_repo.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -15,6 +20,8 @@ final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
+
+  getIt.registerLazySingleton<Dio>(() => dio);
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
@@ -30,4 +37,15 @@ Future<void> setupGetIt() async {
 
   getIt.registerLazySingleton<UpdateRepo>(() => UpdateRepo(getIt()));
   getIt.registerFactory<UpdateParentCubit>(() => UpdateParentCubit(getIt()));
+
+  getIt.registerLazySingleton<ImageUploadApiService>(
+      () => ImageUploadApiService());
+  getIt.registerLazySingleton<ImageUploadRepository>(
+      () => ImageUploadRepository(getIt()));
+  getIt.registerFactory<UploadImagesCubit>(() => UploadImagesCubit(getIt()));
+
+  getIt
+      .registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(getIt()));
+  getIt.registerLazySingleton<ChangePasswordRepo>(
+      () => ChangePasswordRepo(getIt()));
 }

@@ -8,14 +8,14 @@ part of 'get_me_response.dart';
 
 GetMeResponse _$GetMeResponseFromJson(Map<String, dynamic> json) =>
     GetMeResponse(
-      sucess: json['sucess'] as bool,
+      success: json['success'] as bool,
       statusCode: (json['statusCode'] as num).toInt(),
       data: UserData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$GetMeResponseToJson(GetMeResponse instance) =>
     <String, dynamic>{
-      'sucess': instance.sucess,
+      'success': instance.success,
       'statusCode': instance.statusCode,
       'data': instance.data,
     };

@@ -6,12 +6,15 @@ import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
+import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
+import 'package:dirasati/features/justification/logic/cubit/upload_images_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildJustifyButton extends StatefulWidget {
   final GlobalKey<FormState> reasonOfabsenceKey;
+
   final TextEditingController content;
   final String absenceId;
   final List<File>? imageFiles; // Change File? to List<File>?
@@ -31,47 +34,82 @@ class BuildJustifyButton extends StatefulWidget {
 class _BuildJustifyButtonState extends State<BuildJustifyButton> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () async {
-        if (widget.reasonOfabsenceKey.currentState!.validate()) {
-          // Handle image files if present
-          if (widget.imageFiles != null && widget.imageFiles!.isNotEmpty) {
-            debugPrint('Images selected: ${widget.imageFiles!.length}');
-            // TODO: Implement multi-image upload logic here.
-            // This will likely require modifying the AbsenceCubit and the API request
-            // to handle multipart/form-data for multiple image uploads.
-            // You might need to iterate through widget.imageFiles and add each
-            // as a part to the multipart request.
-          }
-
-          // Existing justification sending logic
-          context.read<AbsenceCubit>().sendJustification(
-                sendJustificationRequest: SendJustificationRequest(
-                  parent:
-                      '${await SharedPrefHelper.getSecuredString(SharedPrefKeys.parentId)}',
-                  absence: widget.absenceId,
-                  content: widget.content.text,
-                  // You'll need to adapt how images are sent in the request.
-                  // Sending file paths in the JSON body is usually not sufficient.
-                  // A common approach is using Dio's FormData for multipart requests.
+    return BlocListener<UploadImagesCubit, UploadImagesState>(
+      listenWhen: (previous, current) =>
+          current is UploadLoading ||
+          current is UploadSuccess ||
+          current is UploadError,
+      listener: (context, state) {
+        state.whenOrNull(
+          uploadLoading: () {
+            showDialog(
+              context: context,
+              builder: (context) => const Center(
+                child: CircularProgressIndicator(
+                  color: ColorsManager.mainBlue,
                 ),
-              );
-        }
+              ),
+            );
+          },
+          uploadSuccess: (imagesUrlList) async {
+            Navigator.pop(context); // Close the loading dialog
+            context.read<AbsenceCubit>().sendJustification(
+                  sendJustificationRequest: SendJustificationRequest(
+                    attachments: imagesUrlList,
+                    parent:
+                        '${await SharedPrefHelper.getSecuredString(SharedPrefKeys.parentId)}',
+                    absence: widget.absenceId,
+                    content: widget.content.text,
+                  ),
+                );
+          },
+          uploadError: (error) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(error),
+                backgroundColor: Colors.red,
+              ),
+            );
+          },
+        );
       },
-      child: Container(
-        margin: EdgeInsets.only(
-          top: 80.h,
-        ),
-        height: 66.h,
-        width: 370.w,
-        decoration: BoxDecoration(
-          color: ColorsManager.skyBlue,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Center(
-          child: Text(
-            'Justify',
-            style: TextStyles.font22Whitebold,
+      child: GestureDetector(
+        onTap: () async {
+          if (widget.reasonOfabsenceKey.currentState!.validate()) {
+            // Handle image files if present
+            if (widget.imageFiles != null && widget.imageFiles!.isNotEmpty) {
+              context
+                  .read<UploadImagesCubit>()
+                  .uploadImages(widget.imageFiles!);
+            } else {
+              // If no images, directly send justification
+              context.read<AbsenceCubit>().sendJustification(
+                    sendJustificationRequest: SendJustificationRequest(
+                      attachments: [], // No images to attach
+                      parent:
+                          '${await SharedPrefHelper.getSecuredString(SharedPrefKeys.parentId)}',
+                      absence: widget.absenceId,
+                      content: widget.content.text,
+                    ),
+                  );
+            }
+          }
+        },
+        child: Container(
+          margin: EdgeInsets.only(
+            top: 90.h,
+          ),
+          height: 66.h,
+          width: 370.w,
+          decoration: BoxDecoration(
+            color: ColorsManager.skyBlue,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Center(
+            child: Text(
+              'Submit',
+              style: TextStyles.font22Whitebold,
+            ),
           ),
         ),
       ),

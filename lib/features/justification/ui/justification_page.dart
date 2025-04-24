@@ -1,15 +1,19 @@
-import 'dart:io'; // Add this import for File
+import 'dart:io';
 
+import 'package:dirasati/core/di/dependency_injection.dart';
 import 'package:dirasati/core/helpers/image_picker_helper.dart'; // Import the helper
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
+import 'package:dirasati/features/justification/data/repo/upload_images.dart';
+import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
 import 'package:dirasati/features/justification/ui/widget/build_add_photo_button.dart';
 import 'package:dirasati/features/justification/ui/widget/build_image.dart'; // Import the new widget
 import 'package:dirasati/features/justification/ui/widget/build_justification_title.dart';
 import 'package:dirasati/features/justification/ui/widget/build_justify_button.dart';
 import 'package:dirasati/features/justification/ui/widget/reason_of_absence_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class JustificationPage extends StatefulWidget {
@@ -103,50 +107,51 @@ class _JustificationPageState extends State<JustificationPage> {
         top: 80.h,
         left: 20.w,
         right: 20.w,
-        bottom: 20.h,
       ),
       constraints: BoxConstraints(
         maxHeight: 694.h,
       ),
       decoration: _buildContainerDecoration(),
       width: 350.w,
-      child: IntrinsicHeight(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            BuildJustificationTitle(
-              subjectName: widget.absenceData.subjectName,
-              absentSinceDate: widget.absenceData.absentSince,
-            ),
-            const Spacer(),
-            verticalSpace(20),
-            ReasonOfAbsenceField(
-              raeasonOfAbsenceKey: reasonOfAbsenceKey,
-              controller: _contentController,
-              hintText: 'reason of absence',
-              onChanged: (value) {},
-            ),
-            verticalSpace(10),
-            // Use the new ImagePreviewGrid widget
-            ImagePreviewGrid(
-              imageFiles: _imageFiles,
-              onRemoveImage: _removeImage,
-            ),
-            // Pass the enabled state to the button
-            BuildAddPhotoButton(
-              onTap: _addPhotos,
-              isEnabled: canAddMorePhotos,
-            ),
-            verticalSpace(15), // Added space for better separation
-            BuildJustifyButton(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          BuildJustificationTitle(
+            subjectName: widget.absenceData.subjectName ?? 'Unknown Subject',
+            absentSinceDate: widget.absenceData.absentSince,
+          ),
+
+          verticalSpace(20),
+          ReasonOfAbsenceField(
+            raeasonOfAbsenceKey: reasonOfAbsenceKey,
+            controller: _contentController,
+            hintText: 'reason of absence',
+            onChanged: (value) {},
+          ),
+          verticalSpace(10),
+          // Use the new ImagePreviewGrid widget
+          ImagePreviewGrid(
+            imageFiles: _imageFiles,
+            onRemoveImage: _removeImage,
+          ),
+
+          BuildAddPhotoButton(
+            onTap: _addPhotos,
+            isEnabled: canAddMorePhotos,
+          ),
+          verticalSpace(15), // Added space for better separation
+          BlocProvider(
+            create: (context) =>
+                UploadImagesCubit(getIt<ImageUploadRepository>()),
+            child: BuildJustifyButton(
               reasonOfabsenceKey: reasonOfAbsenceKey,
-              absenceId: widget.absenceData.id,
+              absenceId: widget.absenceData.id ?? '',
               content: _contentController,
               imageFiles: _imageFiles,
             ),
-            verticalSpace(10), // Added bottom padding inside the container
-          ],
-        ),
+          ),
+          verticalSpace(10), // Added bottom padding inside the container
+        ],
       ),
     );
   }
@@ -158,9 +163,9 @@ class _JustificationPageState extends State<JustificationPage> {
         BoxShadow(
           // ignore: deprecated_member_use
           color: Colors.black.withOpacity(0.1),
-          spreadRadius: 2,
-          blurRadius: 5,
-          offset: Offset(5, 8),
+          spreadRadius: 1,
+          blurRadius: 3,
+          offset: Offset(0, 3), // changes position of shadow
         ),
       ],
       // ignore: deprecated_member_use

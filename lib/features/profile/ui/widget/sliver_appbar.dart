@@ -1,5 +1,6 @@
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
+import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
@@ -58,7 +59,8 @@ class MySliverAppbar extends StatelessWidget {
   Widget leadingwidget(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.pop();
+        context.pushNamedAndRemoveUntil(Routes.chooseSonScreen,
+            predicate: (route) => false);
       },
       child: Padding(
         padding: EdgeInsets.only(left: 20.w, bottom: 20),

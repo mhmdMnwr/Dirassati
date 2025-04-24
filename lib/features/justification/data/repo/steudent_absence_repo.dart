@@ -4,7 +4,6 @@ import 'package:dirasati/core/Networking/api_error_handler.dart';
 
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
-import 'package:dirasati/features/justification/data/model/send_justification_response.dart';
 
 class GetStudentAbsenceRepo {
   final ApiService apiService;
@@ -20,7 +19,7 @@ class GetStudentAbsenceRepo {
     }
   }
 
-  Future<ApiResult<SendJustificationResponse>> sendJustification(
+  Future<ApiResult<AbsenceData>> sendJustification(
       SendJustificationRequest sendJustificationRequest) async {
     try {
       final response =

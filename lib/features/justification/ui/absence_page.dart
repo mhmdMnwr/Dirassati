@@ -1,6 +1,5 @@
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
-import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_state.dart';
 import 'package:dirasati/features/justification/ui/justification_page.dart';
@@ -30,14 +29,18 @@ class AbsencePage extends StatelessWidget {
   Widget _buildBloc() {
     return BlocBuilder<AbsenceCubit, AbsenceState>(
       buildWhen: (previous, current) =>
-          current is Loading || current is Loaded || current is Error,
+          current is Loading ||
+          current is Loaded ||
+          current is Error ||
+          current is Sending ||
+          current is SendSuccess,
       builder: (context, state) {
         return state.whenOrNull(
               loading: () => setupLoading(),
-              loaded: (absenceResponse) => setupLoaded(absenceResponse.data[0]),
+              loaded: (absenceResponse) => setupLoaded(absenceResponse.data),
               error: (error) => setupError(error),
               sending: () => setupSending(),
-              sendSuccess: (standardata) => setupSendSuccess(standardata),
+              sendSuccess: (_) => setupSendSuccess(),
             ) ??
             SizedBox.shrink();
       },
@@ -52,8 +55,11 @@ class AbsencePage extends StatelessWidget {
     );
   }
 
-  Widget setupLoaded(AbsenceData absenceData) {
-    if (absenceData.isJustified == false) {
+  Widget setupLoaded(absenceData) {
+    if (absenceData == null) {
+      return NothingToJustifyPage();
+    }
+    if (absenceData.hasJustificationPending == false) {
       return JustificationPage(absenceData: absenceData);
     } else {
       return JustificationWaitSentPage(
@@ -74,7 +80,7 @@ class AbsencePage extends StatelessWidget {
     );
   }
 
-  Widget setupSendSuccess(standarData) {
+  Widget setupSendSuccess() {
     return JustificationWaitSentPage(
       waitPage: false,
     );

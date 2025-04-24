@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImagePreviewGrid extends StatefulWidget {
-  List<File> imageFiles;
+  final List<File> imageFiles;
   final Function(int) onRemoveImage;
 
   ImagePreviewGrid({

@@ -1,17 +1,17 @@
 class StudentsResponse {
-  final bool sucess;
+  final bool success;
   final int statusCode;
   final List<Student> data;
 
   const StudentsResponse({
-    required this.sucess,
+    required this.success,
     required this.statusCode,
     required this.data,
   });
 
   factory StudentsResponse.fromJson(Map<String, dynamic> json) {
     return StudentsResponse(
-      sucess: json['sucess'],
+      success: json['success'],
       statusCode: json['statusCode'],
       data: (json['data'] as List).map((e) => Student.fromJson(e)).toList(),
     );
@@ -19,7 +19,7 @@ class StudentsResponse {
 
   Map<String, dynamic> toJson() {
     return {
-      'sucess': sucess,
+      'success': success,
       'statusCode': statusCode,
       'data': data.map((e) => e.toJson()).toList(),
     };
