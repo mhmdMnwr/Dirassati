@@ -4,6 +4,7 @@ import 'package:dirasati/core/helpers/constants.dart';
 import 'package:dirasati/core/helpers/shared_pref_helper.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
@@ -41,16 +42,7 @@ class _BuildJustifyButtonState extends State<BuildJustifyButton> {
           current is UploadError,
       listener: (context, state) {
         state.whenOrNull(
-          uploadLoading: () {
-            showDialog(
-              context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainBlue,
-                ),
-              ),
-            );
-          },
+          uploadLoading: () => SetupLoadingState.show(context),
           uploadSuccess: (imagesUrlList) async {
             Navigator.pop(context); // Close the loading dialog
             context.read<AbsenceCubit>().sendJustification(
@@ -64,12 +56,7 @@ class _BuildJustifyButtonState extends State<BuildJustifyButton> {
                 );
           },
           uploadError: (error) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(error),
-                backgroundColor: Colors.red,
-              ),
-            );
+            SetupErrorState.show(context, error);
           },
         );
       },

@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:dirasati/features/justification/data/repo/upload_images.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UploadImagesCubit extends Cubit<UploadImagesState> {
   final ImageUploadRepository _uploadRepo;

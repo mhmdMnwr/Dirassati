@@ -16,7 +16,6 @@ class BuildAddPhotoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // Only call onTap if enabled
       onTap: isEnabled ? onTap : null,
       child: Opacity(
         // Reduce opacity if disabled

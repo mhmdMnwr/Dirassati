@@ -1,11 +1,9 @@
 import 'package:dirasati/core/helpers/extensions.dart';
-import 'package:dirasati/core/widgets/setupt_error.dart';
+import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/theming/colors.dart';
 
 class LoginBlocListener extends StatelessWidget {
   final String newRoute;
@@ -19,22 +17,15 @@ class LoginBlocListener extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
-            showDialog(
-              context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainBlue,
-                ),
-              ),
-            );
+            SetupLoadingState.show(context);
           },
           success: (loginResponse) {
             context.pop();
             context.pushReplacementNamed(newRoute);
           },
           error: (error) {
-            // context.pushNamed(newRoute);
-            setupErrorState(context, error);
+            context.pop(); // Close the loading dialog
+            SetupErrorState.show(context, error);
           },
         );
       },

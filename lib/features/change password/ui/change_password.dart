@@ -1,4 +1,4 @@
-import 'package:dirasati/core/theming/colors.dart';
+import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/change%20password/data/model/change_password_request.dart';
 import 'package:dirasati/features/change%20password/logic/cubit/change_password_cubit.dart';
 import 'package:dirasati/features/change%20password/logic/cubit/change_password_state.dart';
@@ -10,7 +10,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/styles.dart';
 
-/// A dialog for editing parent information without BLoC.
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
 
@@ -48,14 +47,7 @@ class _ChangePasswordState extends State<ChangePassword> {
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
-            showDialog(
-              context: context,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainBlue,
-                ),
-              ),
-            );
+            SetupLoadingState.show(context);
           },
           success: (_) {
             Navigator.pop(context); // Close the loading dialog
@@ -69,12 +61,7 @@ class _ChangePasswordState extends State<ChangePassword> {
           },
           error: (error) {
             Navigator.pop(context); // Close the loading dialog
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(error),
-                backgroundColor: Colors.red,
-              ),
-            );
+            SetupErrorState.show(context, error);
           },
         );
       },

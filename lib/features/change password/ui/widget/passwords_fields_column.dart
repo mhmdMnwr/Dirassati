@@ -2,10 +2,9 @@ import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
-class PasswordsFieldsColumn extends StatelessWidget {
+class PasswordsFieldsColumn extends StatefulWidget {
   TextEditingController currentPasswordController;
   TextEditingController newPasswordController;
   TextEditingController confirmPasswordController;
@@ -17,37 +16,41 @@ class PasswordsFieldsColumn extends StatelessWidget {
   });
 
   @override
+  State<PasswordsFieldsColumn> createState() => _PasswordsFieldsColumnState();
+}
+
+class _PasswordsFieldsColumnState extends State<PasswordsFieldsColumn> {
+  bool isNewPasswordObscureText = true;
+  bool isCurrentPasswordObscureText = true;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppTextFormField(
-          isObscureText: true,
-          prefixIcon: Image.asset(
-            IconsManager.changePassword,
-            height: 40.h,
-            width: 40.w,
-            fit: BoxFit.contain,
-          ),
-          controller: currentPasswordController,
+          suffixIcon: mySuffixIcon(isCurrentPasswordObscureText),
+          isObscureText: isCurrentPasswordObscureText,
+          prefixIcon: Image.asset(IconsManager.password_2),
+          controller: widget.currentPasswordController,
           hintText: 'Current Password',
           validator: _validateCurrentPassword,
         ),
         verticalSpace(20),
         AppTextFormField(
-          isObscureText: true,
-          prefixIcon: Image.asset(
-            IconsManager.password,
-          ),
-          controller: newPasswordController,
+          suffixIcon: mySuffixIcon(isNewPasswordObscureText),
+          isObscureText: isNewPasswordObscureText,
+          prefixIcon: Image.asset(IconsManager.password),
+          controller: widget.newPasswordController,
           hintText: 'New Password',
           validator: _validateNewPassword,
         ),
         verticalSpace(20),
         AppTextFormField(
-          isObscureText: true,
+          suffixIcon: mySuffixIcon(isNewPasswordObscureText),
+          isObscureText: isNewPasswordObscureText,
           prefixIcon: Image.asset(IconsManager.password),
-          controller: confirmPasswordController,
+          controller: widget.confirmPasswordController,
           hintText: 'Confirm New Password',
           validator: _validateConfirmPassword,
         ),
@@ -78,9 +81,22 @@ class PasswordsFieldsColumn extends StatelessWidget {
     if (value == null || value.isEmpty) {
       return 'Confirm password is required';
     }
-    if (value != newPasswordController.text) {
+    if (value != widget.newPasswordController.text) {
       return 'Passwords do not match';
     }
     return null;
+  }
+
+  Widget mySuffixIcon(bool isObscureText) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isObscureText = !isObscureText;
+        });
+      },
+      child: Icon(
+        isObscureText ? Icons.visibility_off : Icons.visibility,
+      ),
+    );
   }
 }

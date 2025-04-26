@@ -3,6 +3,7 @@ class IconsManager {
 
   static const String email = '$_basePath/email.png';
   static const String password = '$_basePath/password.png';
+  static const String password_2 = '$_basePath/password2.png';
   static const String otp = '$_basePath/otp.png';
   static const String login = '$_basePath/login.png';
   static const String otpPage = '$_basePath/otp-Page.png';

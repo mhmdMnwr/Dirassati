@@ -22,7 +22,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     final response = await _loginRepo.login(
       LoginRequest(
-        email: emailController.text,
+        email: emailController.text.trim(),
         password: passwordController.text,
       ),
     );
@@ -50,7 +50,7 @@ class LoginCubit extends Cubit<LoginState> {
   void emitForgetPasswordStates() async {
     emit(const LoginState.loading());
     final response = await _loginRepo.otpRequest(
-      OtpRequest(email: emailController.text),
+      OtpRequest(email: emailController.text.trim()),
     );
     response.when(success: (_) {
       emit(const LoginState.success(''));
@@ -64,7 +64,8 @@ class LoginCubit extends Cubit<LoginState> {
   void emitVerifyOtpState() async {
     emit(const LoginState.loading());
     final response = await _loginRepo.verifyOtp(
-      VerifyOtpRequest(email: emailController.text, otp: otpController.text),
+      VerifyOtpRequest(
+          email: emailController.text.trim(), otp: otpController.text),
     );
     response.when(success: (_) {
       emit(const LoginState.success(''));
@@ -79,7 +80,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     final response = await _loginRepo.resetPassword(
       ResetPasswordRequest(
-          email: emailController.text,
+          email: emailController.text.trim(),
           newPassword: resetPasswordController.text),
     );
     response.when(success: (_) {

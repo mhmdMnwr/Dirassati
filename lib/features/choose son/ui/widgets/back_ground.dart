@@ -1,14 +1,14 @@
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:flutter/material.dart';
 
-class Backgroung extends StatefulWidget {
-  const Backgroung({super.key});
+class Background extends StatefulWidget {
+  const Background({super.key});
 
   @override
-  State<Backgroung> createState() => _BackgroungState();
+  State<Background> createState() => _BackgroundState();
 }
 
-class _BackgroungState extends State<Backgroung> {
+class _BackgroundState extends State<Background> {
   @override
   Widget build(BuildContext context) {
     List<Widget> backGround = [

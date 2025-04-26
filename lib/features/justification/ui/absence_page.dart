@@ -1,4 +1,4 @@
-import 'package:dirasati/core/theming/colors.dart';
+import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_state.dart';
@@ -36,7 +36,7 @@ class AbsencePage extends StatelessWidget {
           current is SendSuccess,
       builder: (context, state) {
         return state.whenOrNull(
-              loading: () => setupLoading(),
+              loading: () => SetupLoadingState.build(),
               loaded: (absenceResponse) => setupLoaded(absenceResponse.data),
               error: (error) => setupError(error),
               sending: () => setupSending(),
@@ -44,14 +44,6 @@ class AbsencePage extends StatelessWidget {
             ) ??
             SizedBox.shrink();
       },
-    );
-  }
-
-  Widget setupLoading() {
-    return Center(
-      child: CircularProgressIndicator(
-        color: ColorsManager.mainBlue,
-      ),
     );
   }
 

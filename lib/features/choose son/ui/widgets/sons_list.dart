@@ -1,7 +1,7 @@
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
-import 'package:dirasati/features/choose%20son/ui/widgets/List_view_widget.dart';
+import 'package:dirasati/features/choose%20son/ui/widgets/list_view_widget.dart';
 import 'package:flutter/material.dart';
 
 class SonsListView extends StatelessWidget {

@@ -1,24 +1,22 @@
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/routing/routes.dart';
-import 'package:dirasati/core/widgets/setupt_error.dart';
+import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/parent%20info/data/model/update_parent_request.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_cubit.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_state.dart';
-import 'package:dirasati/features/parent%20info/ui/widget/Text_fields.dart';
+import 'package:dirasati/features/parent%20info/ui/widget/text_fields.dart';
 import 'package:dirasati/features/parent%20info/ui/widget/action_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
-import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/choose son/data/model/get_me_response.dart';
 
 /// A dialog for editing parent information without BLoC.
 class ParentInformationDialog extends StatefulWidget {
   final UserData parentModel;
-  const ParentInformationDialog({Key? key, required this.parentModel})
-      : super(key: key);
+  const ParentInformationDialog({super.key, required this.parentModel});
 
   @override
   State<ParentInformationDialog> createState() =>
@@ -61,15 +59,7 @@ class _ParentInformationDialogState extends State<ParentInformationDialog> {
       listener: (context, state) {
         state.whenOrNull(
           loading: () {
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainBlue,
-                ),
-              ),
-            );
+            SetupLoadingState.show(context);
           },
           success: (getMeResponse) {
             context.pushNamedAndRemoveUntil(
@@ -78,7 +68,7 @@ class _ParentInformationDialogState extends State<ParentInformationDialog> {
             );
           },
           error: (error) {
-            setupErrorState(context, error);
+            SetupErrorState.show(context, error);
           },
         );
       },

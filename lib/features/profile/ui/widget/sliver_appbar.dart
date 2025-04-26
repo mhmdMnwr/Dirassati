@@ -20,43 +20,50 @@ class MySliverAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-        expandedHeight: 740.h,
-        pinned: true,
-        stretch: false,
-        backgroundColor: ColorsManager.skyBlue,
-        flexibleSpace: FlexibleSpaceBar(
-          collapseMode: CollapseMode.none,
-          title: LayoutBuilder(
-            builder: (context, constraints) {
-              // Calculate expansion percentage (0.0 to 1.0)
-              final expansionRatio =
-                  constraints.maxHeight / 200; // 200 = expandedHeight
-              final isExpanded = expansionRatio > 0.7; // Adjust threshold
+      expandedHeight: 740.h,
+      pinned: true,
+      stretch: false,
+      backgroundColor: ColorsManager.skyBlue,
+      flexibleSpace: FlexibleSpaceBar(
+        collapseMode: CollapseMode.none,
+        title: SliverAppBarBuilders.buildTitle(context, student),
+        background: SliverAppBarBuilders.buildBackground(student),
+      ),
+      leading: SliverAppBarBuilders.buildLeading(previousContext),
+    );
+  }
+}
 
-              return Align(
-                alignment:
-                    isExpanded ? Alignment.centerRight : Alignment.bottomRight,
-                child: Padding(
-                  padding: isExpanded
-                      ? EdgeInsets.only(
-                          right: 16.0.w,
-                          bottom: 16.0.h,
-                          top: 00.h,
-                        )
-                      : EdgeInsets.only(right: 20.w, top: 15.h),
-                  child: titleRow(isExpanded),
-                ),
-              );
-            },
+class SliverAppBarBuilders {
+  static Widget buildTitle(BuildContext context, Student student) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final expansionRatio = constraints.maxHeight / 200;
+        final isExpanded = expansionRatio > 0.7;
+
+        return Align(
+          alignment: isExpanded ? Alignment.centerRight : Alignment.bottomRight,
+          child: Padding(
+            padding: isExpanded
+                ? EdgeInsets.only(
+                    right: 16.0.w,
+                    bottom: 16.0.h,
+                  )
+                : EdgeInsets.only(right: 20.w, top: 15.h),
+            child: _titleRow(student, isExpanded),
           ),
-          background: StudentDetails(
-            student: student,
-          ),
-        ),
-        leading: leadingwidget(previousContext));
+        );
+      },
+    );
   }
 
-  Widget leadingwidget(BuildContext context) {
+  static Widget buildBackground(Student student) {
+    return StudentDetails(
+      student: student,
+    );
+  }
+
+  static Widget buildLeading(BuildContext context) {
     return InkWell(
       onTap: () {
         context.pushNamedAndRemoveUntil(Routes.chooseSonScreen,
@@ -73,7 +80,7 @@ class MySliverAppbar extends StatelessWidget {
     );
   }
 
-  Widget titleRow(bool isExpanded) {
+  static Widget _titleRow(Student student, bool isExpanded) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,9 +97,7 @@ class MySliverAppbar extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-        horizontalSpace(
-          30,
-        ),
+        horizontalSpace(30),
         ElegantAvatar(
           imagePath: IconsManager.person,
           isSelected: true,
