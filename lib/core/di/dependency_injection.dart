@@ -3,7 +3,7 @@ import 'package:dirasati/core/Networking/api_service.dart';
 import 'package:dirasati/core/Networking/dio_factory.dart';
 import 'package:dirasati/features/auth/data/repo/login_repo.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
-import 'package:dirasati/features/change%20password/data/model/repo/change_password_repo.dart';
+import 'package:dirasati/features/change%20password/data/repo/change_password_repo.dart';
 import 'package:dirasati/features/change%20password/logic/cubit/change_password_cubit.dart';
 import 'package:dirasati/features/choose%20son/data/repo/get_my_studnets_repo.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
@@ -12,6 +12,8 @@ import 'package:dirasati/features/justification/data/repo/steudent_absence_repo.
 import 'package:dirasati/features/justification/data/repo/upload_images.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
+import 'package:dirasati/features/marks/data/repo/marks_repo.dart';
+import 'package:dirasati/features/marks/logic/cubit/marks_cubit.dart';
 import 'package:dirasati/features/parent%20info/data/repo/update_repo.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -48,4 +50,7 @@ Future<void> setupGetIt() async {
       .registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(getIt()));
   getIt.registerLazySingleton<ChangePasswordRepo>(
       () => ChangePasswordRepo(getIt()));
+
+  getIt.registerFactory<MarksCubit>(() => MarksCubit(getIt()));
+  getIt.registerLazySingleton<MarksRepository>(() => MarksRepository(getIt()));
 }

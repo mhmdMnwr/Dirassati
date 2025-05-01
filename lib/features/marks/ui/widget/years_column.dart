@@ -27,7 +27,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 //   }
 // }
 class YearsColumn extends StatefulWidget {
-  final YearModel model;
+  final YearListModel model;
   final VoidCallback onTap;
 
   const YearsColumn({super.key, required this.model, required this.onTap});
@@ -51,7 +51,10 @@ class _YearsColumnState extends State<YearsColumn>
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               YearCard(yearText: widget.model.year),
-              if (widget.model.isExpanded) SemestresList(),
+              if (widget.model.isExpanded)
+                SemestresList(
+                  trimestersCount: widget.model.trimestersCount,
+                ),
             ],
           ),
         ),

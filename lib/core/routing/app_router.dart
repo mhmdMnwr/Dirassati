@@ -6,7 +6,6 @@ import 'package:dirasati/features/auth/ui/login_page.dart';
 import 'package:dirasati/features/auth/ui/otp_page.dart';
 import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
-import 'package:dirasati/features/marks/ui/marks_page.dart';
 import 'package:dirasati/features/profile/ui/student_profile_page.dart';
 import 'package:dirasati/features/auth/ui/reset_password_page.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
@@ -73,8 +72,6 @@ class AppRouter {
                     student: arguments as Student,
                   ),
                 ));
-      case Routes.marksPage:
-        return MaterialPageRoute(builder: (_) => MarksPage());
 
       case Routes.acountPage:
         return MaterialPageRoute(

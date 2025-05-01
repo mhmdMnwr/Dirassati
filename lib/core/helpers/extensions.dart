@@ -1,3 +1,4 @@
+import 'package:dirasati/features/marks/ui/widget/years_list.dart';
 import 'package:flutter/widgets.dart';
 
 extension Navigation on BuildContext {
@@ -25,4 +26,15 @@ extension StringExtension on String? {
 
 extension ListExtension<T> on List<T>? {
   bool isNullOrEmpty() => this == null || this!.isEmpty;
+}
+
+extension YearslistExtension on List<YearListModel> {
+  bool dontHaveThisYear(String year) {
+    for (var element in this) {
+      if (element.year == year) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

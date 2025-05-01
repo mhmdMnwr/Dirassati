@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SemestresList extends StatelessWidget {
-  const SemestresList({super.key});
+  final int trimestersCount; // Example semester count
+  const SemestresList({super.key, required this.trimestersCount});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class SemestresList extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 3,
+        itemCount: trimestersCount,
         itemBuilder: (context, index) {
           return SemestreCard(index: index);
         },

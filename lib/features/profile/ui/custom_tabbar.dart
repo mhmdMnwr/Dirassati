@@ -7,6 +7,7 @@ import 'package:dirasati/features/choose%20son/data/model/students_response.dart
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
 import 'package:dirasati/features/justification/ui/absence_page.dart';
+import 'package:dirasati/features/marks/logic/cubit/marks_cubit.dart';
 import 'package:dirasati/features/marks/ui/marks_page.dart';
 import 'package:dirasati/features/schedule/ui/schedule_page.dart';
 import 'package:flutter/material.dart';
@@ -143,7 +144,12 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
           } else if (index == 1) {
             return SchedulePage();
           } else if (index == 2) {
-            return MarksPage();
+            return BlocProvider(
+              create: (context) => getIt<MarksCubit>(),
+              child: MarksPage(
+                studentId: widget.student.id,
+              ),
+            );
           } else {
             return MultiBlocProvider(
               providers: [

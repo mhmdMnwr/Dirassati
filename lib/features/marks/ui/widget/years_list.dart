@@ -2,33 +2,32 @@ import 'package:dirasati/features/marks/ui/widget/years_column.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class YearModel {
+class YearListModel {
   final String year;
   bool isExpanded;
+  int trimestersCount; // Add this line to initialize semestersCount
 
-  YearModel({required this.year, this.isExpanded = false});
+  YearListModel(
+      {required this.year,
+      this.isExpanded = false,
+      required this.trimestersCount});
 }
 
 class YearsList extends StatefulWidget {
-  const YearsList({super.key});
+  final List<YearListModel> yearsList;
+  const YearsList({super.key, required this.yearsList});
 
   @override
   State<YearsList> createState() => _YearsListState();
 }
 
 class _YearsListState extends State<YearsList> {
-  late List<YearModel> years;
+  late final List<YearListModel> yearsList;
 
   @override
   void initState() {
     super.initState();
-    // Replace with your real data
-    years = List.generate(
-      5,
-      (index) => YearModel(
-        year: '202${0 + index}/202${1 + index}',
-      ),
-    );
+    yearsList = widget.yearsList;
   }
 
   @override
@@ -36,13 +35,13 @@ class _YearsListState extends State<YearsList> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
       child: ListView.builder(
-        itemCount: years.length,
+        itemCount: yearsList.length,
         itemBuilder: (context, index) {
           return YearsColumn(
-            model: years[index],
+            model: yearsList[index],
             onTap: () {
               setState(() {
-                years[index].isExpanded = !years[index].isExpanded;
+                yearsList[index].isExpanded = !yearsList[index].isExpanded;
               });
             },
           );
