@@ -24,7 +24,8 @@ class LoginBlocListener extends StatelessWidget {
             context.pushReplacementNamed(newRoute);
           },
           error: (error) {
-            context.pop(); // Close the loading dialog
+            context.pop();
+            // context.pop();
             SetupErrorState.show(context, error);
           },
         );

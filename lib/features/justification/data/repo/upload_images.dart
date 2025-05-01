@@ -23,4 +23,18 @@ class ImageUploadRepository {
 
     return ApiResult.success(urls);
   }
+
+  Future<ApiResult<List<File>>> fetchImageFile(List<String> imageName) async {
+    final List<File> files = [];
+    try {
+      for (final name in imageName) {
+        final file = await api.fetchImageFile(name);
+        files.add(file);
+      }
+
+      return ApiResult.success(files);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }

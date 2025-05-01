@@ -9,4 +9,6 @@ class AbsenceState<T> with _$AbsenceState<T> {
   const factory AbsenceState.error({required String error}) = Error;
   const factory AbsenceState.sending() = Sending;
   const factory AbsenceState.sendSuccess(T standarData) = SendSuccess<T>;
+  const factory AbsenceState.imageloaded(T images) = ImageLoaded<T>;
+  const factory AbsenceState.updatingbutton() = UpdatingButton;
 }

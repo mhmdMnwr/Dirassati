@@ -30,6 +30,10 @@ AbsenceData _$AbsenceDataFromJson(Map<String, dynamic> json) => AbsenceData(
       absentSince: json['absentSince'] == null
           ? null
           : DateTime.parse(json['absentSince'] as String),
+      justification: json['justification'] == null
+          ? null
+          : Justification.fromJson(
+              json['justification'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AbsenceDataToJson(AbsenceData instance) =>
@@ -39,4 +43,21 @@ Map<String, dynamic> _$AbsenceDataToJson(AbsenceData instance) =>
       'subjectName': instance.subjectName,
       'isJustified': instance.isJustified,
       'absentSince': instance.absentSince?.toIso8601String(),
+      'justification': instance.justification,
+    };
+
+Justification _$JustificationFromJson(Map<String, dynamic> json) =>
+    Justification(
+      id: json['id'] as String?,
+      content: json['content'] as String?,
+      attachments: (json['attachments'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+    );
+
+Map<String, dynamic> _$JustificationToJson(Justification instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'content': instance.content,
+      'attachments': instance.attachments,
     };

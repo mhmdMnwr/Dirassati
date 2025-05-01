@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/features/marks/ui/semester_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +20,7 @@ class GradesTable extends StatelessWidget {
           _cell('Test\n 01', headerStyle),
           _cell('Test\n 02', headerStyle),
           _cell('Exam', headerStyle),
+          _cell('Coeff', headerStyle),
           _cell('AVG', headerStyle),
         ],
       ),
@@ -28,21 +30,22 @@ class GradesTable extends StatelessWidget {
     for (var g in grades) {
       rows.add(TableRow(children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: EdgeInsets.symmetric(vertical: 12.h),
           child: Text(g.subject),
         ),
         // vertical blue bar + cc value
         Row(
           children: [
-            Container(width: 4, height: 20, color: Colors.blue),
-            SizedBox(width: 6),
+            Container(width: 4.w, height: 20.h, color: Colors.blue),
+            horizontalSpace(6),
             Text(g.cc.toString()),
           ],
         ),
         _cell(g.test1.toString()),
         _cell(g.test2.toString()),
+        _cell(g.coefficient.toString()),
         _cell(g.exam.toString()),
-        Text(g.avg.toStringAsFixed(0),
+        Text(g.avg.toStringAsFixed(2),
             style: TextStyle(color: Colors.green, fontWeight: FontWeight.w600)),
       ]));
     }
@@ -50,12 +53,13 @@ class GradesTable extends StatelessWidget {
     return Table(
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       columnWidths: {
-        0: FixedColumnWidth(100.w),
+        0: FixedColumnWidth(120.w),
         1: FixedColumnWidth(60.w),
         2: FixedColumnWidth(60.w),
         3: FixedColumnWidth(60.w),
         4: FixedColumnWidth(60.w),
         5: FixedColumnWidth(60.w),
+        6: FixedColumnWidth(60.w),
       },
       children: rows,
     );
@@ -63,7 +67,7 @@ class GradesTable extends StatelessWidget {
 
   Widget _cell(String text, [TextStyle? style]) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: 12.w),
       child: Text(text, style: style),
     );
   }

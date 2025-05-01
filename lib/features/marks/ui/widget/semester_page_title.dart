@@ -31,7 +31,7 @@ class SemesterPageTitle extends StatelessWidget {
         verticalSpace(5.h), // Add space instead of Expanded
         Text(
           semester,
-          style: TextStyles.font24BlackBold,
+          style: TextStyles.font30BlackBold,
         ),
       ],
     );

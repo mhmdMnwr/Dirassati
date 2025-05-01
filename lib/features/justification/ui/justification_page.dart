@@ -1,24 +1,27 @@
 import 'dart:io';
 
-import 'package:dirasati/core/di/dependency_injection.dart';
 import 'package:dirasati/core/helpers/image_picker_helper.dart'; // Import the helper
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
-import 'package:dirasati/features/justification/data/repo/upload_images.dart';
-import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
 import 'package:dirasati/features/justification/ui/widget/build_add_photo_button.dart';
 import 'package:dirasati/features/justification/ui/widget/build_image.dart'; // Import the new widget
 import 'package:dirasati/features/justification/ui/widget/build_justification_title.dart';
 import 'package:dirasati/features/justification/ui/widget/build_justify_button.dart';
 import 'package:dirasati/features/justification/ui/widget/reason_of_absence_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class JustificationPage extends StatefulWidget {
+  final bool isEditPage;
+  final List<File> imageFiles;
   final AbsenceData absenceData;
-  const JustificationPage({super.key, required this.absenceData});
+  const JustificationPage({
+    super.key,
+    required this.absenceData,
+    this.imageFiles = const [],
+    this.isEditPage = false,
+  });
 
   @override
   State<JustificationPage> createState() => _JustificationPageState();
@@ -27,13 +30,17 @@ class JustificationPage extends StatefulWidget {
 class _JustificationPageState extends State<JustificationPage> {
   late final TextEditingController _contentController;
   late final GlobalKey<FormState> reasonOfAbsenceKey = GlobalKey<FormState>();
-  List<File> _imageFiles = []; // State variable remains
-  static const int maxImageLimit = 4; // Define the image limit
+  late List<File> _imageFiles; // Initialize the list of image files
+  // Initialize the list of image files
+
+  static const int maxImageLimit = 10; // Define the image limit
 
   @override
   void initState() {
     super.initState();
     _contentController = TextEditingController();
+    _contentController.text = widget.absenceData.justification?.content ?? '';
+    _imageFiles = widget.imageFiles;
   }
 
   @override
@@ -140,15 +147,13 @@ class _JustificationPageState extends State<JustificationPage> {
             isEnabled: canAddMorePhotos,
           ),
           verticalSpace(15), // Added space for better separation
-          BlocProvider(
-            create: (context) =>
-                UploadImagesCubit(getIt<ImageUploadRepository>()),
-            child: BuildJustifyButton(
-              reasonOfabsenceKey: reasonOfAbsenceKey,
-              absenceId: widget.absenceData.id ?? '',
-              content: _contentController,
-              imageFiles: _imageFiles,
-            ),
+          BuildJustifyButton(
+            justificationId: widget.absenceData.justification?.id ?? '',
+            isEdit: widget.isEditPage,
+            reasonOfabsenceKey: reasonOfAbsenceKey,
+            absenceId: widget.absenceData.id ?? '',
+            content: _contentController,
+            imageFiles: _imageFiles,
           ),
           verticalSpace(10), // Added bottom padding inside the container
         ],

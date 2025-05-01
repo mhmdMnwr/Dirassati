@@ -15,7 +15,30 @@ class UploadImagesCubit extends Cubit<UploadImagesState> {
     response.when(success: (imagesUrlList) {
       emit(UploadImagesState.uploadSuccess(imagesUrlList));
     }, failure: (error) {
-      emit(UploadImagesState.uploadError(error: error.toString()));
+      emit(UploadImagesState.uploadError(
+          error: error.apiErrorModel.message ?? ''));
     });
+  }
+
+  void fetchImageFile(List<String> imageName) async {
+    emit(UploadImagesState.fetchLoading());
+
+    final response = await _uploadRepo.fetchImageFile(imageName);
+    response.when(success: (imagesUrlList) {
+      emit(UploadImagesState.fetchSuccess(imagesUrlList));
+    }, failure: (error) {
+      emit(UploadImagesState.fetchError(
+          error: error.apiErrorModel.message ?? ''));
+    });
+  }
+
+  void emitUpdateState() {
+    emit(const UploadImagesState.edit());
+  }
+
+  /// This method is used to emit the elimination state im using it to tell the upload
+  /// images cubit to eliminate the current state therfor my page is not going to stuck in the justification page
+  void eliminateState() {
+    emit(const UploadImagesState.eliminate());
   }
 }

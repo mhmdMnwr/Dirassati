@@ -11,6 +11,7 @@ import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
+import 'package:dirasati/features/justification/data/model/send_update_justification_request.dart';
 import 'package:dirasati/features/parent%20info/data/model/update_parent_request.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
@@ -65,5 +66,11 @@ abstract class ApiService {
   @POST(ApiConstants.changePassword)
   Future<LoginResponse> changePassword(
     @Body() ChangePasswordRequest changePasswordRequest,
+  );
+
+  @PATCH("${ApiConstants.updateJustification}/{justificationId}")
+  Future<AbsenceData> updateJustification(
+    @Path("justificationId") String justificationId,
+    @Body() SendUpdateJustificationRequest updatejustification,
   );
 }

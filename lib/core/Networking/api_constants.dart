@@ -10,6 +10,7 @@ class ApiConstants {
   static const getMe = "parents/me";
   static const updateParent = "parents";
   static const changePassword = "auth/change-password";
+  static const updateJustification = "justifications";
 }
 
 class ApiErrors {

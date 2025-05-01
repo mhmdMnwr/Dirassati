@@ -4,14 +4,14 @@ part 'send_justification_request.g.dart';
 
 @JsonSerializable()
 class SendJustificationRequest {
-  final String parent;
-  final String absence;
-  final String content;
+  final String? parent;
+  final String? absence;
+  final String? content;
   final List<String>? attachments;
 
   SendJustificationRequest({
-    required this.parent,
-    required this.absence,
+    this.parent,
+    this.absence,
     required this.content,
     this.attachments,
   });

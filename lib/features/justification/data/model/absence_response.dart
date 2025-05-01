@@ -27,6 +27,7 @@ class AbsenceData {
   final String? subjectName;
   final bool? isJustified;
   final DateTime? absentSince;
+  final Justification? justification;
 
   const AbsenceData({
     this.hasJustificationPending,
@@ -34,9 +35,27 @@ class AbsenceData {
     this.subjectName,
     this.isJustified,
     this.absentSince,
+    this.justification,
   });
 
   factory AbsenceData.fromJson(Map<String, dynamic> json) =>
       _$AbsenceDataFromJson(json);
   Map<String, dynamic> toJson() => _$AbsenceDataToJson(this);
+}
+
+@JsonSerializable()
+class Justification {
+  final String? id;
+  final String? content;
+  final List<String>? attachments;
+
+  const Justification({
+    this.id,
+    this.content,
+    this.attachments,
+  });
+
+  factory Justification.fromJson(Map<String, dynamic> json) =>
+      _$JustificationFromJson(json);
+  Map<String, dynamic> toJson() => _$JustificationToJson(this);
 }

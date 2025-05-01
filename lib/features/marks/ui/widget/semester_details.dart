@@ -1,6 +1,6 @@
 import 'package:dirasati/core/helpers/spacing.dart';
-import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/marks/ui/semester_details_page.dart';
+import 'package:dirasati/features/marks/ui/widget/averaga_absence_components.dart';
 import 'package:dirasati/features/marks/ui/widget/grads_table.dart';
 import 'package:dirasati/features/marks/ui/widget/semester_page_title.dart';
 import 'package:flutter/material.dart';
@@ -23,48 +23,28 @@ class SemesterDetailCard extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.only(left: 16.w),
+        padding: EdgeInsets.only(left: 20.w),
         child: Column(
           children: [
             // Title + close button
             SemesterPageTitle(),
-            verticalSpace(35),
+            verticalSpace(30),
             // Grades table
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: GradesTable(grades: grades),
             ),
 
-            verticalSpace(35),
+            verticalSpace(15),
 
-            // “Average” button
-            avrgeButton(),
+            AverageAbsenceComponents.fundamentalAvregeText(),
+            verticalSpace(20),
+            AverageAbsenceComponents.numberOfAbsenceText(),
+            verticalSpace(20),
+            AverageAbsenceComponents.avrgeButton(average: 12.40),
           ],
         ),
       ),
     );
-  }
-
-  Widget avrgeButton() {
-    return Align(
-        alignment: Alignment.center,
-        child: Container(
-          height: 60.h,
-          width: 190.w,
-          decoration: BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 2,
-                blurRadius: 4,
-                offset: Offset(0, 2),
-              ),
-            ],
-          ),
-          child: Center(
-              child: Text('Average : 12.4', style: TextStyles.font16Whitebold)),
-        ));
   }
 }

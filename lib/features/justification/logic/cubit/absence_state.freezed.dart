@@ -24,6 +24,8 @@ mixin _$AbsenceState<T> {
     required TResult Function(String error) error,
     required TResult Function() sending,
     required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +36,8 @@ mixin _$AbsenceState<T> {
     TResult? Function(String error)? error,
     TResult? Function()? sending,
     TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +48,8 @@ mixin _$AbsenceState<T> {
     TResult Function(String error)? error,
     TResult Function()? sending,
     TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +61,8 @@ mixin _$AbsenceState<T> {
     required TResult Function(Error<T> value) error,
     required TResult Function(Sending<T> value) sending,
     required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +73,8 @@ mixin _$AbsenceState<T> {
     TResult? Function(Error<T> value)? error,
     TResult? Function(Sending<T> value)? sending,
     TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +85,8 @@ mixin _$AbsenceState<T> {
     TResult Function(Error<T> value)? error,
     TResult Function(Sending<T> value)? sending,
     TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +160,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(String error) error,
     required TResult Function() sending,
     required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
   }) {
     return initial();
   }
@@ -161,6 +175,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(String error)? error,
     TResult? Function()? sending,
     TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
   }) {
     return initial?.call();
   }
@@ -174,6 +190,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(String error)? error,
     TResult Function()? sending,
     TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -191,6 +209,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Error<T> value) error,
     required TResult Function(Sending<T> value) sending,
     required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
   }) {
     return initial(this);
   }
@@ -204,6 +224,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Error<T> value)? error,
     TResult? Function(Sending<T> value)? sending,
     TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
   }) {
     return initial?.call(this);
   }
@@ -217,6 +239,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Error<T> value)? error,
     TResult Function(Sending<T> value)? sending,
     TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -277,6 +301,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(String error) error,
     required TResult Function() sending,
     required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
   }) {
     return loading();
   }
@@ -290,6 +316,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(String error)? error,
     TResult? Function()? sending,
     TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
   }) {
     return loading?.call();
   }
@@ -303,6 +331,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(String error)? error,
     TResult Function()? sending,
     TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -320,6 +350,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Error<T> value) error,
     required TResult Function(Sending<T> value) sending,
     required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
   }) {
     return loading(this);
   }
@@ -333,6 +365,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Error<T> value)? error,
     TResult? Function(Sending<T> value)? sending,
     TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
   }) {
     return loading?.call(this);
   }
@@ -346,6 +380,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Error<T> value)? error,
     TResult Function(Sending<T> value)? sending,
     TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -435,6 +471,8 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function(String error) error,
     required TResult Function() sending,
     required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
   }) {
     return loaded(absenceResponse);
   }
@@ -448,6 +486,8 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function(String error)? error,
     TResult? Function()? sending,
     TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
   }) {
     return loaded?.call(absenceResponse);
   }
@@ -461,6 +501,8 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function(String error)? error,
     TResult Function()? sending,
     TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -478,6 +520,8 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function(Error<T> value) error,
     required TResult Function(Sending<T> value) sending,
     required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
   }) {
     return loaded(this);
   }
@@ -491,6 +535,8 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function(Error<T> value)? error,
     TResult? Function(Sending<T> value)? sending,
     TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
   }) {
     return loaded?.call(this);
   }
@@ -504,6 +550,8 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function(Error<T> value)? error,
     TResult Function(Sending<T> value)? sending,
     TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -599,6 +647,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(String error) error,
     required TResult Function() sending,
     required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
   }) {
     return error(this.error);
   }
@@ -612,6 +662,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(String error)? error,
     TResult? Function()? sending,
     TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
   }) {
     return error?.call(this.error);
   }
@@ -625,6 +677,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(String error)? error,
     TResult Function()? sending,
     TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -642,6 +696,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Error<T> value) error,
     required TResult Function(Sending<T> value) sending,
     required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
   }) {
     return error(this);
   }
@@ -655,6 +711,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Error<T> value)? error,
     TResult? Function(Sending<T> value)? sending,
     TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
   }) {
     return error?.call(this);
   }
@@ -668,6 +726,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Error<T> value)? error,
     TResult Function(Sending<T> value)? sending,
     TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -736,6 +796,8 @@ class _$SendingImpl<T> implements Sending<T> {
     required TResult Function(String error) error,
     required TResult Function() sending,
     required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
   }) {
     return sending();
   }
@@ -749,6 +811,8 @@ class _$SendingImpl<T> implements Sending<T> {
     TResult? Function(String error)? error,
     TResult? Function()? sending,
     TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
   }) {
     return sending?.call();
   }
@@ -762,6 +826,8 @@ class _$SendingImpl<T> implements Sending<T> {
     TResult Function(String error)? error,
     TResult Function()? sending,
     TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
     required TResult orElse(),
   }) {
     if (sending != null) {
@@ -779,6 +845,8 @@ class _$SendingImpl<T> implements Sending<T> {
     required TResult Function(Error<T> value) error,
     required TResult Function(Sending<T> value) sending,
     required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
   }) {
     return sending(this);
   }
@@ -792,6 +860,8 @@ class _$SendingImpl<T> implements Sending<T> {
     TResult? Function(Error<T> value)? error,
     TResult? Function(Sending<T> value)? sending,
     TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
   }) {
     return sending?.call(this);
   }
@@ -805,6 +875,8 @@ class _$SendingImpl<T> implements Sending<T> {
     TResult Function(Error<T> value)? error,
     TResult Function(Sending<T> value)? sending,
     TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
     required TResult orElse(),
   }) {
     if (sending != null) {
@@ -895,6 +967,8 @@ class _$SendSuccessImpl<T> implements SendSuccess<T> {
     required TResult Function(String error) error,
     required TResult Function() sending,
     required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
   }) {
     return sendSuccess(standarData);
   }
@@ -908,6 +982,8 @@ class _$SendSuccessImpl<T> implements SendSuccess<T> {
     TResult? Function(String error)? error,
     TResult? Function()? sending,
     TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
   }) {
     return sendSuccess?.call(standarData);
   }
@@ -921,6 +997,8 @@ class _$SendSuccessImpl<T> implements SendSuccess<T> {
     TResult Function(String error)? error,
     TResult Function()? sending,
     TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
     required TResult orElse(),
   }) {
     if (sendSuccess != null) {
@@ -938,6 +1016,8 @@ class _$SendSuccessImpl<T> implements SendSuccess<T> {
     required TResult Function(Error<T> value) error,
     required TResult Function(Sending<T> value) sending,
     required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
   }) {
     return sendSuccess(this);
   }
@@ -951,6 +1031,8 @@ class _$SendSuccessImpl<T> implements SendSuccess<T> {
     TResult? Function(Error<T> value)? error,
     TResult? Function(Sending<T> value)? sending,
     TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
   }) {
     return sendSuccess?.call(this);
   }
@@ -964,6 +1046,8 @@ class _$SendSuccessImpl<T> implements SendSuccess<T> {
     TResult Function(Error<T> value)? error,
     TResult Function(Sending<T> value)? sending,
     TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
     required TResult orElse(),
   }) {
     if (sendSuccess != null) {
@@ -983,4 +1067,323 @@ abstract class SendSuccess<T> implements AbsenceState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SendSuccessImplCopyWith<T, _$SendSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ImageLoadedImplCopyWith<T, $Res> {
+  factory _$$ImageLoadedImplCopyWith(_$ImageLoadedImpl<T> value,
+          $Res Function(_$ImageLoadedImpl<T>) then) =
+      __$$ImageLoadedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T images});
+}
+
+/// @nodoc
+class __$$ImageLoadedImplCopyWithImpl<T, $Res>
+    extends _$AbsenceStateCopyWithImpl<T, $Res, _$ImageLoadedImpl<T>>
+    implements _$$ImageLoadedImplCopyWith<T, $Res> {
+  __$$ImageLoadedImplCopyWithImpl(
+      _$ImageLoadedImpl<T> _value, $Res Function(_$ImageLoadedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? images = freezed,
+  }) {
+    return _then(_$ImageLoadedImpl<T>(
+      freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageLoadedImpl<T> implements ImageLoaded<T> {
+  const _$ImageLoadedImpl(this.images);
+
+  @override
+  final T images;
+
+  @override
+  String toString() {
+    return 'AbsenceState<$T>.imageloaded(images: $images)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ImageLoadedImpl<T> &&
+            const DeepCollectionEquality().equals(other.images, images));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(images));
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ImageLoadedImplCopyWith<T, _$ImageLoadedImpl<T>> get copyWith =>
+      __$$ImageLoadedImplCopyWithImpl<T, _$ImageLoadedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T absenceResponse) loaded,
+    required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
+  }) {
+    return imageloaded(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T absenceResponse)? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
+  }) {
+    return imageloaded?.call(images);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T absenceResponse)? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
+    required TResult orElse(),
+  }) {
+    if (imageloaded != null) {
+      return imageloaded(images);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
+  }) {
+    return imageloaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
+  }) {
+    return imageloaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
+    required TResult orElse(),
+  }) {
+    if (imageloaded != null) {
+      return imageloaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImageLoaded<T> implements AbsenceState<T> {
+  const factory ImageLoaded(final T images) = _$ImageLoadedImpl<T>;
+
+  T get images;
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ImageLoadedImplCopyWith<T, _$ImageLoadedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatingButtonImplCopyWith<T, $Res> {
+  factory _$$UpdatingButtonImplCopyWith(_$UpdatingButtonImpl<T> value,
+          $Res Function(_$UpdatingButtonImpl<T>) then) =
+      __$$UpdatingButtonImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$UpdatingButtonImplCopyWithImpl<T, $Res>
+    extends _$AbsenceStateCopyWithImpl<T, $Res, _$UpdatingButtonImpl<T>>
+    implements _$$UpdatingButtonImplCopyWith<T, $Res> {
+  __$$UpdatingButtonImplCopyWithImpl(_$UpdatingButtonImpl<T> _value,
+      $Res Function(_$UpdatingButtonImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AbsenceState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UpdatingButtonImpl<T> implements UpdatingButton<T> {
+  const _$UpdatingButtonImpl();
+
+  @override
+  String toString() {
+    return 'AbsenceState<$T>.updatingbutton()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdatingButtonImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T absenceResponse) loaded,
+    required TResult Function(String error) error,
+    required TResult Function() sending,
+    required TResult Function(T standarData) sendSuccess,
+    required TResult Function(T images) imageloaded,
+    required TResult Function() updatingbutton,
+  }) {
+    return updatingbutton();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T absenceResponse)? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? sending,
+    TResult? Function(T standarData)? sendSuccess,
+    TResult? Function(T images)? imageloaded,
+    TResult? Function()? updatingbutton,
+  }) {
+    return updatingbutton?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T absenceResponse)? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? sending,
+    TResult Function(T standarData)? sendSuccess,
+    TResult Function(T images)? imageloaded,
+    TResult Function()? updatingbutton,
+    required TResult orElse(),
+  }) {
+    if (updatingbutton != null) {
+      return updatingbutton();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(Sending<T> value) sending,
+    required TResult Function(SendSuccess<T> value) sendSuccess,
+    required TResult Function(ImageLoaded<T> value) imageloaded,
+    required TResult Function(UpdatingButton<T> value) updatingbutton,
+  }) {
+    return updatingbutton(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(Sending<T> value)? sending,
+    TResult? Function(SendSuccess<T> value)? sendSuccess,
+    TResult? Function(ImageLoaded<T> value)? imageloaded,
+    TResult? Function(UpdatingButton<T> value)? updatingbutton,
+  }) {
+    return updatingbutton?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(Sending<T> value)? sending,
+    TResult Function(SendSuccess<T> value)? sendSuccess,
+    TResult Function(ImageLoaded<T> value)? imageloaded,
+    TResult Function(UpdatingButton<T> value)? updatingbutton,
+    required TResult orElse(),
+  }) {
+    if (updatingbutton != null) {
+      return updatingbutton(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdatingButton<T> implements AbsenceState<T> {
+  const factory UpdatingButton() = _$UpdatingButtonImpl<T>;
 }

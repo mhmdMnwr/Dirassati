@@ -1,7 +1,10 @@
 import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
+import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_state.dart';
+import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
+import 'package:dirasati/features/justification/logic/cubit/upload_images_state.dart';
 import 'package:dirasati/features/justification/ui/justification_page.dart';
 import 'package:dirasati/features/justification/ui/justification_wait_sent_page.dart';
 import 'package:dirasati/features/justification/ui/nothing_to_justify_page.dart';
@@ -18,12 +21,8 @@ class AbsencePage extends StatelessWidget {
   }
 
   Widget _buildPage(BuildContext context) {
-    if (student.isAbsent) {
-      context.read<AbsenceCubit>().getStudentAbsence(studentId: student.id);
-      return _buildBloc();
-    } else {
-      return NothingToJustifyPage();
-    }
+    context.read<AbsenceCubit>().getStudentAbsence(studentId: student.id);
+    return _buildBloc();
   }
 
   Widget _buildBloc() {
@@ -40,7 +39,10 @@ class AbsencePage extends StatelessWidget {
               loaded: (absenceResponse) => setupLoaded(absenceResponse.data),
               error: (error) => setupError(error),
               sending: () => setupSending(),
-              sendSuccess: (_) => setupSendSuccess(),
+              sendSuccess: (_) {
+                setupSendSuccess(context);
+                return SizedBox.shrink();
+              },
             ) ??
             SizedBox.shrink();
       },
@@ -54,9 +56,8 @@ class AbsencePage extends StatelessWidget {
     if (absenceData.hasJustificationPending == false) {
       return JustificationPage(absenceData: absenceData);
     } else {
-      return JustificationWaitSentPage(
-        waitPage: false,
-      );
+      return _editJustificatioBlocBuilder(absenceData);
+      //this line is for edit justification page
     }
   }
 
@@ -72,9 +73,41 @@ class AbsencePage extends StatelessWidget {
     );
   }
 
-  Widget setupSendSuccess() {
-    return JustificationWaitSentPage(
-      waitPage: false,
+  void setupSendSuccess(BuildContext context) {
+    context.read<AbsenceCubit>().getStudentAbsence(studentId: student.id);
+  }
+
+  _editJustificatioBlocBuilder(AbsenceData absenceData) {
+    return BlocBuilder<UploadImagesCubit, UploadImagesState>(
+      buildWhen: (previous, current) =>
+          current is Edit ||
+          current is FetchLoading ||
+          current is FetchSuccess ||
+          current is FetchError,
+      builder: (context, state) {
+        return state.whenOrNull(
+              fetchLoading: () => SetupLoadingState.build(),
+              edit: () => JustificationPage(
+                absenceData: absenceData,
+                isEditPage: true,
+              ),
+              fetchSuccess: (imageFiles) {
+                return JustificationPage(
+                  absenceData: absenceData,
+                  isEditPage: true,
+                  imageFiles: imageFiles,
+                );
+              },
+              fetchError: (error) {
+                SetupErrorState.show(context, error);
+                return SizedBox.shrink();
+              },
+            ) ??
+            JustificationWaitSentPage(
+              absenceData: absenceData,
+              waitPage: false,
+            );
+      },
     );
   }
 }

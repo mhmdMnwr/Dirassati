@@ -10,4 +10,11 @@ class UploadImagesState<T> with _$UploadImagesState<T> {
       UploadSuccess<T>;
   const factory UploadImagesState.uploadError({required String error}) =
       UploadError;
+  const factory UploadImagesState.fetchLoading() = FetchLoading;
+  const factory UploadImagesState.fetchSuccess(T uploadResponse) =
+      FetchSuccess<T>;
+  const factory UploadImagesState.fetchError({required String error}) =
+      FetchError;
+  const factory UploadImagesState.edit() = Edit;
+  const factory UploadImagesState.eliminate() = Eliminate;
 }

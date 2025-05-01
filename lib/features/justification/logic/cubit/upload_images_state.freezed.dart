@@ -22,6 +22,11 @@ mixin _$UploadImagesState<T> {
     required TResult Function() uploadLoading,
     required TResult Function(T uploadResponse) uploadSuccess,
     required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +35,11 @@ mixin _$UploadImagesState<T> {
     TResult? Function()? uploadLoading,
     TResult? Function(T uploadResponse)? uploadSuccess,
     TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +48,11 @@ mixin _$UploadImagesState<T> {
     TResult Function()? uploadLoading,
     TResult Function(T uploadResponse)? uploadSuccess,
     TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +62,11 @@ mixin _$UploadImagesState<T> {
     required TResult Function(UploadLoading<T> value) uploadLoading,
     required TResult Function(UploadSuccess<T> value) uploadSuccess,
     required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +75,11 @@ mixin _$UploadImagesState<T> {
     TResult? Function(UploadLoading<T> value)? uploadLoading,
     TResult? Function(UploadSuccess<T> value)? uploadSuccess,
     TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +88,11 @@ mixin _$UploadImagesState<T> {
     TResult Function(UploadLoading<T> value)? uploadLoading,
     TResult Function(UploadSuccess<T> value)? uploadSuccess,
     TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +165,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() uploadLoading,
     required TResult Function(T uploadResponse) uploadSuccess,
     required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
   }) {
     return initial();
   }
@@ -146,6 +181,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? uploadLoading,
     TResult? Function(T uploadResponse)? uploadSuccess,
     TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
   }) {
     return initial?.call();
   }
@@ -157,6 +197,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? uploadLoading,
     TResult Function(T uploadResponse)? uploadSuccess,
     TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -172,6 +217,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(UploadLoading<T> value) uploadLoading,
     required TResult Function(UploadSuccess<T> value) uploadSuccess,
     required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
   }) {
     return initial(this);
   }
@@ -183,6 +233,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(UploadLoading<T> value)? uploadLoading,
     TResult? Function(UploadSuccess<T> value)? uploadSuccess,
     TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
   }) {
     return initial?.call(this);
   }
@@ -194,6 +249,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(UploadLoading<T> value)? uploadLoading,
     TResult Function(UploadSuccess<T> value)? uploadSuccess,
     TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -252,6 +312,11 @@ class _$UploadLoadingImpl<T> implements UploadLoading<T> {
     required TResult Function() uploadLoading,
     required TResult Function(T uploadResponse) uploadSuccess,
     required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
   }) {
     return uploadLoading();
   }
@@ -263,6 +328,11 @@ class _$UploadLoadingImpl<T> implements UploadLoading<T> {
     TResult? Function()? uploadLoading,
     TResult? Function(T uploadResponse)? uploadSuccess,
     TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
   }) {
     return uploadLoading?.call();
   }
@@ -274,6 +344,11 @@ class _$UploadLoadingImpl<T> implements UploadLoading<T> {
     TResult Function()? uploadLoading,
     TResult Function(T uploadResponse)? uploadSuccess,
     TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
     required TResult orElse(),
   }) {
     if (uploadLoading != null) {
@@ -289,6 +364,11 @@ class _$UploadLoadingImpl<T> implements UploadLoading<T> {
     required TResult Function(UploadLoading<T> value) uploadLoading,
     required TResult Function(UploadSuccess<T> value) uploadSuccess,
     required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
   }) {
     return uploadLoading(this);
   }
@@ -300,6 +380,11 @@ class _$UploadLoadingImpl<T> implements UploadLoading<T> {
     TResult? Function(UploadLoading<T> value)? uploadLoading,
     TResult? Function(UploadSuccess<T> value)? uploadSuccess,
     TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
   }) {
     return uploadLoading?.call(this);
   }
@@ -311,6 +396,11 @@ class _$UploadLoadingImpl<T> implements UploadLoading<T> {
     TResult Function(UploadLoading<T> value)? uploadLoading,
     TResult Function(UploadSuccess<T> value)? uploadSuccess,
     TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
     required TResult orElse(),
   }) {
     if (uploadLoading != null) {
@@ -399,6 +489,11 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     required TResult Function() uploadLoading,
     required TResult Function(T uploadResponse) uploadSuccess,
     required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
   }) {
     return uploadSuccess(uploadResponse);
   }
@@ -410,6 +505,11 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult? Function()? uploadLoading,
     TResult? Function(T uploadResponse)? uploadSuccess,
     TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
   }) {
     return uploadSuccess?.call(uploadResponse);
   }
@@ -421,6 +521,11 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult Function()? uploadLoading,
     TResult Function(T uploadResponse)? uploadSuccess,
     TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -436,6 +541,11 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     required TResult Function(UploadLoading<T> value) uploadLoading,
     required TResult Function(UploadSuccess<T> value) uploadSuccess,
     required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
   }) {
     return uploadSuccess(this);
   }
@@ -447,6 +557,11 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult? Function(UploadLoading<T> value)? uploadLoading,
     TResult? Function(UploadSuccess<T> value)? uploadSuccess,
     TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
   }) {
     return uploadSuccess?.call(this);
   }
@@ -458,6 +573,11 @@ class _$UploadSuccessImpl<T> implements UploadSuccess<T> {
     TResult Function(UploadLoading<T> value)? uploadLoading,
     TResult Function(UploadSuccess<T> value)? uploadSuccess,
     TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -552,6 +672,11 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     required TResult Function() uploadLoading,
     required TResult Function(T uploadResponse) uploadSuccess,
     required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
   }) {
     return uploadError(error);
   }
@@ -563,6 +688,11 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult? Function()? uploadLoading,
     TResult? Function(T uploadResponse)? uploadSuccess,
     TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
   }) {
     return uploadError?.call(error);
   }
@@ -574,6 +704,11 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult Function()? uploadLoading,
     TResult Function(T uploadResponse)? uploadSuccess,
     TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
     required TResult orElse(),
   }) {
     if (uploadError != null) {
@@ -589,6 +724,11 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     required TResult Function(UploadLoading<T> value) uploadLoading,
     required TResult Function(UploadSuccess<T> value) uploadSuccess,
     required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
   }) {
     return uploadError(this);
   }
@@ -600,6 +740,11 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult? Function(UploadLoading<T> value)? uploadLoading,
     TResult? Function(UploadSuccess<T> value)? uploadSuccess,
     TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
   }) {
     return uploadError?.call(this);
   }
@@ -611,6 +756,11 @@ class _$UploadErrorImpl<T> implements UploadError<T> {
     TResult Function(UploadLoading<T> value)? uploadLoading,
     TResult Function(UploadSuccess<T> value)? uploadSuccess,
     TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
     required TResult orElse(),
   }) {
     if (uploadError != null) {
@@ -631,4 +781,812 @@ abstract class UploadError<T> implements UploadImagesState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UploadErrorImplCopyWith<T, _$UploadErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchLoadingImplCopyWith<T, $Res> {
+  factory _$$FetchLoadingImplCopyWith(_$FetchLoadingImpl<T> value,
+          $Res Function(_$FetchLoadingImpl<T>) then) =
+      __$$FetchLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$FetchLoadingImplCopyWithImpl<T, $Res>
+    extends _$UploadImagesStateCopyWithImpl<T, $Res, _$FetchLoadingImpl<T>>
+    implements _$$FetchLoadingImplCopyWith<T, $Res> {
+  __$$FetchLoadingImplCopyWithImpl(
+      _$FetchLoadingImpl<T> _value, $Res Function(_$FetchLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FetchLoadingImpl<T> implements FetchLoading<T> {
+  const _$FetchLoadingImpl();
+
+  @override
+  String toString() {
+    return 'UploadImagesState<$T>.fetchLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() uploadLoading,
+    required TResult Function(T uploadResponse) uploadSuccess,
+    required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
+  }) {
+    return fetchLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? uploadLoading,
+    TResult? Function(T uploadResponse)? uploadSuccess,
+    TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
+  }) {
+    return fetchLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? uploadLoading,
+    TResult Function(T uploadResponse)? uploadSuccess,
+    TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
+    required TResult orElse(),
+  }) {
+    if (fetchLoading != null) {
+      return fetchLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UploadLoading<T> value) uploadLoading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
+  }) {
+    return fetchLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UploadLoading<T> value)? uploadLoading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
+  }) {
+    return fetchLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UploadLoading<T> value)? uploadLoading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
+    required TResult orElse(),
+  }) {
+    if (fetchLoading != null) {
+      return fetchLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchLoading<T> implements UploadImagesState<T> {
+  const factory FetchLoading() = _$FetchLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$FetchSuccessImplCopyWith<T, $Res> {
+  factory _$$FetchSuccessImplCopyWith(_$FetchSuccessImpl<T> value,
+          $Res Function(_$FetchSuccessImpl<T>) then) =
+      __$$FetchSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T uploadResponse});
+}
+
+/// @nodoc
+class __$$FetchSuccessImplCopyWithImpl<T, $Res>
+    extends _$UploadImagesStateCopyWithImpl<T, $Res, _$FetchSuccessImpl<T>>
+    implements _$$FetchSuccessImplCopyWith<T, $Res> {
+  __$$FetchSuccessImplCopyWithImpl(
+      _$FetchSuccessImpl<T> _value, $Res Function(_$FetchSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uploadResponse = freezed,
+  }) {
+    return _then(_$FetchSuccessImpl<T>(
+      freezed == uploadResponse
+          ? _value.uploadResponse
+          : uploadResponse // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchSuccessImpl<T> implements FetchSuccess<T> {
+  const _$FetchSuccessImpl(this.uploadResponse);
+
+  @override
+  final T uploadResponse;
+
+  @override
+  String toString() {
+    return 'UploadImagesState<$T>.fetchSuccess(uploadResponse: $uploadResponse)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchSuccessImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.uploadResponse, uploadResponse));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(uploadResponse));
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchSuccessImplCopyWith<T, _$FetchSuccessImpl<T>> get copyWith =>
+      __$$FetchSuccessImplCopyWithImpl<T, _$FetchSuccessImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() uploadLoading,
+    required TResult Function(T uploadResponse) uploadSuccess,
+    required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
+  }) {
+    return fetchSuccess(uploadResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? uploadLoading,
+    TResult? Function(T uploadResponse)? uploadSuccess,
+    TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
+  }) {
+    return fetchSuccess?.call(uploadResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? uploadLoading,
+    TResult Function(T uploadResponse)? uploadSuccess,
+    TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
+    required TResult orElse(),
+  }) {
+    if (fetchSuccess != null) {
+      return fetchSuccess(uploadResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UploadLoading<T> value) uploadLoading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
+  }) {
+    return fetchSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UploadLoading<T> value)? uploadLoading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
+  }) {
+    return fetchSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UploadLoading<T> value)? uploadLoading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
+    required TResult orElse(),
+  }) {
+    if (fetchSuccess != null) {
+      return fetchSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchSuccess<T> implements UploadImagesState<T> {
+  const factory FetchSuccess(final T uploadResponse) = _$FetchSuccessImpl<T>;
+
+  T get uploadResponse;
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchSuccessImplCopyWith<T, _$FetchSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchErrorImplCopyWith<T, $Res> {
+  factory _$$FetchErrorImplCopyWith(
+          _$FetchErrorImpl<T> value, $Res Function(_$FetchErrorImpl<T>) then) =
+      __$$FetchErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$FetchErrorImplCopyWithImpl<T, $Res>
+    extends _$UploadImagesStateCopyWithImpl<T, $Res, _$FetchErrorImpl<T>>
+    implements _$$FetchErrorImplCopyWith<T, $Res> {
+  __$$FetchErrorImplCopyWithImpl(
+      _$FetchErrorImpl<T> _value, $Res Function(_$FetchErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$FetchErrorImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchErrorImpl<T> implements FetchError<T> {
+  const _$FetchErrorImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'UploadImagesState<$T>.fetchError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchErrorImplCopyWith<T, _$FetchErrorImpl<T>> get copyWith =>
+      __$$FetchErrorImplCopyWithImpl<T, _$FetchErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() uploadLoading,
+    required TResult Function(T uploadResponse) uploadSuccess,
+    required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
+  }) {
+    return fetchError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? uploadLoading,
+    TResult? Function(T uploadResponse)? uploadSuccess,
+    TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
+  }) {
+    return fetchError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? uploadLoading,
+    TResult Function(T uploadResponse)? uploadSuccess,
+    TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
+    required TResult orElse(),
+  }) {
+    if (fetchError != null) {
+      return fetchError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UploadLoading<T> value) uploadLoading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
+  }) {
+    return fetchError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UploadLoading<T> value)? uploadLoading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
+  }) {
+    return fetchError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UploadLoading<T> value)? uploadLoading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
+    required TResult orElse(),
+  }) {
+    if (fetchError != null) {
+      return fetchError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchError<T> implements UploadImagesState<T> {
+  const factory FetchError({required final String error}) = _$FetchErrorImpl<T>;
+
+  String get error;
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FetchErrorImplCopyWith<T, _$FetchErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EditImplCopyWith<T, $Res> {
+  factory _$$EditImplCopyWith(
+          _$EditImpl<T> value, $Res Function(_$EditImpl<T>) then) =
+      __$$EditImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$EditImplCopyWithImpl<T, $Res>
+    extends _$UploadImagesStateCopyWithImpl<T, $Res, _$EditImpl<T>>
+    implements _$$EditImplCopyWith<T, $Res> {
+  __$$EditImplCopyWithImpl(
+      _$EditImpl<T> _value, $Res Function(_$EditImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$EditImpl<T> implements Edit<T> {
+  const _$EditImpl();
+
+  @override
+  String toString() {
+    return 'UploadImagesState<$T>.edit()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EditImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() uploadLoading,
+    required TResult Function(T uploadResponse) uploadSuccess,
+    required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
+  }) {
+    return edit();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? uploadLoading,
+    TResult? Function(T uploadResponse)? uploadSuccess,
+    TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
+  }) {
+    return edit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? uploadLoading,
+    TResult Function(T uploadResponse)? uploadSuccess,
+    TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
+    required TResult orElse(),
+  }) {
+    if (edit != null) {
+      return edit();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UploadLoading<T> value) uploadLoading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
+  }) {
+    return edit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UploadLoading<T> value)? uploadLoading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
+  }) {
+    return edit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UploadLoading<T> value)? uploadLoading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
+    required TResult orElse(),
+  }) {
+    if (edit != null) {
+      return edit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Edit<T> implements UploadImagesState<T> {
+  const factory Edit() = _$EditImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$EliminateImplCopyWith<T, $Res> {
+  factory _$$EliminateImplCopyWith(
+          _$EliminateImpl<T> value, $Res Function(_$EliminateImpl<T>) then) =
+      __$$EliminateImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$EliminateImplCopyWithImpl<T, $Res>
+    extends _$UploadImagesStateCopyWithImpl<T, $Res, _$EliminateImpl<T>>
+    implements _$$EliminateImplCopyWith<T, $Res> {
+  __$$EliminateImplCopyWithImpl(
+      _$EliminateImpl<T> _value, $Res Function(_$EliminateImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UploadImagesState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$EliminateImpl<T> implements Eliminate<T> {
+  const _$EliminateImpl();
+
+  @override
+  String toString() {
+    return 'UploadImagesState<$T>.eliminate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EliminateImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() uploadLoading,
+    required TResult Function(T uploadResponse) uploadSuccess,
+    required TResult Function(String error) uploadError,
+    required TResult Function() fetchLoading,
+    required TResult Function(T uploadResponse) fetchSuccess,
+    required TResult Function(String error) fetchError,
+    required TResult Function() edit,
+    required TResult Function() eliminate,
+  }) {
+    return eliminate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? uploadLoading,
+    TResult? Function(T uploadResponse)? uploadSuccess,
+    TResult? Function(String error)? uploadError,
+    TResult? Function()? fetchLoading,
+    TResult? Function(T uploadResponse)? fetchSuccess,
+    TResult? Function(String error)? fetchError,
+    TResult? Function()? edit,
+    TResult? Function()? eliminate,
+  }) {
+    return eliminate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? uploadLoading,
+    TResult Function(T uploadResponse)? uploadSuccess,
+    TResult Function(String error)? uploadError,
+    TResult Function()? fetchLoading,
+    TResult Function(T uploadResponse)? fetchSuccess,
+    TResult Function(String error)? fetchError,
+    TResult Function()? edit,
+    TResult Function()? eliminate,
+    required TResult orElse(),
+  }) {
+    if (eliminate != null) {
+      return eliminate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UploadLoading<T> value) uploadLoading,
+    required TResult Function(UploadSuccess<T> value) uploadSuccess,
+    required TResult Function(UploadError<T> value) uploadError,
+    required TResult Function(FetchLoading<T> value) fetchLoading,
+    required TResult Function(FetchSuccess<T> value) fetchSuccess,
+    required TResult Function(FetchError<T> value) fetchError,
+    required TResult Function(Edit<T> value) edit,
+    required TResult Function(Eliminate<T> value) eliminate,
+  }) {
+    return eliminate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UploadLoading<T> value)? uploadLoading,
+    TResult? Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult? Function(UploadError<T> value)? uploadError,
+    TResult? Function(FetchLoading<T> value)? fetchLoading,
+    TResult? Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult? Function(FetchError<T> value)? fetchError,
+    TResult? Function(Edit<T> value)? edit,
+    TResult? Function(Eliminate<T> value)? eliminate,
+  }) {
+    return eliminate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UploadLoading<T> value)? uploadLoading,
+    TResult Function(UploadSuccess<T> value)? uploadSuccess,
+    TResult Function(UploadError<T> value)? uploadError,
+    TResult Function(FetchLoading<T> value)? fetchLoading,
+    TResult Function(FetchSuccess<T> value)? fetchSuccess,
+    TResult Function(FetchError<T> value)? fetchError,
+    TResult Function(Edit<T> value)? edit,
+    TResult Function(Eliminate<T> value)? eliminate,
+    required TResult orElse(),
+  }) {
+    if (eliminate != null) {
+      return eliminate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Eliminate<T> implements UploadImagesState<T> {
+  const factory Eliminate() = _$EliminateImpl<T>;
 }
