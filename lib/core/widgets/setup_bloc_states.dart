@@ -65,6 +65,27 @@ class SetupErrorState {
       ),
     );
   }
+
+  static Widget build(String error) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            Icons.error_outline,
+            color: Colors.redAccent,
+            size: 40.sp,
+          ),
+          SizedBox(height: 10.h),
+          Text(
+            error,
+            textAlign: TextAlign.center,
+            style: TextStyles.font14DarkBlueMedium,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class SetupLoadingState {

@@ -15,7 +15,8 @@ class ApiConstants {
   static const getGrades = "grades/student";
   static const year = "year";
   static const trimestre = "trimestre";
-  static const homeworks = "homeworks";
+  static const homeworks = "homeworks/student";
+  static const getMyNotifications = "notifications";
 }
 
 class ApiErrors {

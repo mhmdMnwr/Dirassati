@@ -3,10 +3,13 @@ import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/features/HomeWork/logic/cubit/home_work_cubit.dart';
+import 'package:dirasati/features/HomeWork/ui/home_work_page.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
 import 'package:dirasati/features/justification/ui/absence_page.dart';
+import 'package:dirasati/features/marks/data/repo/marks_repo.dart';
 import 'package:dirasati/features/marks/logic/cubit/marks_cubit.dart';
 import 'package:dirasati/features/marks/ui/marks_page.dart';
 import 'package:dirasati/features/schedule/ui/schedule_page.dart';
@@ -126,7 +129,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          if (index == 0 || index == 3) {
+          if (index == 0) {
             return Padding(
               padding: EdgeInsets.all(20.w),
               child: Column(
@@ -145,8 +148,15 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
             return SchedulePage();
           } else if (index == 2) {
             return BlocProvider(
-              create: (context) => getIt<MarksCubit>(),
+              create: (context) => MarksCubit(getIt<MarksRepository>()),
               child: MarksPage(
+                studentId: widget.student.id,
+              ),
+            );
+          } else if (index == 3) {
+            return BlocProvider(
+              create: (context) => getIt<HomeWorkCubit>(),
+              child: HomeWorkPage(
                 studentId: widget.student.id,
               ),
             );

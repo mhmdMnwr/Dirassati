@@ -8,7 +8,6 @@ class SharedPrefHelper {
 
   /// Removes a value from SharedPreferences with given [key].
   static removeData(String key) async {
-    debugPrint('SharedPrefHelper : data with key : $key has been removed');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.remove(key);
   }

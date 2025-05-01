@@ -30,7 +30,7 @@ class ScheduleButton extends StatelessWidget {
               offset: const Offset(1, 3),
             ),
           ],
-          color: ColorsManager.schedulLighterGray,
+          color: ColorsManager.moreLighterGray,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(

@@ -10,7 +10,7 @@ abstract class AverageAbsenceComponents {
           height: 60.h,
           width: 190.w,
           decoration: BoxDecoration(
-            color: Colors.green,
+            color: average >= 10 ? Colors.green : Colors.red,
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(8),
               bottomRight: Radius.circular(8),

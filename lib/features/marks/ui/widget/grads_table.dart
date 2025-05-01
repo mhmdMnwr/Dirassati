@@ -35,6 +35,7 @@ class GradesTable extends StatelessWidget {
       } else {
         secondTest = g.secondTest.toString();
       }
+      final double? avg = g.calculateSubjectaverage;
 
       rows.add(TableRow(children: [
         Padding(
@@ -52,8 +53,10 @@ class GradesTable extends StatelessWidget {
         _cell(secondTest),
         _cell(g.subject!.coefficient.toString()),
         _cell(g.exam.toString()),
-        Text(g.calculateSubjectaverage.toStringAsFixed(2),
-            style: TextStyle(color: Colors.green, fontWeight: FontWeight.w600)),
+        Text(avg!.toStringAsFixed(2),
+            style: TextStyle(
+                color: avg >= 10 ? Colors.green : Colors.red,
+                fontWeight: FontWeight.w600)),
       ]));
     }
 

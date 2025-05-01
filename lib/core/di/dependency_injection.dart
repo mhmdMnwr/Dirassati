@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:dirasati/core/Networking/api_service.dart';
 import 'package:dirasati/core/Networking/dio_factory.dart';
+import 'package:dirasati/features/HomeWork/data/repo/home_work_repo.dart';
+import 'package:dirasati/features/HomeWork/logic/cubit/home_work_cubit.dart';
 import 'package:dirasati/features/auth/data/repo/login_repo.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
 import 'package:dirasati/features/change%20password/data/repo/change_password_repo.dart';
@@ -53,4 +55,8 @@ Future<void> setupGetIt() async {
 
   getIt.registerFactory<MarksCubit>(() => MarksCubit(getIt()));
   getIt.registerLazySingleton<MarksRepository>(() => MarksRepository(getIt()));
+
+  getIt.registerFactory<HomeWorkCubit>(() => HomeWorkCubit(getIt()));
+  getIt.registerLazySingleton<HomeWorkRepository>(
+      () => HomeWorkRepository(getIt()));
 }

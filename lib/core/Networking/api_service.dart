@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dirasati/core/Networking/api_constants.dart';
+import 'package:dirasati/features/HomeWork/data/model/home_work_model.dart';
 import 'package:dirasati/features/auth/data/model/login%20Model/login_request.dart';
 import 'package:dirasati/features/auth/data/model/login%20Model/login_response.dart';
 import 'package:dirasati/features/auth/data/model/otp%20Model/otp_request.dart';
@@ -89,9 +90,8 @@ abstract class ApiService {
     @Path("trimestre") String trimestre,
   );
 
-  // @GET("${ApiConstants.homeworks}")
-  // Future<dynamic> getHomeworks(
-  //   @Query("limit") int limit,
-  //   @Query("concernedClass") String concernedClass,
-  // );
+  @GET("${ApiConstants.homeworks}/{studentId}")
+  Future<HomeWorkResponse> getHomeWorks(
+    @Path("studentId") String studentId,
+  );
 }

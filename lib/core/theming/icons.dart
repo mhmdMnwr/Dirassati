@@ -41,4 +41,8 @@ class IconsManager {
   static const String name = '$_basePath/name_img.png';
   static const String phone = '$_basePath/phone.png';
   static const String address = '$_basePath/address.png';
+  static const String noHomeWork = '$_basePath/no_home_work_icon.png';
+  static const String noHomeWorkBackground =
+      '$_basePath/no_home_work_background.png';
+  static const String viewFile = '$_basePath/view_file.png';
 }
