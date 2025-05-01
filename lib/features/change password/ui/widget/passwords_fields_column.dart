@@ -22,6 +22,7 @@ class PasswordsFieldsColumn extends StatefulWidget {
 class _PasswordsFieldsColumnState extends State<PasswordsFieldsColumn> {
   bool isNewPasswordObscureText = true;
   bool isCurrentPasswordObscureText = true;
+  bool isConfirmPasswordObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,14 @@ class _PasswordsFieldsColumnState extends State<PasswordsFieldsColumn> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppTextFormField(
-          suffixIcon: mySuffixIcon(isCurrentPasswordObscureText),
+          suffixIcon: mySuffixIcon(
+            isCurrentPasswordObscureText,
+            () {
+              setState(() {
+                isCurrentPasswordObscureText = !isCurrentPasswordObscureText;
+              });
+            },
+          ),
           isObscureText: isCurrentPasswordObscureText,
           prefixIcon: Image.asset(IconsManager.password_2),
           controller: widget.currentPasswordController,
@@ -38,7 +46,14 @@ class _PasswordsFieldsColumnState extends State<PasswordsFieldsColumn> {
         ),
         verticalSpace(20),
         AppTextFormField(
-          suffixIcon: mySuffixIcon(isNewPasswordObscureText),
+          suffixIcon: mySuffixIcon(
+            isNewPasswordObscureText,
+            () {
+              setState(() {
+                isNewPasswordObscureText = !isNewPasswordObscureText;
+              });
+            },
+          ),
           isObscureText: isNewPasswordObscureText,
           prefixIcon: Image.asset(IconsManager.password),
           controller: widget.newPasswordController,
@@ -47,8 +62,15 @@ class _PasswordsFieldsColumnState extends State<PasswordsFieldsColumn> {
         ),
         verticalSpace(20),
         AppTextFormField(
-          suffixIcon: mySuffixIcon(isNewPasswordObscureText),
-          isObscureText: isNewPasswordObscureText,
+          suffixIcon: mySuffixIcon(
+            isConfirmPasswordObscureText,
+            () {
+              setState(() {
+                isConfirmPasswordObscureText = !isConfirmPasswordObscureText;
+              });
+            },
+          ),
+          isObscureText: isConfirmPasswordObscureText,
           prefixIcon: Image.asset(IconsManager.password),
           controller: widget.confirmPasswordController,
           hintText: 'Confirm New Password',
@@ -87,13 +109,9 @@ class _PasswordsFieldsColumnState extends State<PasswordsFieldsColumn> {
     return null;
   }
 
-  Widget mySuffixIcon(bool isObscureText) {
+  Widget mySuffixIcon(bool isObscureText, VoidCallback onTap) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          isObscureText = !isObscureText;
-        });
-      },
+      onTap: onTap,
       child: Icon(
         isObscureText ? Icons.visibility_off : Icons.visibility,
       ),

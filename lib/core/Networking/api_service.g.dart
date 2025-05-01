@@ -404,7 +404,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'homeworks/${studentId}',
+            'homeworks/student/${studentId}',
             queryParameters: queryParameters,
             data: _data,
           )
