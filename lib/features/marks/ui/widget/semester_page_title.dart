@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SemesterPageTitle extends StatelessWidget {
-  final String year = '2024/2025';
-  final String semester = 'Semester 01';
-  const SemesterPageTitle({super.key});
+  final String year;
+  final String trimestre;
+  const SemesterPageTitle(
+      {super.key, required this.year, required this.trimestre});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class SemesterPageTitle extends StatelessWidget {
         ),
         verticalSpace(5.h), // Add space instead of Expanded
         Text(
-          semester,
+          trimestre,
           style: TextStyles.font30BlackBold,
         ),
       ],

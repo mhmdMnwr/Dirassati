@@ -32,7 +32,7 @@ class MarksPage extends StatelessWidget {
               yearsloaded: (yearsResponse) {
                 List<YearListModel> yearsList =
                     _mapYearsToYearsListModel(yearsResponse.data);
-                return YearsList(yearsList: yearsList);
+                return YearsList(studentId: studentId, yearsList: yearsList);
               },
               error: (error) {
                 SetupErrorState.show(context, error);

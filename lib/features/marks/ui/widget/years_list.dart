@@ -14,8 +14,10 @@ class YearListModel {
 }
 
 class YearsList extends StatefulWidget {
+  final String studentId;
   final List<YearListModel> yearsList;
-  const YearsList({super.key, required this.yearsList});
+  const YearsList(
+      {super.key, required this.yearsList, required this.studentId});
 
   @override
   State<YearsList> createState() => _YearsListState();
@@ -38,6 +40,7 @@ class _YearsListState extends State<YearsList> {
         itemCount: yearsList.length,
         itemBuilder: (context, index) {
           return YearsColumn(
+            studentId: widget.studentId,
             model: yearsList[index],
             onTap: () {
               setState(() {

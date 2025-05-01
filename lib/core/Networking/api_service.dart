@@ -12,6 +12,7 @@ import 'package:dirasati/features/choose%20son/data/model/students_response.dart
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/data/model/send_justification_request.dart';
 import 'package:dirasati/features/justification/data/model/send_update_justification_request.dart';
+import 'package:dirasati/features/marks/data/model/marks_model.dart';
 import 'package:dirasati/features/marks/data/model/years_model.dart';
 import 'package:dirasati/features/parent%20info/data/model/update_parent_request.dart';
 import 'package:retrofit/retrofit.dart';
@@ -79,4 +80,18 @@ abstract class ApiService {
   Future<YearsResponse> getStudentYears(
     @Path("studentId") String studentId,
   );
+
+  @GET(
+      "${ApiConstants.getGrades}/{studentId}/${ApiConstants.year}/{year}/${ApiConstants.trimestre}/{trimestre}")
+  Future<GetMarksResponse> getMarks(
+    @Path("studentId") String studentId,
+    @Path("year") String year,
+    @Path("trimestre") String trimestre,
+  );
+
+  // @GET("${ApiConstants.homeworks}")
+  // Future<dynamic> getHomeworks(
+  //   @Query("limit") int limit,
+  //   @Query("concernedClass") String concernedClass,
+  // );
 }

@@ -12,6 +12,10 @@ class ApiConstants {
   static const changePassword = "auth/change-password";
   static const updateJustification = "justifications";
   static const getStudentYears = "grades/years-trimestres/student";
+  static const getGrades = "grades/student";
+  static const year = "year";
+  static const trimestre = "trimestre";
+  static const homeworks = "homeworks";
 }
 
 class ApiErrors {

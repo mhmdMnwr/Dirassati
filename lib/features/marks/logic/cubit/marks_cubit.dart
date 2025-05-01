@@ -15,4 +15,16 @@ class MarksCubit extends Cubit<MarksState> {
       emit(MarksState.error(error: error.apiErrorModel.message ?? ''));
     });
   }
+
+  void getMarks({required studentId, required year, required trimestre}) async {
+    emit(MarksState.marksLoading());
+    final validYear = year.replaceAll('/', '%2F');
+    final response =
+        await _marksRepository.getStudentMarks(studentId, validYear, trimestre);
+    response.when(success: (marksResponse) {
+      emit(MarksState.marksLoaded(marksResponse));
+    }, failure: (error) {
+      emit(MarksState.marksError(error: error.apiErrorModel.message ?? ''));
+    });
+  }
 }

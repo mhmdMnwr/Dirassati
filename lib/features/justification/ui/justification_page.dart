@@ -30,17 +30,19 @@ class JustificationPage extends StatefulWidget {
 class _JustificationPageState extends State<JustificationPage> {
   late final TextEditingController _contentController;
   late final GlobalKey<FormState> reasonOfAbsenceKey = GlobalKey<FormState>();
-  late List<File> _imageFiles; // Initialize the list of image files
+  // Initialize the list of image files
   // Initialize the list of image files
 
-  static const int maxImageLimit = 10; // Define the image limit
+  static const int maxImageLimit = 10;
+  List<File> imageFiles = []; // Define the image limit
 
   @override
   void initState() {
     super.initState();
     _contentController = TextEditingController();
     _contentController.text = widget.absenceData.justification?.content ?? '';
-    _imageFiles = widget.imageFiles;
+    imageFiles = List<File>.from(
+        widget.imageFiles); // Create a modifiable list from widget.imageFiles
   }
 
   @override
@@ -52,13 +54,13 @@ class _JustificationPageState extends State<JustificationPage> {
   // Function to remove an image (remains the same)
   void _removeImage(int index) {
     setState(() {
-      _imageFiles.removeAt(index);
+      imageFiles.removeAt(index);
     });
   }
 
   // Function to handle adding photos using the helper, respecting the limit
   Future<void> _addPhotos() async {
-    if (_imageFiles.length >= maxImageLimit) {
+    if (imageFiles.length >= maxImageLimit) {
       // Show a message if the limit is already reached
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -71,18 +73,18 @@ class _JustificationPageState extends State<JustificationPage> {
 
     final selectedFiles = await ImagePickerHelper.showImageSourceActionSheet(
       context,
-      currentCount: _imageFiles.length,
+      currentCount: imageFiles.length,
       maxLimit: maxImageLimit,
     );
 
     if (selectedFiles.isNotEmpty) {
-      int remainingSlots = maxImageLimit - _imageFiles.length;
+      int remainingSlots = maxImageLimit - imageFiles.length;
       int filesToAddCount = selectedFiles.length;
 
       setState(() {
         if (filesToAddCount > remainingSlots) {
           // If more files were selected than available slots, take only allowed number
-          _imageFiles.addAll(selectedFiles.take(remainingSlots));
+          imageFiles.addAll(selectedFiles.take(remainingSlots));
           // Show a message indicating not all files were added
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -93,7 +95,7 @@ class _JustificationPageState extends State<JustificationPage> {
           );
         } else {
           // Add all selected files if within limit
-          _imageFiles.addAll(selectedFiles);
+          imageFiles.addAll(selectedFiles);
         }
       });
     }
@@ -108,7 +110,7 @@ class _JustificationPageState extends State<JustificationPage> {
 
   // Extracted method for the main page container and layout
   Widget _buildPageContent(BuildContext context) {
-    bool canAddMorePhotos = _imageFiles.length < maxImageLimit;
+    bool canAddMorePhotos = imageFiles.length < maxImageLimit;
     return Container(
       margin: EdgeInsets.only(
         top: 80.h,
@@ -138,7 +140,7 @@ class _JustificationPageState extends State<JustificationPage> {
           verticalSpace(10),
           // Use the new ImagePreviewGrid widget
           ImagePreviewGrid(
-            imageFiles: _imageFiles,
+            imageFiles: imageFiles,
             onRemoveImage: _removeImage,
           ),
 
@@ -153,7 +155,7 @@ class _JustificationPageState extends State<JustificationPage> {
             reasonOfabsenceKey: reasonOfAbsenceKey,
             absenceId: widget.absenceData.id ?? '',
             content: _contentController,
-            imageFiles: _imageFiles,
+            imageFiles: imageFiles,
           ),
           verticalSpace(10), // Added bottom padding inside the container
         ],

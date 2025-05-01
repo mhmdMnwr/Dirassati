@@ -22,6 +22,9 @@ mixin _$MarksState<T> {
     required TResult Function() loading,
     required TResult Function(T marksResponse) yearsloaded,
     required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$MarksState<T> {
     TResult? Function()? loading,
     TResult? Function(T marksResponse)? yearsloaded,
     TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$MarksState<T> {
     TResult Function()? loading,
     TResult Function(T marksResponse)? yearsloaded,
     TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,9 @@ mixin _$MarksState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(YearsLoaded<T> value) yearsloaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +67,9 @@ mixin _$MarksState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(YearsLoaded<T> value)? yearsloaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +78,9 @@ mixin _$MarksState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(YearsLoaded<T> value)? yearsloaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +152,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T marksResponse) yearsloaded,
     required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
   }) {
     return initial();
   }
@@ -145,6 +166,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T marksResponse)? yearsloaded,
     TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
   }) {
     return initial?.call();
   }
@@ -156,6 +180,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T marksResponse)? yearsloaded,
     TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +198,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(YearsLoaded<T> value) yearsloaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
   }) {
     return initial(this);
   }
@@ -182,6 +212,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(YearsLoaded<T> value)? yearsloaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +226,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(YearsLoaded<T> value)? yearsloaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +287,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T marksResponse) yearsloaded,
     required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
   }) {
     return loading();
   }
@@ -262,6 +301,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T marksResponse)? yearsloaded,
     TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
   }) {
     return loading?.call();
   }
@@ -273,6 +315,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T marksResponse)? yearsloaded,
     TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +333,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(YearsLoaded<T> value) yearsloaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
   }) {
     return loading(this);
   }
@@ -299,6 +347,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(YearsLoaded<T> value)? yearsloaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
   }) {
     return loading?.call(this);
   }
@@ -310,6 +361,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(YearsLoaded<T> value)? yearsloaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -398,6 +452,9 @@ class _$YearsLoadedImpl<T> implements YearsLoaded<T> {
     required TResult Function() loading,
     required TResult Function(T marksResponse) yearsloaded,
     required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
   }) {
     return yearsloaded(marksResponse);
   }
@@ -409,6 +466,9 @@ class _$YearsLoadedImpl<T> implements YearsLoaded<T> {
     TResult? Function()? loading,
     TResult? Function(T marksResponse)? yearsloaded,
     TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
   }) {
     return yearsloaded?.call(marksResponse);
   }
@@ -420,6 +480,9 @@ class _$YearsLoadedImpl<T> implements YearsLoaded<T> {
     TResult Function()? loading,
     TResult Function(T marksResponse)? yearsloaded,
     TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
     required TResult orElse(),
   }) {
     if (yearsloaded != null) {
@@ -435,6 +498,9 @@ class _$YearsLoadedImpl<T> implements YearsLoaded<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(YearsLoaded<T> value) yearsloaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
   }) {
     return yearsloaded(this);
   }
@@ -446,6 +512,9 @@ class _$YearsLoadedImpl<T> implements YearsLoaded<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(YearsLoaded<T> value)? yearsloaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
   }) {
     return yearsloaded?.call(this);
   }
@@ -457,6 +526,9 @@ class _$YearsLoadedImpl<T> implements YearsLoaded<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(YearsLoaded<T> value)? yearsloaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
     required TResult orElse(),
   }) {
     if (yearsloaded != null) {
@@ -550,6 +622,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T marksResponse) yearsloaded,
     required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
   }) {
     return error(this.error);
   }
@@ -561,6 +636,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T marksResponse)? yearsloaded,
     TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
   }) {
     return error?.call(this.error);
   }
@@ -572,6 +650,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T marksResponse)? yearsloaded,
     TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -587,6 +668,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(YearsLoaded<T> value) yearsloaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
   }) {
     return error(this);
   }
@@ -598,6 +682,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(YearsLoaded<T> value)? yearsloaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
   }) {
     return error?.call(this);
   }
@@ -609,6 +696,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(YearsLoaded<T> value)? yearsloaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -627,5 +717,483 @@ abstract class Error<T> implements MarksState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MarksLoadingImplCopyWith<T, $Res> {
+  factory _$$MarksLoadingImplCopyWith(_$MarksLoadingImpl<T> value,
+          $Res Function(_$MarksLoadingImpl<T>) then) =
+      __$$MarksLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$MarksLoadingImplCopyWithImpl<T, $Res>
+    extends _$MarksStateCopyWithImpl<T, $Res, _$MarksLoadingImpl<T>>
+    implements _$$MarksLoadingImplCopyWith<T, $Res> {
+  __$$MarksLoadingImplCopyWithImpl(
+      _$MarksLoadingImpl<T> _value, $Res Function(_$MarksLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MarksState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$MarksLoadingImpl<T> implements MarksLoading<T> {
+  const _$MarksLoadingImpl();
+
+  @override
+  String toString() {
+    return 'MarksState<$T>.marksLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$MarksLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T marksResponse) yearsloaded,
+    required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
+  }) {
+    return marksLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T marksResponse)? yearsloaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
+  }) {
+    return marksLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T marksResponse)? yearsloaded,
+    TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
+    required TResult orElse(),
+  }) {
+    if (marksLoading != null) {
+      return marksLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(YearsLoaded<T> value) yearsloaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
+  }) {
+    return marksLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(YearsLoaded<T> value)? yearsloaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
+  }) {
+    return marksLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(YearsLoaded<T> value)? yearsloaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
+    required TResult orElse(),
+  }) {
+    if (marksLoading != null) {
+      return marksLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MarksLoading<T> implements MarksState<T> {
+  const factory MarksLoading() = _$MarksLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$MarksLoadedImplCopyWith<T, $Res> {
+  factory _$$MarksLoadedImplCopyWith(_$MarksLoadedImpl<T> value,
+          $Res Function(_$MarksLoadedImpl<T>) then) =
+      __$$MarksLoadedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T marksResponse});
+}
+
+/// @nodoc
+class __$$MarksLoadedImplCopyWithImpl<T, $Res>
+    extends _$MarksStateCopyWithImpl<T, $Res, _$MarksLoadedImpl<T>>
+    implements _$$MarksLoadedImplCopyWith<T, $Res> {
+  __$$MarksLoadedImplCopyWithImpl(
+      _$MarksLoadedImpl<T> _value, $Res Function(_$MarksLoadedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MarksState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? marksResponse = freezed,
+  }) {
+    return _then(_$MarksLoadedImpl<T>(
+      freezed == marksResponse
+          ? _value.marksResponse
+          : marksResponse // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MarksLoadedImpl<T> implements MarksLoaded<T> {
+  const _$MarksLoadedImpl(this.marksResponse);
+
+  @override
+  final T marksResponse;
+
+  @override
+  String toString() {
+    return 'MarksState<$T>.marksLoaded(marksResponse: $marksResponse)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MarksLoadedImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.marksResponse, marksResponse));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(marksResponse));
+
+  /// Create a copy of MarksState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MarksLoadedImplCopyWith<T, _$MarksLoadedImpl<T>> get copyWith =>
+      __$$MarksLoadedImplCopyWithImpl<T, _$MarksLoadedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T marksResponse) yearsloaded,
+    required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
+  }) {
+    return marksLoaded(marksResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T marksResponse)? yearsloaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
+  }) {
+    return marksLoaded?.call(marksResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T marksResponse)? yearsloaded,
+    TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
+    required TResult orElse(),
+  }) {
+    if (marksLoaded != null) {
+      return marksLoaded(marksResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(YearsLoaded<T> value) yearsloaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
+  }) {
+    return marksLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(YearsLoaded<T> value)? yearsloaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
+  }) {
+    return marksLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(YearsLoaded<T> value)? yearsloaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
+    required TResult orElse(),
+  }) {
+    if (marksLoaded != null) {
+      return marksLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MarksLoaded<T> implements MarksState<T> {
+  const factory MarksLoaded(final T marksResponse) = _$MarksLoadedImpl<T>;
+
+  T get marksResponse;
+
+  /// Create a copy of MarksState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MarksLoadedImplCopyWith<T, _$MarksLoadedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MarksErrorImplCopyWith<T, $Res> {
+  factory _$$MarksErrorImplCopyWith(
+          _$MarksErrorImpl<T> value, $Res Function(_$MarksErrorImpl<T>) then) =
+      __$$MarksErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$MarksErrorImplCopyWithImpl<T, $Res>
+    extends _$MarksStateCopyWithImpl<T, $Res, _$MarksErrorImpl<T>>
+    implements _$$MarksErrorImplCopyWith<T, $Res> {
+  __$$MarksErrorImplCopyWithImpl(
+      _$MarksErrorImpl<T> _value, $Res Function(_$MarksErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MarksState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$MarksErrorImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MarksErrorImpl<T> implements MarksError<T> {
+  const _$MarksErrorImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'MarksState<$T>.marksError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MarksErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of MarksState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MarksErrorImplCopyWith<T, _$MarksErrorImpl<T>> get copyWith =>
+      __$$MarksErrorImplCopyWithImpl<T, _$MarksErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T marksResponse) yearsloaded,
+    required TResult Function(String error) error,
+    required TResult Function() marksLoading,
+    required TResult Function(T marksResponse) marksLoaded,
+    required TResult Function(String error) marksError,
+  }) {
+    return marksError(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T marksResponse)? yearsloaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? marksLoading,
+    TResult? Function(T marksResponse)? marksLoaded,
+    TResult? Function(String error)? marksError,
+  }) {
+    return marksError?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T marksResponse)? yearsloaded,
+    TResult Function(String error)? error,
+    TResult Function()? marksLoading,
+    TResult Function(T marksResponse)? marksLoaded,
+    TResult Function(String error)? marksError,
+    required TResult orElse(),
+  }) {
+    if (marksError != null) {
+      return marksError(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(YearsLoaded<T> value) yearsloaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(MarksLoading<T> value) marksLoading,
+    required TResult Function(MarksLoaded<T> value) marksLoaded,
+    required TResult Function(MarksError<T> value) marksError,
+  }) {
+    return marksError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(YearsLoaded<T> value)? yearsloaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(MarksLoading<T> value)? marksLoading,
+    TResult? Function(MarksLoaded<T> value)? marksLoaded,
+    TResult? Function(MarksError<T> value)? marksError,
+  }) {
+    return marksError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(YearsLoaded<T> value)? yearsloaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(MarksLoading<T> value)? marksLoading,
+    TResult Function(MarksLoaded<T> value)? marksLoaded,
+    TResult Function(MarksError<T> value)? marksError,
+    required TResult orElse(),
+  }) {
+    if (marksError != null) {
+      return marksError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MarksError<T> implements MarksState<T> {
+  const factory MarksError({required final String error}) = _$MarksErrorImpl<T>;
+
+  String get error;
+
+  /// Create a copy of MarksState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MarksErrorImplCopyWith<T, _$MarksErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,11 +1,12 @@
 import 'package:dirasati/core/helpers/spacing.dart';
-import 'package:dirasati/features/marks/ui/semester_details_page.dart';
+import 'package:dirasati/features/marks/data/model/marks_model.dart';
+import 'package:dirasati/features/marks/marks_consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GradesTable extends StatelessWidget {
-  final List<SubjectGrade> grades;
-  const GradesTable({super.key, required this.grades});
+  final GetMarksResponse? marks;
+  const GradesTable({super.key, required this.marks});
 
   @override
   Widget build(BuildContext context) {
@@ -16,36 +17,42 @@ class GradesTable extends StatelessWidget {
         decoration: BoxDecoration(color: Colors.white),
         children: [
           SizedBox(), // empty top-left
-          _cell('cc', headerStyle),
-          _cell('Test\n 01', headerStyle),
-          _cell('Test\n 02', headerStyle),
-          _cell('Exam', headerStyle),
-          _cell('Coeff', headerStyle),
-          _cell('AVG', headerStyle),
+          _cell(MarksConsts.cc, headerStyle),
+          _cell(MarksConsts.test1, headerStyle),
+          _cell(MarksConsts.test2, headerStyle),
+          _cell(MarksConsts.exam, headerStyle),
+          _cell(MarksConsts.coeff, headerStyle),
+          _cell(MarksConsts.avg, headerStyle),
         ],
       ),
     ];
 
     // Data rows
-    for (var g in grades) {
+    for (var g in (marks?.data ?? [])) {
+      late final String secondTest;
+      if (!(g.subject.isMain)) {
+        secondTest = '/';
+      } else {
+        secondTest = g.secondTest.toString();
+      }
+
       rows.add(TableRow(children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 12.h),
-          child: Text(g.subject),
+          child: Text(g.subject?.name ?? ''),
         ),
-        // vertical blue bar + cc value
         Row(
           children: [
             Container(width: 4.w, height: 20.h, color: Colors.blue),
             horizontalSpace(6),
-            Text(g.cc.toString()),
+            Text(g.noteCC.toString()),
           ],
         ),
-        _cell(g.test1.toString()),
-        _cell(g.test2.toString()),
-        _cell(g.coefficient.toString()),
+        _cell(g.firstTest.toString()),
+        _cell(secondTest),
+        _cell(g.subject!.coefficient.toString()),
         _cell(g.exam.toString()),
-        Text(g.avg.toStringAsFixed(2),
+        Text(g.calculateSubjectaverage.toStringAsFixed(2),
             style: TextStyle(color: Colors.green, fontWeight: FontWeight.w600)),
       ]));
     }
