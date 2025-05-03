@@ -15,6 +15,7 @@ import 'package:dirasati/features/justification/data/model/send_justification_re
 import 'package:dirasati/features/justification/data/model/send_update_justification_request.dart';
 import 'package:dirasati/features/marks/data/model/marks_model.dart';
 import 'package:dirasati/features/marks/data/model/years_model.dart';
+import 'package:dirasati/features/notifications/data/model/notifications_model.dart';
 import 'package:dirasati/features/parent%20info/data/model/update_parent_request.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
@@ -93,5 +94,11 @@ abstract class ApiService {
   @GET("${ApiConstants.homeworks}/{studentId}")
   Future<HomeWorkResponse> getHomeWorks(
     @Path("studentId") String studentId,
+  );
+
+  @GET(ApiConstants.getMyNotifications)
+  Future<NotificationsResponse> getMyNotifications(
+    @Query("page") int page,
+    @Query("limit") int limit,
   );
 }

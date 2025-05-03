@@ -6,6 +6,8 @@ import 'package:dirasati/features/auth/ui/login_page.dart';
 import 'package:dirasati/features/auth/ui/otp_page.dart';
 import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
+import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
+import 'package:dirasati/features/notifications/ui/notifications_page.dart';
 import 'package:dirasati/features/profile/ui/student_profile_page.dart';
 import 'package:dirasati/features/auth/ui/reset_password_page.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
@@ -77,6 +79,12 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => AccountPage(
                   parentModel: arguments as UserData,
+                ));
+      case Routes.notificationPage:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<NotificationsCubit>(),
+                  child: NotificationsPage(),
                 ));
 
       default:

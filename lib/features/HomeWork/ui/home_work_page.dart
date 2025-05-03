@@ -33,7 +33,7 @@ class HomeWorkPage extends StatelessWidget {
   }
 
   Widget setupLoaded(List<HomeWorkModel> homeWorkData) {
-    if (homeWorkData.isEmpty || homeWorkData == null) {
+    if (homeWorkData.isEmpty) {
       return const NoHomeWork();
     }
     return HomeWorkList(homeWorkData: homeWorkData);

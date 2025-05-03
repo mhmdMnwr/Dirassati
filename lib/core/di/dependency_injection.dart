@@ -16,6 +16,8 @@ import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
 import 'package:dirasati/features/marks/data/repo/marks_repo.dart';
 import 'package:dirasati/features/marks/logic/cubit/marks_cubit.dart';
+import 'package:dirasati/features/notifications/data/repo/notifications_repo.dart';
+import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
 import 'package:dirasati/features/parent%20info/data/repo/update_repo.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -59,4 +61,8 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<HomeWorkCubit>(() => HomeWorkCubit(getIt()));
   getIt.registerLazySingleton<HomeWorkRepository>(
       () => HomeWorkRepository(getIt()));
+
+  getIt.registerFactory<NotificationsCubit>(() => NotificationsCubit(getIt()));
+  getIt.registerLazySingleton<NotificationsRepository>(
+      () => NotificationsRepository(getIt()));
 }

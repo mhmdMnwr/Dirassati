@@ -115,7 +115,9 @@ class AccountPage extends StatelessWidget {
         AccountOption(
           icon: IconsManager.notifications,
           title: 'Notifications',
-          onTap: () {},
+          onTap: () {
+            context.pushNamed(Routes.notificationPage);
+          },
         ),
         AccountOption(
           icon: IconsManager.logOut,
