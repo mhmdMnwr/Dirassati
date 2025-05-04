@@ -113,6 +113,7 @@ class AccountPage extends StatelessWidget {
           },
         ),
         AccountOption(
+          isNotification: true,
           icon: IconsManager.notifications,
           title: 'Notifications',
           onTap: () {

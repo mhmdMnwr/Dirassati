@@ -1,15 +1,18 @@
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/core/widgets/notification_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountOption extends StatelessWidget {
+  final bool isNotification;
   final String icon;
   final String title;
   final VoidCallback onTap;
 
   const AccountOption({
+    this.isNotification = false,
     super.key,
     required this.icon,
     required this.title,
@@ -26,7 +29,13 @@ class AccountOption extends StatelessWidget {
           height: 100.h,
           child: Row(
             children: [
-              Image.asset(icon, height: 50.h, width: 50.w),
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Image.asset(icon, height: 50.h, width: 50.w),
+                  if (isNotification) NotificationCircle(notificationCount: 5),
+                ],
+              ),
               horizontalSpace(16),
               Expanded(
                 child: Text(title, style: TextStyles.font16BlackBold),
