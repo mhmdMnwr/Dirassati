@@ -135,8 +135,8 @@ class AccountPage extends StatelessWidget {
   Widget _backButton(BuildContext context) {
     return IconButton(
       onPressed: () {
-        context.pop();
         context.read<NotificationsCubit>().getCountNotifications();
+        context.pop();
       },
       icon: Image.asset(
         IconsManager.backButton,
@@ -148,6 +148,8 @@ class AccountPage extends StatelessWidget {
 
   void _logOut(BuildContext context) {
     SharedPrefHelper.clearAllData();
-    context.pushReplacementNamed(Routes.loginScreen);
+    context.pushReplacementNamed(Routes.loginScreen).then((_) {
+      context.read<NotificationsCubit>().getCountNotifications();
+    });
   }
 }

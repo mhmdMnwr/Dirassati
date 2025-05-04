@@ -15,7 +15,6 @@ PreferredSizeWidget notificationAppBar(BuildContext context) {
     leading: IconButton(
       icon: Image.asset(IconsManager.backButton),
       onPressed: () {
-        context.read<NotificationsCubit>().getCountNotifications();
         context.pop();
       },
     ),

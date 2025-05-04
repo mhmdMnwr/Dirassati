@@ -11,7 +11,7 @@ class NotificationsListview extends StatelessWidget {
   const NotificationsListview({
     super.key,
     required this.scrollController,
-    this.isLoadingMore = false,
+    required this.isLoadingMore,
     required this.allNotifications,
   });
 
@@ -25,8 +25,8 @@ class NotificationsListview extends StatelessWidget {
           itemCount: allNotifications.length + (isLoadingMore ? 1 : 0),
           itemBuilder: (context, index) {
             if (index >= allNotifications.length) {
-              return const Padding(
-                padding: EdgeInsets.all(16.0),
+              return Padding(
+                padding: EdgeInsets.all(16.0.w),
                 child: Center(child: CircularProgressIndicator()),
               );
             }

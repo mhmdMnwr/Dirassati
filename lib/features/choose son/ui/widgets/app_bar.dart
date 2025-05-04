@@ -4,7 +4,9 @@ import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/build_acount_icon.dart';
+import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
@@ -36,7 +38,11 @@ class MyAppBar extends StatelessWidget {
           if (showLeadingIcon)
             BuildAccountIcon(
               onTap: () {
-                context.pushNamed(Routes.acountPage, arguments: parentModel);
+                context
+                    .pushNamed(Routes.acountPage, arguments: parentModel)
+                    .then((_) {
+                  context.read<NotificationsCubit>().getCountNotifications();
+                });
               },
               context: context,
             ),

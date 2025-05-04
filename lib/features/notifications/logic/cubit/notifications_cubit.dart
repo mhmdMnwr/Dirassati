@@ -7,59 +7,66 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NotificationsCubit extends Cubit<NotificationsState> {
   final NotificationsRepository _repository;
+  final int _limit = 8;
   int _currentPage = 1;
   bool _isLoading = false;
   bool _hasReachedMax = false;
-  // Change the list type to hold NotificationModel
   List<NotificationModel> notifications = [];
 
-  NotificationsCubit(
-    this._repository,
-  ) : super(const NotificationsState.initial());
+  NotificationsCubit(this._repository)
+      : super(const NotificationsState.initial());
 
   void getNotifications() async {
-    // Prevent concurrent fetches and fetching beyond the max
+    // Don’t fetch if already loading or no more pages
     if (_isLoading || _hasReachedMax) return;
 
     _isLoading = true;
-    // Emit loading state only if it's the first page fetch
     if (_currentPage == 1) {
       emit(const NotificationsState.loading());
-    } // For subsequent pages, the UI will show a loading indicator at the bottom
+    }
 
-    final response = await _repository.getMyNotifications(page: _currentPage);
+    final response = await _repository.getMyNotifications(
+      page: _currentPage,
+    );
 
-    response.when(success: (notificationsResponse) {
-      final newNotifications = notificationsResponse.data ?? [];
-      if (newNotifications.isEmpty) {
-        _hasReachedMax = true;
-      } else {
-        // Add the new NotificationModel items to the existing list
+    response.when(
+      success: (notificationsResponse) {
+        final newNotifications = notificationsResponse.data ?? [];
+
+        // If we got fewer than _limit items, there *are* no more pages
+        if (newNotifications.length < _limit) {
+          _hasReachedMax = true;
+        } else {
+          _currentPage++;
+        }
+
+        // Append whatever we got (even if < _limit)
         notifications.addAll(newNotifications);
-        _currentPage++;
-      }
-      // Emit success with the updated flat list and hasMore flag
-      emit(NotificationsState.success(
-          List<NotificationModel>.from(notifications),
-          hasMore: !_hasReachedMax));
-    }, failure: (error) {
-      // Keep existing data on error, just emit error state
-      emit(NotificationsState.error(
-          error.apiErrorModel.message ?? 'Unknown error'));
-    });
 
-    _isLoading = false; // Reset loading flag
+        emit(NotificationsState.success(
+          List<NotificationModel>.from(notifications),
+          hasMore: !_hasReachedMax,
+        ));
+      },
+      failure: (error) {
+        emit(NotificationsState.error(
+          error.apiErrorModel.message ?? 'Unknown error',
+        ));
+      },
+    );
+
+    _isLoading = false;
   }
 
   // Optional: Add a method to reset and fetch from the beginning (e.g., for pull-to-refresh)
-  void refreshNotifications() {
-    _currentPage = 1;
-    _hasReachedMax = false;
-    notifications = [];
-    // Potentially clear the state before fetching again if needed
-    // emit(const NotificationsState.initial());
-    getNotifications();
-  }
+  // void refreshNotifications() {
+  //   _currentPage = 1;
+  //   _hasReachedMax = false;
+  //   notifications = [];
+  //   // Potentially clear the state before fetching again if needed
+  //   // emit(const NotificationsState.initial());
+  //   getNotifications();
+  // }
 
   // Optional: Add a method to fetch the count of notifications
   void getCountNotifications() async {

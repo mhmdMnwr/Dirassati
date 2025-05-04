@@ -54,19 +54,26 @@ class _NotificationsPageState extends State<NotificationsPage> {
             if (notifications.isEmpty) {
               return NotificationListShimmerLoading();
             } else {
+              // Show existing list + loading indicator at the bottom
               return NotificationsListview(
                 scrollController: _scrollController,
                 allNotifications: notifications,
-                isLoadingMore: true,
+                isLoadingMore: true, // Set to true when loading more items
               );
             }
           },
           success: (data, hasMore) {
-            return NotificationsListview(
-              scrollController: _scrollController,
-              allNotifications: notifications,
-              isLoadingMore: hasMore,
-            );
+            if (notifications.isEmpty) {
+              return const Center(
+                child: Text('No notifications available'),
+              );
+            } else {
+              return NotificationsListview(
+                scrollController: _scrollController,
+                allNotifications: notifications,
+                isLoadingMore: hasMore, // Set to true when loading more items
+              );
+            }
           },
           error: (message) => SetupErrorState.build(message),
         )!; // safe because buildWhen ensures state is one of those
