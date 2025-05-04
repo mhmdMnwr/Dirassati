@@ -1,7 +1,7 @@
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
-import 'package:dirasati/core/widgets/notification_circle.dart';
+import 'package:dirasati/core/widgets/notification_count_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +33,7 @@ class AccountOption extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   Image.asset(icon, height: 50.h, width: 50.w),
-                  if (isNotification) NotificationCircle(notificationCount: 5),
+                  if (isNotification) NotificationCountBlocBuilder(),
                 ],
               ),
               horizontalSpace(16),

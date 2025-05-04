@@ -4,6 +4,7 @@ import 'package:dirasati/features/choose%20son/ui/widgets/app_bar.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/shimmer_loading_card.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/sons_list.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/welcom_back_message.dart';
+import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,7 +51,7 @@ class ChooseSonBlocBuilders {
                 return WelcomBackMessage(parentName: 'Loading...');
               },
               getMesuccess: (parentData) {
-                // Use a helper function for cleaner gender logic
+                context.read<NotificationsCubit>().getCountNotifications();
                 String getParenTitle(String? gender) {
                   if (gender == 'Male') {
                     return 'Mr.';

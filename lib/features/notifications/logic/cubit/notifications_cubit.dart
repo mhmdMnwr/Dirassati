@@ -1,3 +1,5 @@
+import 'package:dirasati/core/helpers/constants.dart';
+import 'package:dirasati/core/helpers/shared_pref_helper.dart';
 import 'package:dirasati/features/notifications/data/model/notifications_model.dart';
 import 'package:dirasati/features/notifications/data/repo/notifications_repo.dart';
 import 'package:dirasati/features/notifications/logic/cubit/notifications_state.dart';
@@ -57,5 +59,19 @@ class NotificationsCubit extends Cubit<NotificationsState> {
     // Potentially clear the state before fetching again if needed
     // emit(const NotificationsState.initial());
     getNotifications();
+  }
+
+  // Optional: Add a method to fetch the count of notifications
+  void getCountNotifications() async {
+    String receiverId =
+        await SharedPrefHelper.getSecuredString(SharedPrefKeys.parentId);
+    final response = await _repository.getCountNotifications(receiverId);
+    response.when(success: (countResponse) {
+      emit(NotificationsState.successNotificationsCount(
+          countResponse.data ?? 0));
+    }, failure: (error) {
+      emit(NotificationsState.error(
+          error.apiErrorModel.message ?? 'Unknown error'));
+    });
   }
 }

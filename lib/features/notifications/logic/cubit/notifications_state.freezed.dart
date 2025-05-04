@@ -22,6 +22,9 @@ mixin _$NotificationsState<T> {
     required TResult Function() loading,
     required TResult Function(T data, bool hasMore) success,
     required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$NotificationsState<T> {
     TResult? Function()? loading,
     TResult? Function(T data, bool hasMore)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$NotificationsState<T> {
     TResult Function()? loading,
     TResult Function(T data, bool hasMore)? success,
     TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,12 @@ mixin _$NotificationsState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +70,12 @@ mixin _$NotificationsState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +84,11 @@ mixin _$NotificationsState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +161,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data, bool hasMore) success,
     required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
   }) {
     return initial();
   }
@@ -146,6 +175,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data, bool hasMore)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
   }) {
     return initial?.call();
   }
@@ -157,6 +189,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T data, bool hasMore)? success,
     TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -172,6 +207,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
   }) {
     return initial(this);
   }
@@ -183,6 +224,12 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
   }) {
     return initial?.call(this);
   }
@@ -194,6 +241,11 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -252,6 +304,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T data, bool hasMore) success,
     required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
   }) {
     return loading();
   }
@@ -263,6 +318,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T data, bool hasMore)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
   }) {
     return loading?.call();
   }
@@ -274,6 +332,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T data, bool hasMore)? success,
     TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -289,6 +350,12 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
   }) {
     return loading(this);
   }
@@ -300,6 +367,12 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
   }) {
     return loading?.call(this);
   }
@@ -311,6 +384,11 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -405,6 +483,9 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(T data, bool hasMore) success,
     required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
   }) {
     return success(data, hasMore);
   }
@@ -416,6 +497,9 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(T data, bool hasMore)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
   }) {
     return success?.call(data, hasMore);
   }
@@ -427,6 +511,9 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(T data, bool hasMore)? success,
     TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -442,6 +529,12 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
   }) {
     return success(this);
   }
@@ -453,6 +546,12 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
   }) {
     return success?.call(this);
   }
@@ -464,6 +563,11 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -559,6 +663,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T data, bool hasMore) success,
     required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
   }) {
     return error(this.error);
   }
@@ -570,6 +677,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T data, bool hasMore)? success,
     TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
   }) {
     return error?.call(this.error);
   }
@@ -581,6 +691,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T data, bool hasMore)? success,
     TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -596,6 +709,12 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
   }) {
     return error(this);
   }
@@ -607,6 +726,12 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
   }) {
     return error?.call(this);
   }
@@ -618,6 +743,11 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -637,4 +767,523 @@ abstract class Error<T> implements NotificationsState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingNotificationsCountImplCopyWith<T, $Res> {
+  factory _$$LoadingNotificationsCountImplCopyWith(
+          _$LoadingNotificationsCountImpl<T> value,
+          $Res Function(_$LoadingNotificationsCountImpl<T>) then) =
+      __$$LoadingNotificationsCountImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$LoadingNotificationsCountImplCopyWithImpl<T, $Res>
+    extends _$NotificationsStateCopyWithImpl<T, $Res,
+        _$LoadingNotificationsCountImpl<T>>
+    implements _$$LoadingNotificationsCountImplCopyWith<T, $Res> {
+  __$$LoadingNotificationsCountImplCopyWithImpl(
+      _$LoadingNotificationsCountImpl<T> _value,
+      $Res Function(_$LoadingNotificationsCountImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NotificationsState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadingNotificationsCountImpl<T>
+    implements LoadingNotificationsCount<T> {
+  const _$LoadingNotificationsCountImpl();
+
+  @override
+  String toString() {
+    return 'NotificationsState<$T>.loadingNotificationsCount()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingNotificationsCountImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data, bool hasMore) success,
+    required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
+  }) {
+    return loadingNotificationsCount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data, bool hasMore)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
+  }) {
+    return loadingNotificationsCount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data, bool hasMore)? success,
+    TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
+    required TResult orElse(),
+  }) {
+    if (loadingNotificationsCount != null) {
+      return loadingNotificationsCount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
+  }) {
+    return loadingNotificationsCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
+  }) {
+    return loadingNotificationsCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
+    required TResult orElse(),
+  }) {
+    if (loadingNotificationsCount != null) {
+      return loadingNotificationsCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingNotificationsCount<T> implements NotificationsState<T> {
+  const factory LoadingNotificationsCount() =
+      _$LoadingNotificationsCountImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$SuccessNotificationsCountImplCopyWith<T, $Res> {
+  factory _$$SuccessNotificationsCountImplCopyWith(
+          _$SuccessNotificationsCountImpl<T> value,
+          $Res Function(_$SuccessNotificationsCountImpl<T>) then) =
+      __$$SuccessNotificationsCountImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$SuccessNotificationsCountImplCopyWithImpl<T, $Res>
+    extends _$NotificationsStateCopyWithImpl<T, $Res,
+        _$SuccessNotificationsCountImpl<T>>
+    implements _$$SuccessNotificationsCountImplCopyWith<T, $Res> {
+  __$$SuccessNotificationsCountImplCopyWithImpl(
+      _$SuccessNotificationsCountImpl<T> _value,
+      $Res Function(_$SuccessNotificationsCountImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NotificationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$SuccessNotificationsCountImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessNotificationsCountImpl<T>
+    implements SuccessNotificationsCount<T> {
+  const _$SuccessNotificationsCountImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'NotificationsState<$T>.successNotificationsCount(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessNotificationsCountImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  /// Create a copy of NotificationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessNotificationsCountImplCopyWith<T,
+          _$SuccessNotificationsCountImpl<T>>
+      get copyWith => __$$SuccessNotificationsCountImplCopyWithImpl<T,
+          _$SuccessNotificationsCountImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data, bool hasMore) success,
+    required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
+  }) {
+    return successNotificationsCount(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data, bool hasMore)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
+  }) {
+    return successNotificationsCount?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data, bool hasMore)? success,
+    TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
+    required TResult orElse(),
+  }) {
+    if (successNotificationsCount != null) {
+      return successNotificationsCount(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
+  }) {
+    return successNotificationsCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
+  }) {
+    return successNotificationsCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
+    required TResult orElse(),
+  }) {
+    if (successNotificationsCount != null) {
+      return successNotificationsCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessNotificationsCount<T> implements NotificationsState<T> {
+  const factory SuccessNotificationsCount(final T data) =
+      _$SuccessNotificationsCountImpl<T>;
+
+  T get data;
+
+  /// Create a copy of NotificationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SuccessNotificationsCountImplCopyWith<T,
+          _$SuccessNotificationsCountImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorNotificationsCountImplCopyWith<T, $Res> {
+  factory _$$ErrorNotificationsCountImplCopyWith(
+          _$ErrorNotificationsCountImpl<T> value,
+          $Res Function(_$ErrorNotificationsCountImpl<T>) then) =
+      __$$ErrorNotificationsCountImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$ErrorNotificationsCountImplCopyWithImpl<T, $Res>
+    extends _$NotificationsStateCopyWithImpl<T, $Res,
+        _$ErrorNotificationsCountImpl<T>>
+    implements _$$ErrorNotificationsCountImplCopyWith<T, $Res> {
+  __$$ErrorNotificationsCountImplCopyWithImpl(
+      _$ErrorNotificationsCountImpl<T> _value,
+      $Res Function(_$ErrorNotificationsCountImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NotificationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$ErrorNotificationsCountImpl<T>(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorNotificationsCountImpl<T> implements ErrorNotificationsCount<T> {
+  const _$ErrorNotificationsCountImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'NotificationsState<$T>.errorNotificationsCount(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorNotificationsCountImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of NotificationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorNotificationsCountImplCopyWith<T, _$ErrorNotificationsCountImpl<T>>
+      get copyWith => __$$ErrorNotificationsCountImplCopyWithImpl<T,
+          _$ErrorNotificationsCountImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data, bool hasMore) success,
+    required TResult Function(String error) error,
+    required TResult Function() loadingNotificationsCount,
+    required TResult Function(T data) successNotificationsCount,
+    required TResult Function(String error) errorNotificationsCount,
+  }) {
+    return errorNotificationsCount(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data, bool hasMore)? success,
+    TResult? Function(String error)? error,
+    TResult? Function()? loadingNotificationsCount,
+    TResult? Function(T data)? successNotificationsCount,
+    TResult? Function(String error)? errorNotificationsCount,
+  }) {
+    return errorNotificationsCount?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data, bool hasMore)? success,
+    TResult Function(String error)? error,
+    TResult Function()? loadingNotificationsCount,
+    TResult Function(T data)? successNotificationsCount,
+    TResult Function(String error)? errorNotificationsCount,
+    required TResult orElse(),
+  }) {
+    if (errorNotificationsCount != null) {
+      return errorNotificationsCount(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(LoadingNotificationsCount<T> value)
+        loadingNotificationsCount,
+    required TResult Function(SuccessNotificationsCount<T> value)
+        successNotificationsCount,
+    required TResult Function(ErrorNotificationsCount<T> value)
+        errorNotificationsCount,
+  }) {
+    return errorNotificationsCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult? Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult? Function(ErrorNotificationsCount<T> value)?
+        errorNotificationsCount,
+  }) {
+    return errorNotificationsCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(LoadingNotificationsCount<T> value)?
+        loadingNotificationsCount,
+    TResult Function(SuccessNotificationsCount<T> value)?
+        successNotificationsCount,
+    TResult Function(ErrorNotificationsCount<T> value)? errorNotificationsCount,
+    required TResult orElse(),
+  }) {
+    if (errorNotificationsCount != null) {
+      return errorNotificationsCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorNotificationsCount<T> implements NotificationsState<T> {
+  const factory ErrorNotificationsCount(final String error) =
+      _$ErrorNotificationsCountImpl<T>;
+
+  String get error;
+
+  /// Create a copy of NotificationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ErrorNotificationsCountImplCopyWith<T, _$ErrorNotificationsCountImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -10,6 +10,7 @@ import 'package:dirasati/features/Parent account/ui/widget/account_option.dart';
 import 'package:dirasati/features/change%20password/logic/cubit/change_password_cubit.dart';
 import 'package:dirasati/features/change%20password/ui/change_password.dart';
 import 'package:dirasati/features/choose son/data/model/get_me_response.dart';
+import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_cubit.dart';
 import 'package:dirasati/features/parent%20info/ui/parent_inforamtion_page.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,10 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context
+        .read<NotificationsCubit>()
+        .getCountNotifications(); // Fetch notifications count
+
     return PopScope(
       // Removed onPopInvoked as PopDisposition is undefined
       child: Scaffold(
@@ -129,7 +134,10 @@ class AccountPage extends StatelessWidget {
 
   Widget _backButton(BuildContext context) {
     return IconButton(
-      onPressed: () => context.pop(),
+      onPressed: () {
+        context.pop();
+        context.read<NotificationsCubit>().getCountNotifications();
+      },
       icon: Image.asset(
         IconsManager.backButton,
         height: 40.h,

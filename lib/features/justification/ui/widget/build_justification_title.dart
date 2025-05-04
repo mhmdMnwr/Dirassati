@@ -1,9 +1,9 @@
+import 'package:dirasati/core/helpers/date_formatter.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 
 class BuildJustificationTitle extends StatelessWidget {
   final String subjectName;
@@ -13,8 +13,6 @@ class BuildJustificationTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateFormat formatter = DateFormat('dd/MM/yyyy\nHH:mm');
-    String formatted = formatter.format(absentSinceDate!);
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -33,7 +31,7 @@ class BuildJustificationTitle extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: 30.w),
           child: Text(
-            formatted,
+            DateFormatterHelper.fomatedDate(absentSinceDate!),
             style: TextStyles.font16BlackBold,
           ),
         ),

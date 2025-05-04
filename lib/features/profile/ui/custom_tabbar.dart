@@ -5,6 +5,7 @@ import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/HomeWork/logic/cubit/home_work_cubit.dart';
 import 'package:dirasati/features/HomeWork/ui/home_work_page.dart';
+import 'package:dirasati/features/announcement/ui/announcement_page.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
@@ -130,20 +131,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
         itemCount: items.length,
         itemBuilder: (context, index) {
           if (index == 0) {
-            return Padding(
-              padding: EdgeInsets.all(20.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    icons[current],
-                  ),
-                  horizontalSpace(20),
-                  Text("${items[current]} Content",
-                      style: Theme.of(context).textTheme.headlineSmall),
-                ],
-              ),
-            );
+            return AnnouncementPage();
           } else if (index == 1) {
             return SchedulePage();
           } else if (index == 2) {

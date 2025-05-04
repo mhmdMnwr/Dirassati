@@ -1,6 +1,6 @@
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
-import 'package:dirasati/core/widgets/notification_circle.dart';
+import 'package:dirasati/core/widgets/notification_count_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -44,9 +44,7 @@ class BuildAccountIcon extends StatelessWidget {
               ),
             ),
             // Notification badge
-           NotificationCircle(
-              notificationCount: 5, // Replace with actual count
-            ),
+            NotificationCountBlocBuilder(),
           ],
         ),
       ),

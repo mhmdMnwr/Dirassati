@@ -60,8 +60,15 @@ class AppRouter {
         );
       case Routes.chooseSonScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<GetMyStudentsCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<GetMyStudentsCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<NotificationsCubit>(),
+              ),
+            ],
             child: ChooseSonPage(),
           ),
         );
@@ -77,8 +84,18 @@ class AppRouter {
 
       case Routes.acountPage:
         return MaterialPageRoute(
-            builder: (_) => AccountPage(
-                  parentModel: arguments as UserData,
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => getIt<GetMyStudentsCubit>(),
+                    ),
+                    BlocProvider(
+                      create: (context) => getIt<NotificationsCubit>(),
+                    ),
+                  ],
+                  child: AccountPage(
+                    parentModel: arguments as UserData,
+                  ),
                 ));
       case Routes.notificationPage:
         return MaterialPageRoute(

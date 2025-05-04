@@ -15,6 +15,7 @@ import 'package:dirasati/features/justification/data/model/send_justification_re
 import 'package:dirasati/features/justification/data/model/send_update_justification_request.dart';
 import 'package:dirasati/features/marks/data/model/marks_model.dart';
 import 'package:dirasati/features/marks/data/model/years_model.dart';
+import 'package:dirasati/features/notifications/data/model/count_notification_model.dart';
 import 'package:dirasati/features/notifications/data/model/notifications_model.dart';
 import 'package:dirasati/features/parent%20info/data/model/update_parent_request.dart';
 import 'package:retrofit/retrofit.dart';
@@ -100,5 +101,10 @@ abstract class ApiService {
   Future<NotificationsResponse> getMyNotifications(
     @Query("page") int page,
     @Query("limit") int limit,
+  );
+
+  @GET("${ApiConstants.getNotificationsCount}/{receiverId}")
+  Future<CountNotificationModel> getNotificationsCount(
+    @Path("receiverId") String receiverId,
   );
 }

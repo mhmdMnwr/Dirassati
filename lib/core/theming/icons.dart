@@ -45,4 +45,5 @@ class IconsManager {
   static const String noHomeWorkBackground =
       '$_basePath/no_home_work_background.png';
   static const String viewFile = '$_basePath/view_file.png';
+  static const String marksUpdated = '$_basePath/marks_updated.png';
 }

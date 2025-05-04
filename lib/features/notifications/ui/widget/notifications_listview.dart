@@ -6,8 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class NotificationsListview extends StatelessWidget {
   final List<NotificationModel> allNotifications;
   final ScrollController scrollController;
-  final bool
-      isLoadingMore; // This should be managed by the parent widget or state management solution
+  final bool isLoadingMore;
 
   const NotificationsListview({
     super.key,
