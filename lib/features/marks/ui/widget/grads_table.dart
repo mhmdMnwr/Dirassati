@@ -51,8 +51,8 @@ class GradesTable extends StatelessWidget {
         ),
         _cell(g.firstTest.toString()),
         _cell(secondTest),
-        _cell(g.subject!.coefficient.toString()),
         _cell(g.exam.toString()),
+        _cell(g.subject!.coefficient.toString()),
         Text(avg!.toStringAsFixed(2),
             style: TextStyle(
                 color: avg >= 10 ? Colors.green : Colors.red,
