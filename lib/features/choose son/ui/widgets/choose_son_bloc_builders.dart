@@ -1,3 +1,6 @@
+import 'package:dirasati/core/helpers/extensions.dart';
+import 'package:dirasati/core/helpers/shared_pref_helper.dart';
+import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_cubit.dart';
 import 'package:dirasati/features/choose%20son/logic/cubit/get_my_students_state.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/app_bar.dart';
@@ -117,7 +120,8 @@ class ChooseSonBlocBuilders {
                       SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () {
-                          context.read<GetMyStudentsCubit>().getMe();
+                          SharedPrefHelper.clearAllData();
+                          context.pushReplacementNamed(Routes.loginScreen);
                         },
                         child: Text('Retry'),
                       ),

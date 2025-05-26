@@ -1,4 +1,6 @@
+import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
+import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +113,7 @@ class _HomeWorkListItemState extends State<HomeWorkListItem> {
   Widget _buildAttachmentIcon() {
     return Center(
       child: GestureDetector(
-        onTap: _onAttachmentTap,
+        onTap: () => _onAttachmentTap(context),
         child: Image.asset(
           IconsManager.viewFile,
           width: 50.w,
@@ -122,8 +124,13 @@ class _HomeWorkListItemState extends State<HomeWorkListItem> {
   }
 
   void _toggleExpanded() => setState(() => _isExpanded = !_isExpanded);
-  void _onAttachmentTap() {
-    // TODO: implement attachment handling
+  void _onAttachmentTap(BuildContext context) {
+    context.pushNamed(Routes.pdfPage, arguments: {
+      //TODO : Update this to use the correct URL from your API
+      'pdfUrl':
+          'https://res.cloudinary.com/dzwjbf2dc/raw/upload/v1748216074/qpexj7d6tk7hod92nuly.pdf',
+      'pdfName': 'Homework Attachment',
+    });
   }
 
   String _formatDate(DateTime date) => '${date.day}/${date.month}/${date.year}';

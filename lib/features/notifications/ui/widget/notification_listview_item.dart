@@ -111,22 +111,24 @@ class _NotificationListviewItemState extends State<NotificationListviewItem> {
                 size: 20.sp,
                 color: Theme.of(context).primaryColor,
               ),
-          Positioned(
-            top: -2.h,
-            right: -2.w,
-            child: Container(
-              height: 14.h,
-              width: 14.h,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.white,
-                  width: 1.sp,
+          // Notification badge the red circle that means that the notification is new
+          if (widget.notification?.status == 'UNSEEN')
+            Positioned(
+              top: -2.h,
+              right: -2.w,
+              child: Container(
+                height: 14.h,
+                width: 14.h,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1.sp,
+                  ),
                 ),
               ),
             ),
-          ),
         ]),
       ),
     );

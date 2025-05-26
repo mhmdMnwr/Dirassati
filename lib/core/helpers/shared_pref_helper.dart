@@ -14,7 +14,6 @@ class SharedPrefHelper {
 
   /// Removes all keys and values in the SharedPreferences
   static clearAllData() async {
-    debugPrint('SharedPrefHelper : all data has been cleared');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.clear();
   }

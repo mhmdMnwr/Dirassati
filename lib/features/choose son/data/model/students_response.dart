@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 class StudentsResponse {
   final bool success;
   final int statusCode;
@@ -32,7 +34,8 @@ class Student {
   final String lastName;
   final String email;
   final String role;
-  final String classId;
+  @JsonKey(name: 'class')
+  final Classa classa;
   final String code;
   final String level;
   final DateTime birthDate;
@@ -48,7 +51,7 @@ class Student {
     required this.lastName,
     required this.email,
     required this.role,
-    required this.classId,
+    required this.classa,
     required this.code,
     required this.level,
     required this.birthDate,
@@ -66,7 +69,7 @@ class Student {
       lastName: json['lastName'],
       email: json['email'],
       role: json['role'],
-      classId: json['class'],
+      classa: Classa.fromJson(json['class'] as Map<String, dynamic>),
       code: json['code'],
       level: json['level'],
       birthDate: DateTime.parse(json['birthDate']),
@@ -85,7 +88,7 @@ class Student {
       'lastName': lastName,
       'email': email,
       'role': role,
-      'class': classId,
+      'class': classa.toJson(),
       'code': code,
       'level': level,
       'birthDate': birthDate.toIso8601String(),
@@ -94,6 +97,30 @@ class Student {
       'phone': phone,
       'address': address,
       'isAbsent': isAbsent,
+    };
+  }
+}
+
+class Classa {
+  final String planning;
+  final String? examPlanning;
+
+  const Classa({
+    required this.planning,
+    this.examPlanning,
+  });
+
+  factory Classa.fromJson(Map<String, dynamic> json) {
+    return Classa(
+      planning: json['planning'],
+      examPlanning: json['examPlanning'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'planning': planning,
+      'examPlanning': examPlanning,
     };
   }
 }

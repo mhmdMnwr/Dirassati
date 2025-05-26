@@ -120,8 +120,6 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
     );
   }
 
-//TODO fix the navigation here
-//! TODO
   Widget _buildContentArea() {
     return SizedBox(
       height: 750.h,

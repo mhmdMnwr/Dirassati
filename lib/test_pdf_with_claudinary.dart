@@ -67,8 +67,6 @@ class _PdfUploaderAndViewerState extends State<PdfUploaderAndViewer> {
       return;
     }
 
-    debugPrint("Attempting to fetch from: $_uploadedPdfUrl");
-
     setState(() => _isLoading = true);
     try {
       final fetchedFile = await _apiService.fetchPdf(_uploadedPdfUrl!);

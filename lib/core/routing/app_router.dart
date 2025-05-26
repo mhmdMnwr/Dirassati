@@ -1,4 +1,5 @@
 import 'package:dirasati/core/routing/routes.dart';
+import 'package:dirasati/core/widgets/show_pdf_dialog.dart';
 import 'package:dirasati/features/Parent%20account/ui/parent_acount_page.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
 import 'package:dirasati/features/auth/ui/forget_password_page.dart';
@@ -103,6 +104,13 @@ class AppRouter {
                   create: (context) => getIt<NotificationsCubit>(),
                   child: NotificationsPage(),
                 ));
+      case Routes.pdfPage:
+        return MaterialPageRoute(
+          builder: (_) => DirectPdfLoaderScreen(
+            pdfUrl: (arguments as Map<String, dynamic>)['url'] as String,
+            pdfName: (arguments)['title'] as String,
+          ),
+        );
 
       default:
         return null;

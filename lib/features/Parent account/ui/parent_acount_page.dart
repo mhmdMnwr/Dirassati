@@ -5,6 +5,7 @@ import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/core/widgets/confirm_logout.dart';
 import 'package:dirasati/features/Parent account/ui/widget/account_header.dart';
 import 'package:dirasati/features/Parent account/ui/widget/account_option.dart';
 import 'package:dirasati/features/change%20password/logic/cubit/change_password_cubit.dart';
@@ -122,14 +123,18 @@ class AccountPage extends StatelessWidget {
           icon: IconsManager.notifications,
           title: 'Notifications',
           onTap: () {
-            context.pushNamed(Routes.notificationPage);
+            context.pushNamed(Routes.notificationPage).then((_) {
+              context.read<NotificationsCubit>().getCountNotifications();
+            });
           },
         ),
         AccountOption(
-          icon: IconsManager.logOut,
-          title: 'Log Out',
-          onTap: () => _logOut(context),
-        ),
+            icon: IconsManager.logOut,
+            title: 'Log Out',
+            onTap: () => showLogoutConfirmationDialog(
+                  context: context,
+                  onConfirm: () => _logOut(context),
+                )),
       ];
 
   Widget _backButton(BuildContext context) {
@@ -148,8 +153,6 @@ class AccountPage extends StatelessWidget {
 
   void _logOut(BuildContext context) {
     SharedPrefHelper.clearAllData();
-    context.pushReplacementNamed(Routes.loginScreen).then((_) {
-      context.read<NotificationsCubit>().getCountNotifications();
-    });
+    context.pushReplacementNamed(Routes.loginScreen).then((_) {});
   }
 }
