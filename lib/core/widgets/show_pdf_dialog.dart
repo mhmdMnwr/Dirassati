@@ -306,7 +306,8 @@ class PdfViewerScreen extends StatelessWidget {
         elevation: 1,
         backgroundColor: Colors.deepPurple,
         iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.onSurface,
+          color: Colors
+              .white, // Changed from Theme.of(context).colorScheme.onSurface
         ),
       ),
       body: SfPdfViewer.file(

@@ -10,14 +10,18 @@ import 'package:path_provider/path_provider.dart';
 
 class ScheduleButton extends StatelessWidget {
   final String scheduleIcon;
+  final VoidCallback? onTap;
   final String scheduleTitle;
   const ScheduleButton(
-      {super.key, required this.scheduleIcon, required this.scheduleTitle});
+      {super.key,
+      required this.scheduleIcon,
+      required this.scheduleTitle,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => ExamSchedulePopup.show(context, scheduleTitle),
+      onTap: onTap,
       child: Container(
         height: 77.h,
         width: 394.w,

@@ -18,6 +18,7 @@ class ApiConstants {
   static const homeworks = "homeworks/student";
   static const getMyNotifications = "notifications/me";
   static const getNotificationsCount = "notifications/unseen-count";
+  static const getMyBell = "tuition-fee/me";
 }
 
 class ApiErrors {

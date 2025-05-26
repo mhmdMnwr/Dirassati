@@ -75,7 +75,7 @@ class ListViewWidget extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 10.w),
                     child: RotatedBox(
                       quarterTurns: 3, // 1 turn = 90 degrees
-                      child: Text("Primary",
+                      child: Text(_getLevel(student.level),
                           style: TextStyles.font24darGraykSeliBold),
                     ),
                   )
@@ -86,6 +86,14 @@ class ListViewWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getLevel(String level) {
+    final parts = level.split(' ');
+    if (parts.length > 1 && parts[1].trim().isNotEmpty) {
+      return parts[1];
+    }
+    return "UNKNOWN";
   }
 
   String getLevelImage(int level) {

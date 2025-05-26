@@ -107,8 +107,8 @@ class AppRouter {
       case Routes.pdfPage:
         return MaterialPageRoute(
           builder: (_) => DirectPdfLoaderScreen(
-            pdfUrl: (arguments as Map<String, dynamic>)['url'] as String,
-            pdfName: (arguments)['title'] as String,
+            pdfUrl: (arguments as Map<String, dynamic>)['pdfUrl'] as String,
+            pdfName: (arguments)['pdfName'] as String,
           ),
         );
 

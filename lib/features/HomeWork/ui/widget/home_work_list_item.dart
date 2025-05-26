@@ -128,7 +128,7 @@ class _HomeWorkListItemState extends State<HomeWorkListItem> {
     context.pushNamed(Routes.pdfPage, arguments: {
       //TODO : Update this to use the correct URL from your API
       'pdfUrl':
-          'https://res.cloudinary.com/dzwjbf2dc/raw/upload/v1748216074/qpexj7d6tk7hod92nuly.pdf',
+          'https://res.cloudinary.com/dzwjbf2dc/raw/upload/v1748227798/fiktacddy6yhqjuzvsc7.pdf',
       'pdfName': 'Homework Attachment',
     });
   }
