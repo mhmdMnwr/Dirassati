@@ -17,6 +17,7 @@ import 'package:dirasati/features/marks/data/model/marks_model.dart';
 import 'package:dirasati/features/marks/data/model/years_model.dart';
 import 'package:dirasati/features/notifications/data/model/count_notification_model.dart';
 import 'package:dirasati/features/notifications/data/model/notifications_model.dart';
+import 'package:dirasati/features/paiment/data/model/paiment_model.dart';
 import 'package:dirasati/features/parent%20info/data/model/update_parent_request.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
@@ -107,4 +108,7 @@ abstract class ApiService {
   Future<CountNotificationModel> getNotificationsCount(
     @Path("receiverId") String receiverId,
   );
+
+  @GET(ApiConstants.getMyTuition)
+  Future<PaimentResponse> getMyTuition();
 }

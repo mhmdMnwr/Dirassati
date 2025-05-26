@@ -35,7 +35,7 @@ class Student {
   final String email;
   final String role;
   @JsonKey(name: 'class')
-  final Classa classa;
+  final Classa? classa;
   final String code;
   final String level;
   final DateTime birthDate;
@@ -51,7 +51,7 @@ class Student {
     required this.lastName,
     required this.email,
     required this.role,
-    required this.classa,
+    this.classa,
     required this.code,
     required this.level,
     required this.birthDate,
@@ -88,7 +88,7 @@ class Student {
       'lastName': lastName,
       'email': email,
       'role': role,
-      'class': classa.toJson(),
+      'class': classa?.toJson(),
       'code': code,
       'level': level,
       'birthDate': birthDate.toIso8601String(),
@@ -102,11 +102,11 @@ class Student {
 }
 
 class Classa {
-  final String planning;
+  final String? planning;
   final String? examPlanning;
 
   const Classa({
-    required this.planning,
+    this.planning,
     this.examPlanning,
   });
 

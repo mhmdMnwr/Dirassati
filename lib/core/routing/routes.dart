@@ -9,4 +9,5 @@ class Routes {
   static const String acountPage = '/accountPage';
   static const String notificationPage = '/notificationPage';
   static const String pdfPage = '/pdfPage';
+  static const String paimentPage = '/paimentPage';
 }
