@@ -23,13 +23,12 @@ class SchedulePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ScheduleButton(
-              onTap: () => _showDialog(
-                  context, 'Daily Schedule', student.classa?.planning ?? ''),
+              onTap: () => _idkHowToNameThisFunction(context, 'Daily Schedule'),
               scheduleIcon: IconsManager.dailySchedule,
               scheduleTitle: 'Daily Schedule'),
           verticalSpace(80),
           ScheduleButton(
-              onTap: () => _showDialog(context, 'Exam Schedule', ''),
+              onTap: () => _idkHowToNameThisFunction(context, 'exam Schedule'),
               scheduleIcon: IconsManager.examSchedule,
               scheduleTitle: 'Exam Schedule'),
         ],
@@ -37,9 +36,24 @@ class SchedulePage extends StatelessWidget {
     );
   }
 
+  void _idkHowToNameThisFunction(
+    BuildContext context,
+    String scheduleTitle,
+  ) {
+    if (student.classa?.examPlanning != null &&
+        student.classa!.examPlanning!.isNotEmpty) {
+      _showDialog(context, scheduleTitle, student.classa!.examPlanning!);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('This schedule is not available for now.'),
+        ),
+      );
+    }
+  }
+
   void _showDialog(BuildContext context, String scheduleTitle, String url) {
     context.pushNamed(Routes.pdfPage, arguments: {
-      //TODO : Update this to use the correct URL from your API
       'pdfUrl': url,
       'pdfName': scheduleTitle,
     });
