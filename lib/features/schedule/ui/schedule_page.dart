@@ -23,12 +23,14 @@ class SchedulePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ScheduleButton(
-              onTap: () => _idkHowToNameThisFunction(context, 'Daily Schedule'),
+              onTap: () => _idkHowToNameThisFunction(
+                  context, 'Daily Schedule', student.classa?.planning ?? ''),
               scheduleIcon: IconsManager.dailySchedule,
               scheduleTitle: 'Daily Schedule'),
           verticalSpace(80),
           ScheduleButton(
-              onTap: () => _idkHowToNameThisFunction(context, 'exam Schedule'),
+              onTap: () => _idkHowToNameThisFunction(
+                  context, 'exam Schedule', student.classa?.examPlanning ?? ''),
               scheduleIcon: IconsManager.examSchedule,
               scheduleTitle: 'Exam Schedule'),
         ],
@@ -39,14 +41,15 @@ class SchedulePage extends StatelessWidget {
   void _idkHowToNameThisFunction(
     BuildContext context,
     String scheduleTitle,
+    String url,
   ) {
-    if (student.classa?.examPlanning != null &&
-        student.classa!.examPlanning!.isNotEmpty) {
-      _showDialog(context, scheduleTitle, student.classa!.examPlanning!);
+    if (url != "") {
+      _showDialog(context, scheduleTitle, url);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('This schedule is not available for now.'),
+          backgroundColor: Colors.red,
         ),
       );
     }
