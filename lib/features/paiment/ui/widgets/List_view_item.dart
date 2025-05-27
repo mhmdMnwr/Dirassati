@@ -6,16 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dirasati/core/theming/colors.dart'; // Assuming you might need custom colors
 
-class PayStudentCard extends StatelessWidget {
+class PayStudentCard extends StatefulWidget {
   final PaimentModel paiment;
   const PayStudentCard({super.key, required this.paiment});
 
   @override
+  State<PayStudentCard> createState() => _PayStudentCardState();
+}
+
+class _PayStudentCardState extends State<PayStudentCard> {
+  bool _isNameExpanded = false;
+
+  @override
   Widget build(BuildContext context) {
+    final double containerHeight = _isNameExpanded ? 187.h : 167.h;
     return Padding(
       padding: EdgeInsets.symmetric(
           vertical: 8.h, horizontal: 16.w), // Increased vertical padding
       child: Container(
+        height: containerHeight, // Dynamic height
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16.r),
@@ -28,6 +37,7 @@ class PayStudentCard extends StatelessWidget {
           ],
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch, // Add this line
           children: [
             _buildAccentStripe(context),
             Expanded(
@@ -48,9 +58,11 @@ class PayStudentCard extends StatelessWidget {
   Widget _buildAccentStripe(BuildContext context) {
     return Container(
       width: 5.w, // Slightly thicker
-      height: 110.h, // Adjusted height to match more content
+      // Consider making height dynamic or ensuring it fits both 160.h and 180.h card heights
+      // For now, let's keep it as is, or adjust based on visual needs.
+      // height: _isNameExpanded ? 170.h : 150.h, // Example of dynamic accent stripe
       decoration: BoxDecoration(
-        color: ColorsManager.mainBlue, // Using a color from your ColorsManager
+        color: ColorsManager.skyBlue, // Using a color from your ColorsManager
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16.r),
           bottomLeft: Radius.circular(16.r),
@@ -61,14 +73,13 @@ class PayStudentCard extends StatelessWidget {
 
   Widget _buildContent(BuildContext context) {
     // Assuming PaimentModel has these fields, adjust if necessary
-    String nextAmount = paiment.nextPaymentAmount?.toStringAsFixed(2) ?? 'N/A';
-    String nextDate =
-        paiment.nextPaymentDate?.toIso8601String().substring(0, 10) ??
-            'N/A'; // Example formatting
+    String nextAmount =
+        widget.paiment.nextPaymentAmount?.toStringAsFixed(2) ?? 'N/A';
+    String nextDate = widget.paiment.formatedDate; // Example formatting
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.min, // Important for Column within Expanded
       children: [
         _buildStudentName(),
         verticalSpace(5.h),
@@ -94,21 +105,30 @@ class PayStudentCard extends StatelessWidget {
   }
 
   Widget _buildStudentName() {
-    return Text(
-      '${paiment.student?.firstName ?? ''} ${paiment.student?.lastName ?? 'Unknown Student'}'
-          .trim(),
-      style: TextStyles.font16BlackBold.copyWith(
-        fontSize: 17.sp, // Slightly larger
-        color: ColorsManager.darkBlue, // Using a color from your ColorsManager
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _isNameExpanded = !_isNameExpanded;
+        });
+      },
+      child: Text(
+        '${widget.paiment.student?.firstName ?? ''} ${widget.paiment.student?.lastName ?? 'Unknown Student'}'
+            .trim(),
+        style: TextStyles.font16BlackBold.copyWith(
+          fontSize: 15.sp, // Slightly larger
+          color:
+              ColorsManager.darkBlue, // Using a color from your ColorsManager
+        ),
+        maxLines: _isNameExpanded ? 2 : 1,
+        overflow: TextOverflow.ellipsis,
       ),
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
     );
   }
 
   Widget _buildStudentLevel() {
     return Text(
-      paiment.student?.level ?? 'N/A',
+      widget.paiment.student?.level ??
+          'N/A', // Corrected: Use paiment.student?.level directly
       style: TextStyles.font14DarkBlueMedium.copyWith(
         // Using a style from your TextStyles
         fontSize: 14.sp,
@@ -122,15 +142,18 @@ class PayStudentCard extends StatelessWidget {
 
   Widget _buildTotalAmountWithIcon(BuildContext context) {
     // Assuming PaimentModel has this field, adjust if necessary
-    String totalAmount = paiment.amount?.toStringAsFixed(2) ?? 'N/A';
+    String totalAmount = widget.paiment.amount?.toStringAsFixed(2) ?? 'N/A';
 
     return Padding(
       padding:
           EdgeInsets.only(right: 16.w, left: 8.w), // Add some left padding too
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment
+            .center, // Keep this for vertical centering of this column's content
         children: [
+          // verticalSpace(50), // This might need adjustment with dynamic card height
+          const Spacer(flex: 2), // Pushes content down more
           Icon(
             Icons.attach_money,
             color:
@@ -151,6 +174,19 @@ class PayStudentCard extends StatelessWidget {
             'Total Due',
             style: TextStyles.font12GrayRegular.copyWith(fontSize: 11.sp),
             textAlign: TextAlign.center,
+          ),
+          // verticalSpace(15), // Replaced by Spacer
+          const Spacer(flex: 1),
+          Padding(
+            padding: EdgeInsets.only(bottom: 8.h),
+            child: Text(
+              widget.paiment.paymentMode ?? 'N/A',
+              style: TextStyles.font12GrayMedium.copyWith(
+                color: ColorsManager.seconderyBlue,
+                fontSize: 12.sp,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
         ],
       ),

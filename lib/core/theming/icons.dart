@@ -46,4 +46,5 @@ class IconsManager {
       '$_basePath/no_home_work_background.png';
   static const String viewFile = '$_basePath/view_file.png';
   static const String marksUpdated = '$_basePath/marks_updated.png';
+  static const String tuition = '$_basePath/tuition_fee.png';
 }

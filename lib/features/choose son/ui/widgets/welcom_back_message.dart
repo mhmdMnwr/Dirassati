@@ -24,7 +24,7 @@ class WelcomBackMessage extends StatelessWidget {
               children: [
                 Text(
                   'Welcome Back!',
-                  style: TextStyles.font14BlueSemiBold,
+                  style: TextStyles.font18BlueSemiBold,
                 ),
                 Text(
                   parentName,

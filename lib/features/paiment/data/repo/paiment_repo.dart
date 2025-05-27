@@ -4,7 +4,7 @@ import 'package:dirasati/core/Networking/api_service.dart';
 import 'package:dirasati/features/paiment/data/model/paiment_model.dart';
 
 class PaimentRepo {
-  ApiService _apiService;
+  final ApiService _apiService;
 
   PaimentRepo(this._apiService);
 

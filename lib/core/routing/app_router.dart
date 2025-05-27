@@ -9,6 +9,7 @@ import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
 import 'package:dirasati/features/notifications/ui/notifications_page.dart';
+import 'package:dirasati/features/paiment/logic/cubit/paiment_cubit.dart';
 import 'package:dirasati/features/paiment/ui/paiment_page.dart';
 import 'package:dirasati/features/profile/ui/student_profile_page.dart';
 import 'package:dirasati/features/auth/ui/reset_password_page.dart';
@@ -114,7 +115,10 @@ class AppRouter {
         );
       case Routes.paimentPage:
         return MaterialPageRoute(
-          builder: (_) => PaimentPage(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<PaimentCubit>(),
+            child: PaimentPage(),
+          ),
         );
 
       default:

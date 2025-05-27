@@ -111,25 +111,76 @@ class _HomeWorkListItemState extends State<HomeWorkListItem> {
   }
 
   Widget _buildAttachmentIcon() {
-    return Center(
-      child: GestureDetector(
-        onTap: () => _onAttachmentTap(context),
-        child: Image.asset(
-          IconsManager.viewFile,
-          width: 50.w,
-          height: 50.h,
-        ),
-      ),
+    final attachments = widget.homeWork.attachments;
+    if (attachments == null || attachments.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    return ListView.builder(
+      shrinkWrap: true, // Important to make ListView work inside Column
+      physics:
+          const NeverScrollableScrollPhysics(), // Disable scrolling for the ListView
+      itemCount: attachments.length,
+      itemBuilder: (context, index) {
+        final url = attachments[index];
+        final pdfName = _extractPdfName(url);
+
+        return InkWell(
+          onTap: () => _onAttachmentTap(context, url),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 4.h),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  IconsManager.viewFile,
+                  width: 30.w,
+                  height: 30.h,
+                ),
+                horizontalSpace(8),
+                Expanded(
+                  child: Text(
+                    pdfName,
+                    style: TextStyles.font14BlueSemiBold.copyWith(
+                      decoration: TextDecoration.underline,
+                    ),
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
+  String _extractPdfName(String? url) {
+    if (url == null || url.isEmpty) return 'Attachment';
+    try {
+      final uri = Uri.parse(url);
+      String pathSegment = uri.pathSegments.last;
+      // Remove .pdf extension if present
+      if (pathSegment.toLowerCase().endsWith('.pdf')) {
+        pathSegment = pathSegment.substring(0, pathSegment.length - 4);
+      }
+      // Replace underscores/hyphens with spaces for better readability
+      pathSegment = pathSegment.replaceAll(RegExp(r'[_-]'), ' ');
+      return pathSegment.isNotEmpty ? pathSegment : 'Attachment';
+    } catch (e) {
+      print('Error parsing URL for pdfName: $e');
+      return 'Attachment';
+    }
+  }
+
   void _toggleExpanded() => setState(() => _isExpanded = !_isExpanded);
-  void _onAttachmentTap(BuildContext context) {
+  void _onAttachmentTap(BuildContext context, String? url) {
+    if (url == null || url.isEmpty) return;
+    final pdfName = _extractPdfName(url);
     context.pushNamed(Routes.pdfPage, arguments: {
-      //TODO : Update this to use the correct URL from your API
-      'pdfUrl':
-          'https://res.cloudinary.com/dzwjbf2dc/raw/upload/v1748227798/fiktacddy6yhqjuzvsc7.pdf',
-      'pdfName': 'Homework Attachment',
+      'pdfUrl': url,
+      'pdfName': pdfName,
     });
   }
 

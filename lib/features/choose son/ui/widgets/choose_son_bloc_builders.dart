@@ -57,9 +57,9 @@ class ChooseSonBlocBuilders {
                 context.read<NotificationsCubit>().getCountNotifications();
                 String getParenTitle(String? gender) {
                   if (gender == 'Male') {
-                    return 'Mr.';
+                    return 'سيد.';
                   } else if (gender == 'Female') {
-                    return 'Ms.';
+                    return 'سيدة.';
                   }
                   return '';
                 }

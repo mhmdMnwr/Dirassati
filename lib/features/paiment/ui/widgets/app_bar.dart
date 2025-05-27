@@ -22,16 +22,18 @@ const double _kInterElementSpacingLarge = 15.0;
 
 class PaymentAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final String totalToPay;
+  final String nextPaiment;
   final String nextPaymentDate;
-  final String totalPayed;
+  final String totalToPay;
+  final int daysLeft; // Example value, replace with actual logic
 
   const PaymentAppBar({
     super.key,
     required this.title,
-    required this.totalToPay,
+    required this.daysLeft,
+    required this.nextPaiment,
     required this.nextPaymentDate,
-    required this.totalPayed,
+    required this.totalToPay,
   });
 
   @override
@@ -44,9 +46,10 @@ class PaymentAppBar extends StatelessWidget implements PreferredSizeWidget {
         _AppBarTitleWithBackButton(
             title: title, statusBarHeight: statusBarHeight),
         _PaymentDetailsCard(
+          daysLeft: daysLeft,
           totalToPay: totalToPay,
           nextPaymentDate: nextPaymentDate,
-          totalPayed: totalPayed,
+          nextPaiment: nextPaiment, // Fixed typo here
           statusBarHeight: statusBarHeight,
         ),
       ],
@@ -68,7 +71,7 @@ class _BlueBackgroundContainer extends StatelessWidget {
       ),
       height: _kAppBarHeight.h,
       decoration: BoxDecoration(
-        color: ColorsManager.mainBlue,
+        color: ColorsManager.skyBlue,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(_kBottomBorderRadius.r),
           bottomRight: Radius.circular(_kBottomBorderRadius.r),
@@ -120,18 +123,23 @@ class _AppBarTitleWithBackButton extends StatelessWidget {
 class _PaymentDetailsCard extends StatelessWidget {
   final String totalToPay;
   final String nextPaymentDate;
-  final String totalPayed;
+  final String nextPaiment; // Fixed typo here
   final double statusBarHeight;
+  final int daysLeft; // Example value, replace with actual logic
 
   const _PaymentDetailsCard({
+    required this.daysLeft,
     required this.totalToPay,
     required this.nextPaymentDate,
-    required this.totalPayed,
+    required this.nextPaiment, // Fixed typo here
     required this.statusBarHeight,
   });
 
+  // Determine singular/plural
+
   @override
   Widget build(BuildContext context) {
+    final String day = (daysLeft == 1) ? 'day' : 'days';
     return Positioned(
       top: statusBarHeight + 70.h, // Position below title
       left: _kHorizontalPadding.w,
@@ -157,7 +165,7 @@ class _PaymentDetailsCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Total to Pay',
+              'Total to pay',
               style: TextStyles.font14GrayRegular,
             ),
             SizedBox(height: _kInterElementSpacingMedium.h),
@@ -173,11 +181,11 @@ class _PaymentDetailsCard extends StatelessWidget {
               children: [
                 _PaymentDetailItem(
                   label: 'Next Date to Pay',
-                  value: nextPaymentDate,
+                  value: '$nextPaymentDate ( $daysLeft $day left)',
                 ),
                 _PaymentDetailItem(
-                  label: 'Total Payed',
-                  value: totalPayed,
+                  label: 'Next amount to pay',
+                  value: nextPaiment, // Fixed typo here
                   isAlignedEnd: true,
                 ),
               ],

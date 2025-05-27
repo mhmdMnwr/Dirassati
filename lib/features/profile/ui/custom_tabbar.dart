@@ -131,7 +131,9 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
           if (index == 0) {
             return AnnouncementPage();
           } else if (index == 1) {
-            return SchedulePage();
+            return SchedulePage(
+              student: widget.student,
+            );
           } else if (index == 2) {
             return BlocProvider(
               create: (context) => MarksCubit(getIt<MarksRepository>()),

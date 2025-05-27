@@ -1,3 +1,4 @@
+import 'package:dirasati/core/helpers/date_formatter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'paiment_model.g.dart';
@@ -12,7 +13,7 @@ class PaimentResponse {
     this.data,
   });
 
-  get NextPaimnetDate {
+  get nextPaimnetDate {
     if (data != null && data!.isNotEmpty) {
       return data!
           .map((e) => e.nextPaymentDate)
@@ -22,9 +23,17 @@ class PaimentResponse {
     return null;
   }
 
+  get nextPaimnetDateString {
+    final nextDate = nextPaimnetDate;
+    if (nextDate != null) {
+      return DateFormatterHelper.fomatedDateWithiytHour(nextDate);
+    }
+    return 'N/A';
+  }
+
   get nextPaimentAmount {
     if (data != null && data!.isNotEmpty) {
-      final nextDate = NextPaimnetDate;
+      final nextDate = nextPaimnetDate;
       if (nextDate != null) {
         final paiment = data!.firstWhere(
           (e) => e.nextPaymentDate == nextDate,
@@ -39,19 +48,21 @@ class PaimentResponse {
   get totalNotPaidAmount {
     if (data != null && data!.isNotEmpty) {
       return data!
-          .map((e) => (e.amount ?? 0) - (e.paidAmount ?? 0)) // Provide defaults for null values
-          .fold(0, (prev, element) => prev + element);
+          .map((e) =>
+              (e.amount ?? 0) -
+              (e.paidAmount ?? 0)) // Provide defaults for null values
+          .fold<int>(0, (prev, element) => prev + element);
     }
     return 0;
   }
 
-  get daysLeftForNextPaiment {
-    final nextDate = NextPaimnetDate;
+  int get daysLeftForNextPaiment {
+    final nextDate = nextPaimnetDate;
     if (nextDate != null) {
       final now = DateTime.now();
       return nextDate.difference(now).inDays;
     }
-    return null;
+    return 0;
   }
 
   factory PaimentResponse.fromJson(Map<String, dynamic> json) =>
@@ -69,6 +80,17 @@ class PaimentModel {
   final int? paidAmount;
   final int? nextPaymentAmount;
   final DateTime? nextPaymentDate;
+
+  int get totalToPay {
+    return (amount ?? 0) - (paidAmount ?? 0);
+  }
+
+  String get formatedDate {
+    if (nextPaymentDate != null) {
+      return DateFormatterHelper.fomatedDateWithiytHour(nextPaymentDate!);
+    }
+    return 'N/A';
+  }
 
   PaimentModel({
     this.id,

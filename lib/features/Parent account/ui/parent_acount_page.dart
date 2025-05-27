@@ -119,6 +119,13 @@ class AccountPage extends StatelessWidget {
           },
         ),
         AccountOption(
+          icon: IconsManager.tuition,
+          title: 'Tuition Fees',
+          onTap: () {
+            context.pushNamed(Routes.paimentPage);
+          },
+        ),
+        AccountOption(
           isNotification: true,
           icon: IconsManager.notifications,
           title: 'Notifications',
@@ -151,8 +158,8 @@ class AccountPage extends StatelessWidget {
     );
   }
 
-  void _logOut(BuildContext context) {
-    SharedPrefHelper.clearAllData();
+  void _logOut(BuildContext context) async {
+    await SharedPrefHelper.clearAllData();
     context.pushReplacementNamed(Routes.loginScreen).then((_) {});
   }
 }

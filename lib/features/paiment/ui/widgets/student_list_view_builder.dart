@@ -6,7 +6,7 @@ import 'package:dirasati/features/paiment/data/model/paiment_model.dart';
 import 'package:dirasati/features/paiment/ui/widgets/List_view_item.dart';
 
 class StudentListViewBuilder extends StatelessWidget {
-  final List<PaimentModel> paiments;
+  final List<PaimentModel>? paiments;
   const StudentListViewBuilder({
     super.key,
     required this.paiments,
@@ -15,7 +15,7 @@ class StudentListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: paiments.length,
+      itemCount: paiments?.length ?? 0, // Ensure we handle null or empty lists
       itemBuilder: (context, index) {
         return Padding(
           padding: EdgeInsets.only(
@@ -25,7 +25,16 @@ class StudentListViewBuilder extends StatelessWidget {
             left: 16.w,
           ),
           child: PayStudentCard(
-            paiment: paiments[index],
+            paiment: paiments?[index] ??
+                PaimentModel(
+                  id: '0',
+                  student: null,
+                  amount: 0,
+                  paymentMode: '',
+                  paidAmount: 0,
+                  nextPaymentAmount: 0,
+                  nextPaymentDate: DateTime.now(),
+                ),
           ),
         );
       },
