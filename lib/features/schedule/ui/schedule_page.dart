@@ -25,13 +25,17 @@ class SchedulePage extends StatelessWidget {
         children: [
           ScheduleButton(
               onTap: () => _idkHowToNameThisFunction(
-                  context, AppLocalizations.of(context)!.daily_schedule, student.classa?.planning ?? ''),
+                  context,
+                  AppLocalizations.of(context)!.daily_schedule,
+                  student.classa?.planning ?? ''),
               scheduleIcon: IconsManager.dailySchedule,
               scheduleTitle: AppLocalizations.of(context)!.daily_schedule),
           verticalSpace(80),
           ScheduleButton(
               onTap: () => _idkHowToNameThisFunction(
-                  context, AppLocalizations.of(context)!.exam_schedule, student.classa?.examPlanning ?? ''),
+                  context,
+                  AppLocalizations.of(context)!.exam_schedule,
+                  student.classa?.examPlanning ?? ''),
               scheduleIcon: IconsManager.examSchedule,
               scheduleTitle: AppLocalizations.of(context)!.exam_schedule),
         ],

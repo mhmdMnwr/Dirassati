@@ -72,20 +72,23 @@ class TextFieldsColumn extends StatelessWidget {
   }
 
   String? _validateName(String? value, BuildContext context) {
-    if (value == null || value.trim().isEmpty) return AppLocalizations.of(context)!.cannot_be_empty;
+    if (value == null || value.trim().isEmpty)
+      return AppLocalizations.of(context)!.cannot_be_empty;
     if (value.trim().length < 2) return 'At least 2 characters';
     if (value.trim().length > 25) return 'Max 25 characters';
     return null;
   }
 
   String? _validateAddress(String? value, BuildContext context) {
-    if (value == null || value.trim().isEmpty) return AppLocalizations.of(context)!.cannot_be_empty;
+    if (value == null || value.trim().isEmpty)
+      return AppLocalizations.of(context)!.cannot_be_empty;
     if (value.trim().length > 50) return 'Max 50 characters';
     return null;
   }
 
   String? _validatePhone(String? value, BuildContext context) {
-    if (value == null || value.trim().isEmpty) return AppLocalizations.of(context)!.cannot_be_empty;
+    if (value == null || value.trim().isEmpty)
+      return AppLocalizations.of(context)!.cannot_be_empty;
 
     return null;
   }

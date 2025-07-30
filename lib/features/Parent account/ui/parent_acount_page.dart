@@ -1,6 +1,7 @@
 import 'package:dirasati/core/di/dependency_injection.dart';
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/helpers/shared_pref_helper.dart';
+import 'package:dirasati/core/language/language_cubit.dart';
 import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
@@ -138,6 +139,12 @@ class AccountPage extends StatelessWidget {
           },
         ),
         AccountOption(
+          icon: IconsManager
+              .name, // Using name icon as it's more generic for settings
+          title: 'Change Language', // Will be localized after ARB regeneration
+          onTap: () => _showLanguageSelection(context),
+        ),
+        AccountOption(
             icon: IconsManager.logOut,
             title: AppLocalizations.of(context)!.log_out,
             onTap: () => showLogoutConfirmationDialog(
@@ -163,5 +170,130 @@ class AccountPage extends StatelessWidget {
   void _logOut(BuildContext context) async {
     await SharedPrefHelper.clearAllData();
     context.pushReplacementNamed(Routes.loginScreen).then((_) {});
+  }
+
+  void _showLanguageSelection(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.r),
+          ),
+          title: Text(
+            'Select Language', // Will be localized after ARB regeneration
+            style: TextStyles.font18DarkBlueBold,
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _buildLanguageOption(
+                context: context,
+                language: 'English',
+                locale: const Locale('en'),
+                flag: '🇺🇸',
+              ),
+              const Divider(),
+              _buildLanguageOption(
+                context: context,
+                language: 'العربية',
+                locale: const Locale('ar'),
+                flag: '🇸🇦',
+              ),
+              const Divider(),
+              _buildLanguageOption(
+                context: context,
+                language: 'Français',
+                locale: const Locale('fr'),
+                flag: '🇫🇷',
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(
+                AppLocalizations.of(context)!.cancel,
+                style: TextStyles.font14GrayRegular,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildLanguageOption({
+    required BuildContext context,
+    required String language,
+    required Locale locale,
+    required String flag,
+  }) {
+    return InkWell(
+      onTap: () => _changeLanguage(context, locale),
+      borderRadius: BorderRadius.circular(8.r),
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
+        child: Row(
+          children: [
+            Text(
+              flag,
+              style: TextStyle(fontSize: 24.sp),
+            ),
+            SizedBox(width: 12.w),
+            Text(
+              language,
+              style: TextStyles.font14DarkBlueMedium,
+            ),
+            const Spacer(),
+            Icon(
+              Icons.language,
+              color: ColorsManager.mainBlue,
+              size: 20.sp,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _changeLanguage(BuildContext context, Locale locale) async {
+    Navigator.of(context).pop(); // Close the dialog first
+
+    try {
+      // Try to use LanguageCubit if available
+      final languageCubit = context.read<LanguageCubit>();
+      languageCubit.changeLanguage(locale);
+
+      // Show success message
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Language changed successfully!'),
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
+    } catch (e) {
+      // Fallback to SharedPreferences if LanguageCubit is not available
+      await SharedPrefHelper.setData('language_code', locale.languageCode);
+
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+                'Language changed. Please restart the app to see changes.'), // Will be localized after ARB regeneration
+            duration: const Duration(seconds: 3),
+            action: SnackBarAction(
+              label: 'Restart',
+              onPressed: () {
+                // Could implement app restart logic here
+              },
+            ),
+          ),
+        );
+      }
+    }
   }
 }

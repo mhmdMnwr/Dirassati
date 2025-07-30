@@ -67,7 +67,10 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
             totalToPay: '0 DZD', // Example, adjust as needed
             nextPaiment: '0 DZD',
           ),
-          Expanded(child: Center(child: Text(AppLocalizations.of(context)!.no_payment_information))),
+          Expanded(
+              child: Center(
+                  child: Text(
+                      AppLocalizations.of(context)!.no_payment_information))),
         ],
       );
     } else if (mode == modeType[3]) {
@@ -83,8 +86,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
           Expanded(
               child: _setupError(
             context,
-            errorMessage ??
-                AppLocalizations.of(context)!.payment_error,
+            errorMessage ?? AppLocalizations.of(context)!.payment_error,
           )),
         ],
       );

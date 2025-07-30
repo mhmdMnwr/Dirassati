@@ -19,7 +19,8 @@ class ActionButtons extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text(AppLocalizations.of(context)!.cancel, style: TextStyles.font16BlackBold),
+          child: Text(AppLocalizations.of(context)!.cancel,
+              style: TextStyles.font16BlackBold),
         ),
         SizedBox(width: 8.w),
         ElevatedButton(
@@ -31,7 +32,8 @@ class ActionButtons extends StatelessWidget {
             ),
           ),
           onPressed: () => onSave(),
-          child: Text(AppLocalizations.of(context)!.edit, style: TextStyles.font16Whitebold),
+          child: Text(AppLocalizations.of(context)!.edit,
+              style: TextStyles.font16Whitebold),
         ),
       ],
     );
