@@ -103,10 +103,14 @@ class MarksModel {
   double get calculateSubjectaverage {
     double avg = 0;
     if (subject!.isMain) {
-      avg = (noteCC! + firstTest! + secondTest! + 2 * exam!) / 5;
+      avg = ((noteCC ?? 0) +
+              (firstTest ?? 0) +
+              (secondTest ?? 0) +
+              2 * (exam ?? 0)) /
+          5;
       return avg;
     } else {
-      avg = (noteCC! + firstTest! + 2 * exam!) / 4;
+      avg = ((noteCC ?? 0) + (firstTest ?? 0) + 2 * (exam ?? 0)) / 4;
       return avg;
     }
   }
