@@ -4,6 +4,7 @@ import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
 import 'package:dirasati/features/schedule/ui/widget/schedule_button.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,15 +25,15 @@ class SchedulePage extends StatelessWidget {
         children: [
           ScheduleButton(
               onTap: () => _idkHowToNameThisFunction(
-                  context, 'Daily Schedule', student.classa?.planning ?? ''),
+                  context, AppLocalizations.of(context)!.daily_schedule, student.classa?.planning ?? ''),
               scheduleIcon: IconsManager.dailySchedule,
-              scheduleTitle: 'Daily Schedule'),
+              scheduleTitle: AppLocalizations.of(context)!.daily_schedule),
           verticalSpace(80),
           ScheduleButton(
               onTap: () => _idkHowToNameThisFunction(
-                  context, 'exam Schedule', student.classa?.examPlanning ?? ''),
+                  context, AppLocalizations.of(context)!.exam_schedule, student.classa?.examPlanning ?? ''),
               scheduleIcon: IconsManager.examSchedule,
-              scheduleTitle: 'Exam Schedule'),
+              scheduleTitle: AppLocalizations.of(context)!.exam_schedule),
         ],
       ),
     );
@@ -48,7 +49,7 @@ class SchedulePage extends StatelessWidget {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('This schedule is not available for now.'),
+          content: Text(AppLocalizations.of(context)!.schedule_not_available),
           backgroundColor: Colors.red,
         ),
       );

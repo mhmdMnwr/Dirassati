@@ -4,6 +4,7 @@ import 'package:dirasati/features/paiment/logic/cubit/paiment_cubit.dart';
 import 'package:dirasati/features/paiment/logic/cubit/paiment_state.dart';
 import 'package:dirasati/features/paiment/ui/widgets/app_bar.dart';
 import 'package:dirasati/features/paiment/ui/widgets/student_list_view_builder.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,14 +14,14 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
   PaimentBlocBuilderWidget({super.key});
 
   final List<String> modeType = [
-    'Loading',
-    "Success",
-    'Empty',
-    'Error',
+    'loading',
+    "success",
+    'empty',
+    'error',
   ];
 
   Widget _blocElement(
-      {BuildContext? context,
+      {required BuildContext context,
       PaimentResponse? paiment,
       String? errorMessage,
       required String mode}) {
@@ -29,7 +30,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: paiment!.nextPaimnetDateString,
-            title: "TUITION FEES",
+            title: AppLocalizations.of(context)!.tuition_fees,
             daysLeft:
                 paiment.daysLeftForNextPaiment, // Example, adjust as needed
             totalToPay:
@@ -48,7 +49,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: '',
-            title: "TUITION FEES",
+            title: AppLocalizations.of(context)!.tuition_fees,
             daysLeft: 0, // Example, adjust as needed
             totalToPay: '_____ DZD', // Example, adjust as needed
             nextPaiment: '0 DZD',
@@ -61,12 +62,12 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: '',
-            title: "TUITION FEES",
+            title: AppLocalizations.of(context)!.tuition_fees,
             daysLeft: 0, // Example, adjust as needed
             totalToPay: '0 DZD', // Example, adjust as needed
             nextPaiment: '0 DZD',
           ),
-          Expanded(child: Center(child: Text('No payment information found.'))),
+          Expanded(child: Center(child: Text(AppLocalizations.of(context)!.no_payment_information))),
         ],
       );
     } else if (mode == modeType[3]) {
@@ -74,16 +75,16 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: '',
-            title: "TUITION FEES",
+            title: AppLocalizations.of(context)!.tuition_fees,
             daysLeft: 0, // Example, adjust as needed
             totalToPay: '0 DZD', // Example, adjust as needed
             nextPaiment: '0 DZD',
           ),
           Expanded(
               child: _setupError(
-            context!,
+            context,
             errorMessage ??
-                'An error occurred while loading payment information.',
+                AppLocalizations.of(context)!.payment_error,
           )),
         ],
       );
@@ -100,11 +101,12 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
       builder: (context, state) {
         return state.whenOrNull(
               // Or a placeholder
-              loading: () => _blocElement(mode: modeType[0]),
+              loading: () => _blocElement(context: context, mode: modeType[0]),
               paimentLoaded: (paimentResponse) {
                 if (paimentResponse.data == null ||
                     paimentResponse.data!.isEmpty) {
                   return _blocElement(
+                    context: context,
                     mode: modeType[2],
                   );
                 } else {
@@ -134,7 +136,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Failed to load payment information: $error',
+              AppLocalizations.of(context)!.payment_error,
               style: TextStyle(color: Colors.red, fontSize: 16.sp),
               textAlign: TextAlign.center,
             ),
@@ -143,7 +145,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
               onPressed: () {
                 context.read<PaimentCubit>().getMyPaiment();
               },
-              child: Text('Retry'),
+              child: Text(AppLocalizations.of(context)!.retry),
             ),
           ],
         ),

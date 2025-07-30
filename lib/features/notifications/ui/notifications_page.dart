@@ -2,6 +2,7 @@ import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/notifications/ui/widget/notification_app_bar.dart';
 import 'package:dirasati/features/notifications/ui/widget/notifications_listview.dart';
 import 'package:dirasati/features/notifications/ui/widget/shimmer_loading.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,8 +65,8 @@ class _NotificationsPageState extends State<NotificationsPage> {
           },
           success: (data, hasMore) {
             if (notifications.isEmpty) {
-              return const Center(
-                child: Text('No notifications available'),
+              return Center(
+                child: Text(AppLocalizations.of(context)!.no_data),
               );
             } else {
               return NotificationsListview(

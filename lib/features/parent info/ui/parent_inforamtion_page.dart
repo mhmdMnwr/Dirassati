@@ -12,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/choose son/data/model/get_me_response.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 
 /// A dialog for editing parent information without BLoC.
 class ParentInformationDialog extends StatefulWidget {
@@ -85,7 +86,7 @@ class _ParentInformationDialogState extends State<ParentInformationDialog> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('User Information', style: TextStyles.font22BlackBold),
+                  Text(AppLocalizations.of(context)!.user_information, style: TextStyles.font22BlackBold),
                   verticalSpace(24.h),
 
                   TextFieldsColumn(

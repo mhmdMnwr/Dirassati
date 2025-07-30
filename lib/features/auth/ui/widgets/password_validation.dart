@@ -27,8 +27,7 @@ class PasswordValidations extends StatelessWidget {
         verticalSpace(2),
         buildValidationRow('At least 1 uppercase letter', hasUpperCase),
         verticalSpace(2),
-        buildValidationRow(
-            'At least 1 special character', hasSpecialCharacters),
+        buildValidationRow('At least 1 special character', hasSpecialCharacters),
         verticalSpace(2),
         buildValidationRow('At least 1 number', hasNumber),
         verticalSpace(2),

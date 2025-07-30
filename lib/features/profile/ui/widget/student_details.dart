@@ -3,6 +3,7 @@ import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/choose%20son/data/model/students_response.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -70,38 +71,38 @@ class StudentDetails extends StatelessWidget {
                 120,
               ),
               buildStudentDetails(
-                title: 'Family Name',
+                title: AppLocalizations.of(context)!.family_name,
                 isTitle: true,
                 value: student.lastName,
               ),
               buildStudentDetails(
-                title: 'First Name',
+                title: AppLocalizations.of(context)!.first_name,
                 isTitle: true,
                 value: student.firstName,
               ),
               buildStudentDetails(
-                title: 'Birthday',
+                title: AppLocalizations.of(context)!.birthday,
                 value:
                     '${student.birthDate.day}/${student.birthDate.month}/${student.birthDate.year}',
               ),
               buildStudentDetails(
-                title: 'Gender',
+                title: AppLocalizations.of(context)!.gender,
                 value: student.gender,
               ),
               buildStudentDetails(
-                title: 'Address',
+                title: AppLocalizations.of(context)!.address,
                 value: student.address,
               ),
               buildStudentDetails(
-                title: 'Phone',
+                title: AppLocalizations.of(context)!.phone,
                 value: student.phone,
               ),
               buildStudentDetails(
-                title: 'Email',
+                title: AppLocalizations.of(context)!.email_address,
                 value: student.email,
               ),
               buildStudentDetails(
-                title: 'Level',
+                title: AppLocalizations.of(context)!.level,
                 value: student.level,
               ),
             ],

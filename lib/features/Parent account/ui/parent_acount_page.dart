@@ -14,6 +14,7 @@ import 'package:dirasati/features/choose son/data/model/get_me_response.dart';
 import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_cubit.dart';
 import 'package:dirasati/features/parent%20info/ui/parent_inforamtion_page.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,7 +58,8 @@ class AccountPage extends StatelessWidget {
         ),
       ),
       leading: _backButton(context),
-      title: Text('Account', style: TextStyles.font22Whitebold),
+      title: Text(AppLocalizations.of(context)!.account,
+          style: TextStyles.font22Whitebold),
       flexibleSpace: FlexibleSpaceBar(
         background: AccountHeader(
           name: '${parentModel.firstName} ${parentModel.lastName}',
@@ -92,7 +94,7 @@ class AccountPage extends StatelessWidget {
   List<AccountOption> _buildOptions(BuildContext context) => [
         AccountOption(
           icon: IconsManager.userInformation,
-          title: 'User Information',
+          title: AppLocalizations.of(context)!.user_information,
           onTap: () {
             showDialog(
               context: context,
@@ -107,7 +109,7 @@ class AccountPage extends StatelessWidget {
         ),
         AccountOption(
           icon: IconsManager.changePassword,
-          title: 'Change Password',
+          title: AppLocalizations.of(context)!.change_password,
           onTap: () {
             showDialog(
               context: context,
@@ -120,7 +122,7 @@ class AccountPage extends StatelessWidget {
         ),
         AccountOption(
           icon: IconsManager.tuition,
-          title: 'Tuition Fees',
+          title: AppLocalizations.of(context)!.tuition_fees,
           onTap: () {
             context.pushNamed(Routes.paimentPage);
           },
@@ -128,7 +130,7 @@ class AccountPage extends StatelessWidget {
         AccountOption(
           isNotification: true,
           icon: IconsManager.notifications,
-          title: 'Notifications',
+          title: AppLocalizations.of(context)!.notifications,
           onTap: () {
             context.pushNamed(Routes.notificationPage).then((_) {
               context.read<NotificationsCubit>().getCountNotifications();
@@ -137,7 +139,7 @@ class AccountPage extends StatelessWidget {
         ),
         AccountOption(
             icon: IconsManager.logOut,
-            title: 'Log Out',
+            title: AppLocalizations.of(context)!.log_out,
             onTap: () => showLogoutConfirmationDialog(
                   context: context,
                   onConfirm: () => _logOut(context),

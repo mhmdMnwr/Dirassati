@@ -1,6 +1,7 @@
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,12 +18,7 @@ class NoHomeWork extends StatelessWidget {
         Image.asset(IconsManager.noHomeWork),
         verticalSpace(10),
         Text(
-          'No Home Work',
-          style: TextStyles.font22BlackBold,
-          textAlign: TextAlign.center,
-        ),
-        Text(
-          'For Now',
+          AppLocalizations.of(context)!.no_homework,
           style: TextStyles.font22BlackBold,
           textAlign: TextAlign.center,
         ),

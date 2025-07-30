@@ -14,6 +14,7 @@ import 'package:dirasati/features/marks/data/repo/marks_repo.dart';
 import 'package:dirasati/features/marks/logic/cubit/marks_cubit.dart';
 import 'package:dirasati/features/marks/ui/marks_page.dart';
 import 'package:dirasati/features/schedule/ui/schedule_page.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,13 +29,15 @@ class TabbedContentSliver extends StatefulWidget {
 }
 
 class _TabbedContentSliverState extends State<TabbedContentSliver> {
-  final List<String> items = [
-    "Announcement",
-    "Schedule",
-    "Marks",
-    "Home work",
-    "Absence",
-  ];
+  List<String> getTabTitles(BuildContext context) {
+    return [
+      AppLocalizations.of(context)!.announcement,
+      AppLocalizations.of(context)!.schedule,
+      AppLocalizations.of(context)!.marks,
+      AppLocalizations.of(context)!.home_work,
+      AppLocalizations.of(context)!.absence,
+    ];
+  }
 
   final List<String> icons = [
     IconsManager.announcement,
@@ -58,11 +61,12 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
   }
 
   Widget _buildTabBar() {
+    final tabTitles = getTabTitles(context);
     return SizedBox(
       height: 80.h,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: items.length,
+        itemCount: tabTitles.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (ctx, index) {
           return _buildTabItem(index);
@@ -72,6 +76,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
   }
 
   Widget _buildTabItem(int index) {
+    final tabTitles = getTabTitles(context);
     return GestureDetector(
       onTap: () => _handleTabChange(index),
       child: AnimatedContainer(
@@ -100,7 +105,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
                 if (current == index) verticalSpace(10),
                 if (current == index)
                   Text(
-                    items[index],
+                    tabTitles[index],
                     style: TextStyles.font16BlackBold,
                   ),
               ],
@@ -121,12 +126,13 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
   }
 
   Widget _buildContentArea() {
+    final tabTitles = getTabTitles(context);
     return SizedBox(
       height: 750.h,
       child: PageView.builder(
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: items.length,
+        itemCount: tabTitles.length,
         itemBuilder: (context, index) {
           if (index == 0) {
             return AnnouncementPage();

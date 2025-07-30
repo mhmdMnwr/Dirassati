@@ -1,6 +1,7 @@
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/widgets/app_text_form_field.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,8 +27,8 @@ class TextFieldsColumn extends StatelessWidget {
         AppTextFormField(
           prefixIcon: Image.asset(IconsManager.name),
           controller: firstNameController,
-          hintText: 'First Name',
-          validator: (value) => _validateName(value),
+          hintText: AppLocalizations.of(context)!.first_name,
+          validator: (value) => _validateName(value, context),
         ),
         verticalSpace(16.h),
 
@@ -35,8 +36,8 @@ class TextFieldsColumn extends StatelessWidget {
         AppTextFormField(
           prefixIcon: Image.asset(IconsManager.name),
           controller: lastNameController,
-          hintText: 'Last Name',
-          validator: (value) => _validateName(value),
+          hintText: AppLocalizations.of(context)!.last_name,
+          validator: (value) => _validateName(value, context),
         ),
         verticalSpace(16.h),
 
@@ -48,8 +49,8 @@ class TextFieldsColumn extends StatelessWidget {
             width: 30.w,
           ),
           controller: addressController,
-          hintText: 'Address',
-          validator: (value) => _validateAddress(value),
+          hintText: AppLocalizations.of(context)!.address,
+          validator: (value) => _validateAddress(value, context),
         ),
         verticalSpace(16.h),
 
@@ -61,30 +62,30 @@ class TextFieldsColumn extends StatelessWidget {
             width: 30.w,
           ),
           controller: phoneController,
-          hintText: 'Phone',
+          hintText: AppLocalizations.of(context)!.phone,
           digitOnly: true,
-          validator: (value) => _validatePhone(value),
+          validator: (value) => _validatePhone(value, context),
         ),
         verticalSpace(32),
       ],
     );
   }
 
-  String? _validateName(String? value) {
-    if (value == null || value.trim().isEmpty) return 'Cannot be empty';
+  String? _validateName(String? value, BuildContext context) {
+    if (value == null || value.trim().isEmpty) return AppLocalizations.of(context)!.cannot_be_empty;
     if (value.trim().length < 2) return 'At least 2 characters';
     if (value.trim().length > 25) return 'Max 25 characters';
     return null;
   }
 
-  String? _validateAddress(String? value) {
-    if (value == null || value.trim().isEmpty) return 'Cannot be empty';
+  String? _validateAddress(String? value, BuildContext context) {
+    if (value == null || value.trim().isEmpty) return AppLocalizations.of(context)!.cannot_be_empty;
     if (value.trim().length > 50) return 'Max 50 characters';
     return null;
   }
 
-  String? _validatePhone(String? value) {
-    if (value == null || value.trim().isEmpty) return 'Cannot be empty';
+  String? _validatePhone(String? value, BuildContext context) {
+    if (value == null || value.trim().isEmpty) return AppLocalizations.of(context)!.cannot_be_empty;
 
     return null;
   }
