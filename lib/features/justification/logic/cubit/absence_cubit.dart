@@ -15,10 +15,10 @@ class AbsenceCubit extends Cubit<AbsenceState> {
 
   void getStudentAbsence({required String studentId}) async {
     emit(const AbsenceState.loading());
-    
+
     // Adding delay to simulate network request
     await Future.delayed(const Duration(seconds: 1));
-    
+
     // Dummy absence data - simulating a student with absences that need justification
     final dummyAbsenceData = AbsenceData(
       hasJustificationPending: false,
@@ -28,15 +28,15 @@ class AbsenceCubit extends Cubit<AbsenceState> {
       absentSince: DateTime.now().subtract(const Duration(days: 2)),
       justification: null, // No justification yet, needs to be created
     );
-    
+
     final dummyResponse = AbsenceResponse(
       success: true,
       statusCode: 200,
       data: dummyAbsenceData,
     );
-    
+
     emit(AbsenceState.loaded(dummyResponse));
-    
+
     // Original implementation commented out for dummy data
     // final response = await _getStudentAbsenceRepo.getStudentAbsence(studentId);
     // response.when(success: (absenceResponse) {
@@ -49,10 +49,10 @@ class AbsenceCubit extends Cubit<AbsenceState> {
   void sendJustification(
       {required SendJustificationRequest sendJustificationRequest}) async {
     emit(const AbsenceState.sending());
-    
+
     // Adding delay to simulate network request
     await Future.delayed(const Duration(seconds: 2));
-    
+
     // Dummy success response for sending justification
     final dummyResponse = AbsenceResponse(
       success: true,
@@ -70,9 +70,9 @@ class AbsenceCubit extends Cubit<AbsenceState> {
         ),
       ),
     );
-    
+
     emit(AbsenceState.sendSuccess(dummyResponse));
-    
+
     // Original implementation commented out for dummy data
     // final response = await _getStudentAbsenceRepo
     //     .sendJustification(sendJustificationRequest);
@@ -88,10 +88,10 @@ class AbsenceCubit extends Cubit<AbsenceState> {
       required SendUpdateJustificationRequest
           sendUpdateJustificationRequest}) async {
     emit(const AbsenceState.sending());
-    
+
     // Adding delay to simulate network request
     await Future.delayed(const Duration(seconds: 2));
-    
+
     // Dummy success response for updating justification
     final dummyResponse = AbsenceResponse(
       success: true,
@@ -109,9 +109,9 @@ class AbsenceCubit extends Cubit<AbsenceState> {
         ),
       ),
     );
-    
+
     emit(AbsenceState.sendSuccess(dummyResponse));
-    
+
     // Original implementation commented out for dummy data
     // final response = await _getStudentAbsenceRepo.updateJustification(
     //     justificationId, sendUpdateJustificationRequest);

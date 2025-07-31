@@ -9,14 +9,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class GetMyStudentsCubit extends Cubit<GetMyStudentsState> {
   // ignore: unused_field
   final GetMyStudentsRepo _getMyStudentsRepo;
-  
+
   GetMyStudentsCubit(this._getMyStudentsRepo)
-      : super(const GetMyStudentsState.initial());  void getMyStudents({required String parentId}) async {
+      : super(const GetMyStudentsState.initial());
+  void getMyStudents({required String parentId}) async {
     emit(const GetMyStudentsState.loading());
-    
+
     // Add delay to simulate network request
     await Future.delayed(const Duration(seconds: 1));
-    
+
     // Create dummy students data
     final dummyStudents = StudentsResponse(
       success: true,
@@ -119,9 +120,9 @@ class GetMyStudentsCubit extends Cubit<GetMyStudentsState> {
         ),
       ],
     );
-    
+
     emit(GetMyStudentsState.success(dummyStudents));
-    
+
     // Comment out the original API call
     /*
     final response = await _getMyStudentsRepo.getMyStudents(parentId);
@@ -135,10 +136,10 @@ class GetMyStudentsCubit extends Cubit<GetMyStudentsState> {
 
   void getMe() async {
     emit(const GetMyStudentsState.getMeloading());
-    
+
     // Add delay to simulate network request
     await Future.delayed(const Duration(seconds: 1));
-    
+
     // Create dummy parent data
     final dummyParentData = GetMeResponse(
       success: true,
@@ -153,13 +154,13 @@ class GetMyStudentsCubit extends Cubit<GetMyStudentsState> {
         address: 'الرياض، السعودية', // Riyadh, Saudi Arabia
       ),
     );
-    
+
     await saveParentId(dummyParentData.data.id!);
     emit(GetMyStudentsState.getMesuccess(dummyParentData));
     getMyStudents(
       parentId: dummyParentData.data.id!,
     );
-    
+
     // Comment out the original API call
     /*
     final response = await _getMyStudentsRepo.getMe();

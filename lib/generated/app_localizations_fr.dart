@@ -143,7 +143,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get unknown_student => 'Étudiant inconnu';
 
   @override
-  String get no_payment_information => 'Aucune information de paiement disponible';
+  String get no_payment_information =>
+      'Aucune information de paiement disponible';
 
   @override
   String get payment_error => 'Erreur de paiement';
@@ -194,7 +195,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get francais => 'Français';
 
   @override
-  String get logout_confirmation => 'Êtes-vous sûr de vouloir vous déconnecter ?';
+  String get logout_confirmation =>
+      'Êtes-vous sûr de vouloir vous déconnecter ?';
 
   @override
   String get yes => 'Oui';
@@ -221,7 +223,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get invalid_email => 'Veuillez entrer un e-mail valide';
 
   @override
-  String get please_enter_credentials => 'Veuillez entrer l\'e-mail et le mot de passe';
+  String get please_enter_credentials =>
+      'Veuillez entrer l\'e-mail et le mot de passe';
 
   @override
   String get send_code => 'Envoyer le code';

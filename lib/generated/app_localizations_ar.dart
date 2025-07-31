@@ -221,7 +221,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalid_email => 'يرجى إدخال بريد إلكتروني صحيح';
 
   @override
-  String get please_enter_credentials => 'يرجى إدخال البريد الإلكتروني وكلمة المرور';
+  String get please_enter_credentials =>
+      'يرجى إدخال البريد الإلكتروني وكلمة المرور';
 
   @override
   String get send_code => 'إرسال الرمز';

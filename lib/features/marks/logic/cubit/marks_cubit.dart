@@ -11,10 +11,10 @@ class MarksCubit extends Cubit<MarksState> {
 
   void getYears({required String studentId}) async {
     emit(MarksState.loading());
-    
+
     // Adding delay to simulate network request
     await Future.delayed(const Duration(seconds: 1));
-    
+
     // Dummy years data
     final dummyYears = [
       YearsModel(year: "2023/2024", trimestre: 1),
@@ -24,15 +24,15 @@ class MarksCubit extends Cubit<MarksState> {
       YearsModel(year: "2022/2023", trimestre: 2),
       YearsModel(year: "2022/2023", trimestre: 3),
     ];
-    
+
     final dummyResponse = YearsResponse(
       success: true,
       statusCode: 200,
       data: dummyYears,
     );
-    
+
     emit(MarksState.yearsloaded(dummyResponse));
-    
+
     // Original implementation commented out for dummy data
     // final response = await _marksRepository.getStudentyears(studentId);
     // response.when(success: (yearsResponse) {
@@ -44,10 +44,10 @@ class MarksCubit extends Cubit<MarksState> {
 
   void getMarks({required studentId, required year, required trimestre}) async {
     emit(MarksState.marksLoading());
-    
+
     // Adding delay to simulate network request
     await Future.delayed(const Duration(seconds: 1));
-    
+
     // Dummy marks data
     final dummyMarks = [
       MarksModel(
@@ -191,16 +191,16 @@ class MarksCubit extends Cubit<MarksState> {
         id: "mark_010",
       ),
     ];
-    
+
     final dummyResponse = GetMarksResponse(
       success: true,
       statusCode: 200,
       level: 1, // 1ere année secondaire
       data: dummyMarks,
     );
-    
+
     emit(MarksState.marksLoaded(dummyResponse));
-    
+
     // Original implementation commented out for dummy data
     // final validYear = year.replaceAll('/', '%2F');
     // final response =

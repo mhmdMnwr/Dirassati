@@ -75,7 +75,8 @@ class NotificationsCubit extends Cubit<NotificationsState> {
 
     // Simulate pagination
     final startIndex = (_currentPage - 1) * _limit;
-    final newNotifications = dummyNotifications.skip(startIndex).take(_limit).toList();
+    final newNotifications =
+        dummyNotifications.skip(startIndex).take(_limit).toList();
 
     // If we got fewer than _limit items, there are no more pages
     if (newNotifications.length < _limit) {
@@ -140,10 +141,10 @@ class NotificationsCubit extends Cubit<NotificationsState> {
   void getCountNotifications() async {
     // Add delay to simulate network request
     await Future.delayed(const Duration(milliseconds: 500));
-    
+
     // Return dummy count - 3 unread notifications
     emit(const NotificationsState.successNotificationsCount(3));
-    
+
     // Comment out the original API call
     /*
     String receiverId =

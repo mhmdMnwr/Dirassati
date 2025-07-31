@@ -21,14 +21,14 @@ class LoginCubit extends Cubit<LoginState> {
 
   void emitLoginStates() async {
     emit(const LoginState.loading());
-    
+
     // Add a delay to simulate network request
     await Future.delayed(const Duration(seconds: 2));
-    
+
     // Check for dummy credentials
     final email = emailController.text.trim();
     final password = passwordController.text;
-    
+
     // Dummy authentication - accept any email/password combination
     if (email.isNotEmpty && password.isNotEmpty) {
       // Create dummy login response
@@ -39,17 +39,17 @@ class LoginCubit extends Cubit<LoginState> {
         ),
         message: 'Login successful',
       );
-      
+
       await saveUserToken(
         dummyResponse.tokens.accessToken,
         dummyResponse.tokens.refreshToken,
       );
-      
+
       emit(LoginState.success(dummyResponse));
     } else {
       emit(const LoginState.error(error: 'Please enter email and password'));
     }
-    
+
     // Comment out the original API call
     /*
     final response = await _loginRepo.login(

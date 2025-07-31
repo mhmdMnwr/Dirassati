@@ -50,7 +50,7 @@ class AccountPage extends StatelessWidget {
   /// SliverAppBar with curved bottom and account header
   Widget _buildAppBar(BuildContext context) {
     final isRTL = RTLHelper.isRTL(context);
-    
+
     return SliverAppBar(
       pinned: true,
       elevation: 0,
@@ -69,9 +69,9 @@ class AccountPage extends StatelessWidget {
       ),
       flexibleSpace: FlexibleSpaceBar(
         background: AccountHeader(
-          name: isRTL 
-            ? '${parentModel.lastName} ${parentModel.firstName}' // Arabic name order
-            : '${parentModel.firstName} ${parentModel.lastName}', // English/French name order
+          name: isRTL
+              ? '${parentModel.lastName} ${parentModel.firstName}' // Arabic name order
+              : '${parentModel.firstName} ${parentModel.lastName}', // English/French name order
         ),
       ),
     );
@@ -81,7 +81,7 @@ class AccountPage extends StatelessWidget {
   Widget _buildOptionsList(BuildContext context) {
     final isRTL = RTLHelper.isRTL(context);
     final options = _buildOptions(context);
-    
+
     return SliverPadding(
       padding: EdgeInsets.symmetric(
         vertical: 16.h,
@@ -91,13 +91,14 @@ class AccountPage extends StatelessWidget {
         delegate: SliverChildBuilderDelegate(
           (ctx, index) {
             return Column(
-              crossAxisAlignment: isRTL ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+              crossAxisAlignment:
+                  isRTL ? CrossAxisAlignment.end : CrossAxisAlignment.start,
               children: [
                 options[index], // Remove extra padding wrapper
                 if (index < options.length - 1)
                   Divider(
-                    indent: 16.w, 
-                    endIndent: 16.w, 
+                    indent: 16.w,
+                    endIndent: 16.w,
                     height: 1,
                     thickness: 0.5,
                   ),
@@ -174,7 +175,7 @@ class AccountPage extends StatelessWidget {
 
   Widget _backButton(BuildContext context) {
     final isRTL = RTLHelper.isRTL(context);
-    
+
     return IconButton(
       onPressed: () {
         context.read<NotificationsCubit>().getCountNotifications();
@@ -193,12 +194,15 @@ class AccountPage extends StatelessWidget {
 
   void _logOut(BuildContext context) async {
     await SharedPrefHelper.clearAllData();
-    context.pushNamedAndRemoveUntil(Routes.loginScreen , predicate: (route) => false).then((_) {});
+    context
+        .pushNamedAndRemoveUntil(Routes.loginScreen,
+            predicate: (route) => false)
+        .then((_) {});
   }
 
   void _showLanguageSelection(BuildContext context) {
     final isRTL = RTLHelper.isRTL(context);
-    
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -213,7 +217,8 @@ class AccountPage extends StatelessWidget {
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: isRTL ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            crossAxisAlignment:
+                isRTL ? CrossAxisAlignment.end : CrossAxisAlignment.start,
             children: [
               _buildLanguageOption(
                 context: context,
@@ -258,13 +263,13 @@ class AccountPage extends StatelessWidget {
     required String flag,
   }) {
     final isRTL = RTLHelper.isRTL(context);
-    
+
     return InkWell(
       onTap: () => _changeLanguage(context, locale),
       borderRadius: BorderRadius.circular(8.r),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: 12.h, 
+          vertical: 12.h,
           horizontal: 16.w, // Consistent padding for all options
         ),
         child: Row(
@@ -307,13 +312,14 @@ class AccountPage extends StatelessWidget {
           SnackBar(
             content: Text(
               'Language changed successfully!',
-              textDirection: TextDirection.ltr, // Keep success message in LTR for consistency
+              textDirection: TextDirection
+                  .ltr, // Keep success message in LTR for consistency
             ),
             backgroundColor: Colors.green,
             duration: const Duration(seconds: 2),
           ),
         );
-        
+
         // Force immediate navigation refresh to apply language changes
         // Navigate to login and then back to trigger full app rebuild
         Future.delayed(const Duration(milliseconds: 500), () {
@@ -340,7 +346,7 @@ class AccountPage extends StatelessWidget {
             duration: const Duration(seconds: 2),
           ),
         );
-        
+
         // Force app restart after language change
         Future.delayed(const Duration(seconds: 1), () {
           if (context.mounted) {

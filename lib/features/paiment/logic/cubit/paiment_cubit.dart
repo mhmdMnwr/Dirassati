@@ -12,10 +12,10 @@ class PaimentCubit extends Cubit<PaimentState> {
 
   void getMyPaiment() async {
     emit(PaimentState.loading());
-    
+
     // Add delay to simulate network request
     await Future.delayed(const Duration(seconds: 2));
-    
+
     // Create dummy payment data
     final dummyPayments = PaimentResponse(
       success: true,
@@ -61,9 +61,9 @@ class PaimentCubit extends Cubit<PaimentState> {
         ),
       ],
     );
-    
+
     emit(PaimentState.paimentLoaded(dummyPayments));
-    
+
     // Comment out the original API call
     /*
     final responde = await _paimentRepo.getPaiment();
