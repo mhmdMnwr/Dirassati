@@ -4,6 +4,7 @@ import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/justification/data/model/absence_response.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,14 +39,14 @@ class JustificationWaitSentPage extends StatelessWidget {
         ),
         child: Center(
             child: waitPage
-                ? buildWaitingPage()
+                ? buildWaitingPage(context)
                 : buildJustificationSentPage(
                     context, absenceData?.justification?.attachments ?? [])),
       ),
     );
   }
 
-  Widget buildWaitingPage() {
+  Widget buildWaitingPage(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -55,7 +56,8 @@ class JustificationWaitSentPage extends StatelessWidget {
           width: 100.w,
         ),
         verticalSpace(10),
-        Text('Sending...', style: TextStyles.font22BlackBold),
+        Text(AppLocalizations.of(context)!.sending,
+            style: TextStyles.font22BlackBold),
       ],
     );
   }
@@ -74,7 +76,8 @@ class JustificationWaitSentPage extends StatelessWidget {
               width: 100.w,
             ),
             horizontalSpace(10),
-            Text('Justification \n Sent', style: TextStyles.font22BlackBold),
+            Text(AppLocalizations.of(context)!.justificationSent,
+                style: TextStyles.font22BlackBold),
           ],
         ),
         Spacer(),

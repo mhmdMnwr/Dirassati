@@ -96,27 +96,30 @@ class _OtpFieldState extends State<OtpField> {
       children: [
         Form(
           key: widget.verifyFormKey,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(widget.length, (index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: widget.spacing / 2),
-                child: _OtpDigitField(
-                  controller: _controllers[index],
-                  focusNode: _focusNodes[index],
-                  autoFocus: widget.autoFocus && index == 0,
-                  textStyle: widget.textStyle,
-                  decoration: widget.decoration,
-                  keyboardType: widget.keyboardType,
-                  fieldWidth: widget.fieldWidth.w,
-                  fieldHeight: widget.fieldHeight.h,
-                  onChanged: (value) {
-                    _handleOtpChange();
-                    _handleFocusChange(index, value);
-                  },
-                ),
-              );
-            }),
+          child: Directionality(
+            textDirection: TextDirection.ltr, // Force LTR for OTP fields
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(widget.length, (index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: widget.spacing / 2),
+                  child: _OtpDigitField(
+                    controller: _controllers[index],
+                    focusNode: _focusNodes[index],
+                    autoFocus: widget.autoFocus && index == 0,
+                    textStyle: widget.textStyle,
+                    decoration: widget.decoration,
+                    keyboardType: widget.keyboardType,
+                    fieldWidth: widget.fieldWidth.w,
+                    fieldHeight: widget.fieldHeight.h,
+                    onChanged: (value) {
+                      _handleOtpChange();
+                      _handleFocusChange(index, value);
+                    },
+                  ),
+                );
+              }),
+            ),
           ),
         ),
       ],
@@ -152,51 +155,56 @@ class _OtpDigitField extends StatelessWidget {
     return SizedBox(
       width: fieldWidth,
       height: fieldHeight,
-      child: TextFormField(
-        controller: controller,
-        focusNode: focusNode,
-        autofocus: autoFocus,
-        textAlign: TextAlign.center,
-        keyboardType: keyboardType,
-        maxLength: 1,
-        style: textStyle,
-        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        decoration: decoration.copyWith(
-          counterText: '',
-          contentPadding: EdgeInsets.zero,
+      child: Directionality(
+        textDirection: TextDirection.ltr, // Force LTR for individual OTP digits
+        child: TextFormField(
+          controller: controller,
+          focusNode: focusNode,
+          autofocus: autoFocus,
+          textAlign: TextAlign.center,
+          textDirection: TextDirection.ltr, // Ensure text input is always LTR
+          keyboardType: keyboardType,
+          maxLength: 1,
+          style: textStyle,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          decoration: decoration.copyWith(
+            counterText: '',
+            contentPadding: EdgeInsets.zero,
 
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.grey, width: 1),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.grey, width: 1),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.blue),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.red),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.red),
+            ),
+            // errorStyle: const TextStyle(height: 0),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.blue),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.red),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.red),
-          ),
-          // errorStyle: const TextStyle(height: 0),
+
+          onChanged: (value) {
+            if (value.isNotEmpty) {
+              controller.text = value[0];
+              onChanged(value[0]);
+            } else {
+              onChanged('');
+            }
+          },
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return '';
+            }
+            return null;
+          },
         ),
-        onChanged: (value) {
-          if (value.isNotEmpty) {
-            controller.text = value[0];
-            onChanged(value[0]);
-          } else {
-            onChanged('');
-          }
-        },
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return '';
-          }
-          return null;
-        },
       ),
     );
   }

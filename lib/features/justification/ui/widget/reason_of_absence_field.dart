@@ -1,3 +1,4 @@
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,7 +41,7 @@ class ReasonOfAbsenceField extends StatelessWidget {
               onChanged: onChanged,
               validator: (value) {
                 if (value == null || value.isEmpty || value.trim().isEmpty) {
-                  return 'Please enter a reason';
+                  return AppLocalizations.of(context)!.reasonOfAbsenceRequired;
                 }
                 return null;
               },

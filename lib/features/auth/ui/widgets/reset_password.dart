@@ -45,7 +45,7 @@ class _ResetPasswordFieldState extends State<ResetPasswordField> {
               height: 30.h,
             ),
             controller: resetPasswordController,
-            hintText: AppLocalizations.of(context)!.new_password,
+            hintText: AppLocalizations.of(context)!.newPassword,
             isObscureText: isObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -59,10 +59,10 @@ class _ResetPasswordFieldState extends State<ResetPasswordField> {
             ),
             validator: (value) {
               if (value.isNullOrEmpty()) {
-                return AppLocalizations.of(context)!.cannot_be_empty;
+                return AppLocalizations.of(context)!.cannotBeEmpty;
               }
               if (value!.length < 8) {
-                return AppLocalizations.of(context)!.password_min_length;
+                return AppLocalizations.of(context)!.passwordMinLength;
               }
             },
           ),
@@ -74,7 +74,7 @@ class _ResetPasswordFieldState extends State<ResetPasswordField> {
               height: 30.h,
             ),
             controller: confirmPasswordController,
-            hintText: AppLocalizations.of(context)!.confirm_password,
+            hintText: AppLocalizations.of(context)!.confirmNewPassword,
             isObscureText: isConfirmObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -88,9 +88,9 @@ class _ResetPasswordFieldState extends State<ResetPasswordField> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return AppLocalizations.of(context)!.cannot_be_empty;
+                return AppLocalizations.of(context)!.cannotBeEmpty;
               } else if (value != resetPasswordController.text) {
-                return AppLocalizations.of(context)!.passwords_do_not_match;
+                return AppLocalizations.of(context)!.passwordsDoNotMatch;
               }
             },
           ),

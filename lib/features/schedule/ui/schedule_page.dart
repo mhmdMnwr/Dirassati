@@ -26,18 +26,18 @@ class SchedulePage extends StatelessWidget {
           ScheduleButton(
               onTap: () => _idkHowToNameThisFunction(
                   context,
-                  AppLocalizations.of(context)!.daily_schedule,
+                  AppLocalizations.of(context)!.dailySchedule,
                   student.classa?.planning ?? ''),
               scheduleIcon: IconsManager.dailySchedule,
-              scheduleTitle: AppLocalizations.of(context)!.daily_schedule),
+              scheduleTitle: AppLocalizations.of(context)!.dailySchedule),
           verticalSpace(80),
           ScheduleButton(
               onTap: () => _idkHowToNameThisFunction(
                   context,
-                  AppLocalizations.of(context)!.exam_schedule,
+                  AppLocalizations.of(context)!.examSchedule,
                   student.classa?.examPlanning ?? ''),
               scheduleIcon: IconsManager.examSchedule,
-              scheduleTitle: AppLocalizations.of(context)!.exam_schedule),
+              scheduleTitle: AppLocalizations.of(context)!.examSchedule),
         ],
       ),
     );
@@ -53,7 +53,7 @@ class SchedulePage extends StatelessWidget {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.schedule_not_available),
+          content: Text(AppLocalizations.of(context)!.scheduleNotAvailable),
           backgroundColor: Colors.red,
         ),
       );

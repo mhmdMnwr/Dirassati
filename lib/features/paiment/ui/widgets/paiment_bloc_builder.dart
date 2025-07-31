@@ -30,7 +30,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: paiment!.nextPaimnetDateString,
-            title: AppLocalizations.of(context)!.tuition_fees,
+            title: AppLocalizations.of(context)!.tuitionFees,
             daysLeft:
                 paiment.daysLeftForNextPaiment, // Example, adjust as needed
             totalToPay:
@@ -49,7 +49,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: '',
-            title: AppLocalizations.of(context)!.tuition_fees,
+            title: AppLocalizations.of(context)!.tuitionFees,
             daysLeft: 0, // Example, adjust as needed
             totalToPay: '_____ DZD', // Example, adjust as needed
             nextPaiment: '0 DZD',
@@ -62,7 +62,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: '',
-            title: AppLocalizations.of(context)!.tuition_fees,
+            title: AppLocalizations.of(context)!.tuitionFees,
             daysLeft: 0, // Example, adjust as needed
             totalToPay: '0 DZD', // Example, adjust as needed
             nextPaiment: '0 DZD',
@@ -70,7 +70,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
           Expanded(
               child: Center(
                   child: Text(
-                      AppLocalizations.of(context)!.no_payment_information))),
+                      AppLocalizations.of(context)!.noPaymentInformation))),
         ],
       );
     } else if (mode == modeType[3]) {
@@ -78,7 +78,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
         children: [
           PaymentAppBar(
             nextPaymentDate: '',
-            title: AppLocalizations.of(context)!.tuition_fees,
+            title: AppLocalizations.of(context)!.tuitionFees,
             daysLeft: 0, // Example, adjust as needed
             totalToPay: '0 DZD', // Example, adjust as needed
             nextPaiment: '0 DZD',
@@ -86,7 +86,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
           Expanded(
               child: _setupError(
             context,
-            errorMessage ?? AppLocalizations.of(context)!.payment_error,
+            errorMessage ?? AppLocalizations.of(context)!.paymentError,
           )),
         ],
       );
@@ -138,7 +138,7 @@ class PaimentBlocBuilderWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              AppLocalizations.of(context)!.payment_error,
+              AppLocalizations.of(context)!.paymentError,
               style: TextStyle(color: Colors.red, fontSize: 16.sp),
               textAlign: TextAlign.center,
             ),

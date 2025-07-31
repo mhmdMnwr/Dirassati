@@ -4,6 +4,7 @@ import 'package:dirasati/features/change%20password/logic/cubit/change_password_
 import 'package:dirasati/features/change%20password/logic/cubit/change_password_state.dart';
 import 'package:dirasati/features/change%20password/ui/widget/confirm_button.dart';
 import 'package:dirasati/features/change%20password/ui/widget/passwords_fields_column.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,8 +54,9 @@ class _ChangePasswordState extends State<ChangePassword> {
             Navigator.pop(context); // Close the loading dialog
             Navigator.pop(context); // Close the change password dialog
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Password changed successfully.'),
+              SnackBar(
+                content: Text(
+                    AppLocalizations.of(context)!.passwordChangedSuccessfully),
                 backgroundColor: Colors.green,
               ),
             );
@@ -78,7 +80,8 @@ class _ChangePasswordState extends State<ChangePassword> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Change Password', style: TextStyles.font22BlackBold),
+                  Text(AppLocalizations.of(context)!.changePassword,
+                      style: TextStyles.font22BlackBold),
                   verticalSpace(24.h),
 
                   PasswordsFieldsColumn(

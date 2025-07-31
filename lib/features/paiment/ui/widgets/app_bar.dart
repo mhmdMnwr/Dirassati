@@ -1,6 +1,9 @@
+import 'dart:math' show pi;
+
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -99,11 +102,14 @@ class _AppBarTitleWithBackButton extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            icon: Image.asset(
-              IconsManager.backButton,
-              width: _kBackButtonSize.w,
-              height: _kBackButtonSize.h,
-              color: Colors.white,
+            icon: Transform.rotate(
+              angle: Directionality.of(context) == TextDirection.rtl ? pi : 0,
+              child: Image.asset(
+                IconsManager.backButton,
+                width: _kBackButtonSize.w,
+                height: _kBackButtonSize.h,
+                color: Colors.white,
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pop();
@@ -165,7 +171,7 @@ class _PaymentDetailsCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Total to pay',
+              AppLocalizations.of(context)!.totalToPay,
               style: TextStyles.font14GrayRegular,
             ),
             SizedBox(height: _kInterElementSpacingMedium.h),
@@ -180,11 +186,11 @@ class _PaymentDetailsCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _PaymentDetailItem(
-                  label: 'Next Date to Pay',
+                  label: AppLocalizations.of(context)!.nextDateToPay,
                   value: '$nextPaymentDate ( $daysLeft $day left)',
                 ),
                 _PaymentDetailItem(
-                  label: 'Next amount to pay',
+                  label: AppLocalizations.of(context)!.nextAmountToPay,
                   value: nextPaiment, // Fixed typo here
                   isAlignedEnd: true,
                 ),

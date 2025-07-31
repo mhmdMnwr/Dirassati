@@ -1,3 +1,5 @@
+import 'dart:math' show pi;
+
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/icons.dart';
@@ -12,7 +14,10 @@ PreferredSizeWidget notificationAppBar(BuildContext context) {
     centerTitle: true,
     backgroundColor: ColorsManager.skyBlue,
     leading: IconButton(
-      icon: Image.asset(IconsManager.backButton),
+      icon: Transform.rotate(
+        angle: Directionality.of(context) == TextDirection.rtl ? pi : 0,
+        child: Image.asset(IconsManager.backButton),
+      ),
       onPressed: () {
         context.pop();
       },

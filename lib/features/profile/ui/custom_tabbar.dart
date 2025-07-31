@@ -34,7 +34,7 @@ class _TabbedContentSliverState extends State<TabbedContentSliver> {
       AppLocalizations.of(context)!.announcement,
       AppLocalizations.of(context)!.schedule,
       AppLocalizations.of(context)!.marks,
-      AppLocalizations.of(context)!.home_work,
+      AppLocalizations.of(context)!.homeWork,
       AppLocalizations.of(context)!.absence,
     ];
   }

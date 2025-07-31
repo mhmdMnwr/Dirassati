@@ -5,6 +5,7 @@ import 'package:dirasati/core/widgets/setup_bloc_states.dart';
 import 'package:dirasati/features/marks/logic/cubit/marks_cubit.dart';
 import 'package:dirasati/features/marks/logic/cubit/marks_state.dart';
 import 'package:dirasati/features/marks/ui/semester_details_page.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,7 +47,9 @@ class SemestreCard extends StatelessWidget {
                   builder: (context) => SemesterDetailPage(
                     marksResponse: marksResponse,
                     year: year,
-                    trimestre: 'trimestre ${(index + 1)}',
+                    trimestre: Directionality.of(context) == TextDirection.rtl
+                        ? '${(index + 1)} ${AppLocalizations.of(context)!.trimestre}'
+                        : '${AppLocalizations.of(context)!.trimestre} ${(index + 1)}',
                   ),
                 );
               },
@@ -78,7 +81,9 @@ class SemestreCard extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  'Semester 0${index + 1}',
+                  Directionality.of(context) == TextDirection.rtl
+                      ? '${AppLocalizations.of(context)!.trimestre} ${index + 1} '
+                      : '${AppLocalizations.of(context)!.trimestre} ${index + 1}',
                   style: TextStyles.font24BlackBold,
                 ),
               ),

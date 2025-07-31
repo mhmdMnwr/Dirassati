@@ -23,7 +23,7 @@ Future<void> showLogoutConfirmationDialog({
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                AppLocalizations.of(context)!.logout_confirmation,
+                AppLocalizations.of(context)!.logoutConfirmation,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),

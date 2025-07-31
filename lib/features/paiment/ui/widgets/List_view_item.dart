@@ -2,6 +2,7 @@ import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/font_weight.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/features/paiment/data/model/paiment_model.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dirasati/core/theming/colors.dart'; // Assuming you might need custom colors
@@ -85,9 +86,10 @@ class _PayStudentCardState extends State<PayStudentCard> {
         verticalSpace(5.h),
         _buildStudentLevel(),
         verticalSpace(8.h),
-        _buildDetailRow('Next Amount to Pay:', '$nextAmount DZD'),
+        _buildDetailRow(
+            AppLocalizations.of(context)!.nextAmountToPay, '$nextAmount DZD'),
         verticalSpace(5.h),
-        _buildDetailRow('Next Date to Pay:', nextDate),
+        _buildDetailRow(AppLocalizations.of(context)!.nextDateToPay, nextDate),
       ],
     );
   }
@@ -171,7 +173,7 @@ class _PayStudentCardState extends State<PayStudentCard> {
             textAlign: TextAlign.center,
           ),
           Text(
-            'Total Due',
+            AppLocalizations.of(context)!.totalDue,
             style: TextStyles.font12GrayRegular.copyWith(fontSize: 11.sp),
             textAlign: TextAlign.center,
           ),

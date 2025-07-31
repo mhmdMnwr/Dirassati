@@ -16,10 +16,10 @@ class LoginScreen extends StatelessWidget {
     return ModelAuthPage(
       image: IconsManager.login,
       forgotPassword: true,
-      pageName: AppLocalizations.of(context)!.log_in,
+      pageName: AppLocalizations.of(context)!.logIn,
       nextRoute: Routes.chooseSonScreen,
       formKey: _loginFormKey,
-      buttonText: AppLocalizations.of(context)!.log_in,
+      buttonText: AppLocalizations.of(context)!.logIn,
       customField: EmailAndPassword(
         loginFormKey: _loginFormKey,
       ),

@@ -1,5 +1,6 @@
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +34,7 @@ class BuildAddPhotoButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              'Add Photo',
+              AppLocalizations.of(context)!.addPhoto,
               style: isEnabled
                   ? TextStyles.font16Whitebold
                   // Use an existing gray style or a default one

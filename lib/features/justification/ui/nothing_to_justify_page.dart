@@ -1,6 +1,7 @@
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +15,7 @@ class NothingToJustifyPage extends StatelessWidget {
       height: 494.h,
       child: Stack(children: [
         _buildBackground(),
-        _buildIcon(),
+        _buildIcon(context),
       ]),
     );
   }
@@ -30,7 +31,7 @@ class NothingToJustifyPage extends StatelessWidget {
     );
   }
 
-  Widget _buildIcon() {
+  Widget _buildIcon(BuildContext context) {
     return Positioned(
       right: 100.w,
       child: Column(
@@ -44,7 +45,7 @@ class NothingToJustifyPage extends StatelessWidget {
             height: 200.h,
           ),
           Text(
-            'Nothing to Justify',
+            AppLocalizations.of(context)!.nothingToJustify,
             style: TextStyles.font22BlackBold,
           ),
         ],

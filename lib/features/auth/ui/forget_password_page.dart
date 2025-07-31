@@ -15,10 +15,10 @@ class ForgetPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ModelAuthPage(
       image: IconsManager.forgotPassword,
-      pageName: AppLocalizations.of(context)!.forgot_password,
+      pageName: AppLocalizations.of(context)!.forgotPassword,
       nextRoute: Routes.otpScreen,
       formKey: _forgetFormKey,
-      buttonText: AppLocalizations.of(context)!.send_code,
+      buttonText: AppLocalizations.of(context)!.sendCode,
       customField: EmailField(
         forgetFormKey: _forgetFormKey,
       ),

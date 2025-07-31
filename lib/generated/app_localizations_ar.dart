@@ -5,16 +5,19 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get app_name => 'درصاتي';
+  String get appName => 'دراستي';
 
   @override
   String get hello => 'مرحبا';
 
   @override
+  String get welcomeBack => 'مرحبا بعودتك!';
+
+  @override
   String get welcome => 'مرحبا بك في تطبيقنا!';
 
   @override
-  String get log_in => 'تسجيل الدخول';
+  String get logIn => 'تسجيل الدخول';
 
   @override
   String get email => 'البريد الإلكتروني';
@@ -23,61 +26,61 @@ class AppLocalizationsAr extends AppLocalizations {
   String get password => 'كلمة المرور';
 
   @override
-  String get forgot_password => 'نسيت كلمة المرور';
+  String get forgotPassword => 'نسيت كلمة المرور';
 
   @override
-  String get reset_password => 'إعادة تعيين كلمة المرور';
+  String get resetPassword => 'إعادة تعيين كلمة المرور';
 
   @override
-  String get confirm_password => 'تأكيد كلمة المرور';
+  String get confirmPassword => 'تأكيد كلمة المرور';
 
   @override
-  String get old_password => 'كلمة المرور القديمة';
+  String get oldPassword => 'كلمة المرور القديمة';
 
   @override
-  String get new_password => 'كلمة المرور الجديدة';
+  String get newPassword => 'كلمة المرور الجديدة';
 
   @override
-  String get enter_email => 'أدخل البريد الإلكتروني';
+  String get enterEmail => 'أدخل البريد الإلكتروني';
 
   @override
-  String get enter_password => 'أدخل كلمة المرور';
+  String get enterPassword => 'أدخل كلمة المرور';
 
   @override
-  String get enter_old_password => 'أدخل كلمة المرور القديمة';
+  String get enterOldPassword => 'أدخل كلمة المرور القديمة';
 
   @override
-  String get enter_new_password => 'أدخل كلمة المرور الجديدة';
+  String get enterNewPassword => 'أدخل كلمة المرور الجديدة';
 
   @override
-  String get confirm_new_password => 'تأكيد كلمة المرور الجديدة';
+  String get confirmNewPassword => 'تأكيد كلمة المرور الجديدة';
 
   @override
   String get account => 'الحساب';
 
   @override
-  String get user_information => 'معلومات المستخدم';
+  String get userInformation => 'معلومات المستخدم';
 
   @override
-  String get change_password => 'تغيير كلمة المرور';
+  String get changePassword => 'تغيير كلمة المرور';
 
   @override
-  String get tuition_fees => 'الرسوم الدراسية';
+  String get tuitionFees => 'الرسوم الدراسية';
 
   @override
   String get notifications => 'الإشعارات';
 
   @override
-  String get log_out => 'تسجيل الخروج';
+  String get logOut => 'تسجيل الخروج';
 
   @override
-  String get family_name => 'اسم العائلة';
+  String get familyName => 'اسم العائلة';
 
   @override
-  String get first_name => 'الاسم الأول';
+  String get firstName => 'الاسم الأول';
 
   @override
-  String get last_name => 'اسم العائلة';
+  String get lastName => 'اسم العائلة';
 
   @override
   String get birthday => 'تاريخ الميلاد';
@@ -92,7 +95,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phone => 'الهاتف';
 
   @override
-  String get email_address => 'عنوان البريد الإلكتروني';
+  String get emailAddress => 'عنوان البريد الإلكتروني';
 
   @override
   String get level => 'المستوى';
@@ -107,46 +110,46 @@ class AppLocalizationsAr extends AppLocalizations {
   String get marks => 'الدرجات';
 
   @override
-  String get home_work => 'الواجبات المنزلية';
+  String get homeWork => 'الواجبات المنزلية';
 
   @override
   String get absence => 'الغياب';
 
   @override
-  String get daily_schedule => 'الجدول اليومي';
+  String get dailySchedule => 'الجدول اليومي';
 
   @override
-  String get exam_schedule => 'جدول الامتحانات';
+  String get examSchedule => 'جدول الامتحانات';
 
   @override
-  String get schedule_not_available => 'الجدول غير متوفر';
+  String get scheduleNotAvailable => 'الجدول غير متوفر';
 
   @override
-  String get total_due => 'المبلغ المستحق';
+  String get totalDue => 'المبلغ المستحق';
 
   @override
-  String get total_to_pay => 'المبلغ المراد دفعه';
+  String get totalToPay => 'المبلغ المراد دفعه';
 
   @override
-  String get next_amount_to_pay => 'المبلغ التالي للدفع';
+  String get nextAmountToPay => 'المبلغ التالي للدفع';
 
   @override
-  String get next_date_to_pay => 'التاريخ التالي للدفع';
+  String get nextDateToPay => 'التاريخ التالي للدفع';
 
   @override
-  String get next_amount_to_pay_label => 'المبلغ التالي للدفع:';
+  String get nextAmountToPayLabel => 'المبلغ التالي للدفع:';
 
   @override
-  String get next_date_to_pay_label => 'التاريخ التالي للدفع:';
+  String get nextDateToPayLabel => 'التاريخ التالي للدفع:';
 
   @override
-  String get unknown_student => 'طالب غير معروف';
+  String get unknownStudent => 'طالب غير معروف';
 
   @override
-  String get no_payment_information => 'لا توجد معلومات دفع متاحة';
+  String get noPaymentInformation => 'لا توجد معلومات دفع متاحة';
 
   @override
-  String get payment_error => 'خطأ في الدفع';
+  String get paymentError => 'خطأ في الدفع';
 
   @override
   String get day => 'يوم';
@@ -164,28 +167,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get edit => 'تحرير';
 
   @override
-  String get no_data => 'لا توجد بيانات متاحة';
+  String get noData => 'لا توجد بيانات متاحة';
 
   @override
   String get retry => 'إعادة المحاولة';
 
   @override
-  String get cannot_be_empty => 'لا يمكن أن يكون فارغًا';
+  String get cannotBeEmpty => 'لا يمكن أن يكون فارغًا';
 
   @override
-  String get valid_email => 'يرجى إدخال بريد إلكتروني صحيح';
+  String get validEmail => 'يرجى إدخال بريد إلكتروني صحيح';
 
   @override
-  String get password_min_length => 'على الأقل 8 أحرف';
+  String get passwordMinLength => 'على الأقل 8 أحرف';
 
   @override
-  String get no_homework => 'لا توجد واجبات منزلية متاحة';
+  String get noHomework => 'لا توجد واجبات منزلية متاحة';
 
   @override
-  String get change_language => 'تغيير اللغة';
+  String get changeLanguage => 'تغيير اللغة';
 
   @override
-  String get select_language => 'اختر اللغة';
+  String get selectLanguage => 'اختر اللغة';
 
   @override
   String get english => 'الإنجليزية';
@@ -194,7 +197,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get francais => 'الفرنسية';
 
   @override
-  String get logout_confirmation => 'هل أنت متأكد من أنك تريد تسجيل الخروج؟';
+  String get logoutConfirmation => 'هل أنت متأكد من أنك تريد تسجيل الخروج؟';
 
   @override
   String get yes => 'نعم';
@@ -212,27 +215,86 @@ class AppLocalizationsAr extends AppLocalizations {
   String get year => 'السنة';
 
   @override
-  String get average => 'المتوسط';
+  String get average => 'المعدل';
 
   @override
   String get grade => 'الدرجة';
 
   @override
-  String get invalid_email => 'يرجى إدخال بريد إلكتروني صحيح';
+  String get invalidEmail => 'يرجى إدخال بريد إلكتروني صحيح';
 
   @override
-  String get please_enter_credentials =>
+  String get pleaseEnterCredentials =>
       'يرجى إدخال البريد الإلكتروني وكلمة المرور';
 
   @override
-  String get send_code => 'إرسال الرمز';
+  String get sendCode => 'إرسال الرمز';
 
   @override
   String get confirm => 'تأكيد';
 
   @override
-  String get verification_code => 'رمز التحقق';
+  String get verificationCode => 'رمز التحقق';
 
   @override
-  String get passwords_do_not_match => 'كلمات المرور غير متطابقة';
+  String get passwordsDoNotMatch => 'كلمات المرور غير متطابقة';
+
+  @override
+  String get passwordChangedSuccessfully => 'تم تغيير كلمة المرور بنجاح';
+
+  @override
+  String get currentPassword => 'كلمة المرور الحالية';
+
+  @override
+  String get currentPasswordRequired => 'كلمة المرور الحالية مطلوبة';
+
+  @override
+  String get newPasswordRequired => 'كلمة المرور الجديدة مطلوبة';
+
+  @override
+  String get confirmPasswordRequired => 'تأكيد كلمة المرور مطلوب';
+
+  @override
+  String get passwordMinSixCharacters =>
+      'يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل';
+
+  @override
+  String get trimestre => 'الفصل الدراسي';
+
+  @override
+  String get fundamentalAverage => 'المعدل الأساسي';
+
+  @override
+  String get numberOfAbsence => 'عدد الغيابات';
+
+  @override
+  String get reasonOfAbsenceRequired => 'سبب الغياب مطلوب';
+
+  @override
+  String get addPhoto => 'إضافة صورة';
+
+  @override
+  String get submit => 'إرسال';
+
+  @override
+  String get maxImagesAllowed => 'الحد الأقصى {count} صور مسموح.';
+
+  @override
+  String get limitReachedMessage =>
+      'تم الوصول للحد الأقصى. تم إضافة {added} من {selected} صور مختارة.';
+
+  @override
+  String get unknownSubject => 'مادة غير معروفة';
+
+  @override
+  String get reasonOfAbsence => 'أدخل سبب الغياب...';
+
+  @override
+  String get nothingToJustify => 'لا يوجد شيء لتبريره';
+
+  @override
+  String get sending => 'جاري الإرسال...';
+
+  @override
+  String get justificationSent => 'تم إرسال التبرير بنجاح';
 }

@@ -115,7 +115,7 @@ class AccountPage extends StatelessWidget {
   List<AccountOption> _buildOptions(BuildContext context) => [
         AccountOption(
           icon: IconsManager.userInformation,
-          title: AppLocalizations.of(context)!.user_information,
+          title: AppLocalizations.of(context)!.userInformation,
           onTap: () {
             showDialog(
               context: context,
@@ -130,7 +130,7 @@ class AccountPage extends StatelessWidget {
         ),
         AccountOption(
           icon: IconsManager.changePassword,
-          title: AppLocalizations.of(context)!.change_password,
+          title: AppLocalizations.of(context)!.changePassword,
           onTap: () {
             showDialog(
               context: context,
@@ -143,7 +143,7 @@ class AccountPage extends StatelessWidget {
         ),
         AccountOption(
           icon: IconsManager.tuition,
-          title: AppLocalizations.of(context)!.tuition_fees,
+          title: AppLocalizations.of(context)!.tuitionFees,
           onTap: () {
             context.pushNamed(Routes.paimentPage);
           },
@@ -161,12 +161,12 @@ class AccountPage extends StatelessWidget {
         AccountOption(
           icon: IconsManager
               .name, // Using name icon as it's more generic for settings
-          title: AppLocalizations.of(context)!.change_language,
+          title: AppLocalizations.of(context)!.changeLanguage,
           onTap: () => _showLanguageSelection(context),
         ),
         AccountOption(
             icon: IconsManager.logOut,
-            title: AppLocalizations.of(context)!.log_out,
+            title: AppLocalizations.of(context)!.logOut,
             onTap: () => showLogoutConfirmationDialog(
                   context: context,
                   onConfirm: () => _logOut(context),
@@ -211,7 +211,7 @@ class AccountPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.r),
           ),
           title: Text(
-            AppLocalizations.of(context)!.select_language,
+            AppLocalizations.of(context)!.selectLanguage,
             style: TextStyles.font18DarkBlueBold,
             textAlign: isRTL ? TextAlign.right : TextAlign.left,
           ),

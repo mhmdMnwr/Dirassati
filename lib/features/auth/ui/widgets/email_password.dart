@@ -51,7 +51,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return AppLocalizations.of(context)!.invalid_email;
+                return AppLocalizations.of(context)!.invalidEmail;
               }
             },
             controller: context.read<LoginCubit>().emailController,
@@ -78,7 +78,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return AppLocalizations.of(context)!.cannot_be_empty;
+                return AppLocalizations.of(context)!.cannotBeEmpty;
               }
             },
           ),

@@ -51,7 +51,8 @@ class StudentDetails extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.only(
-          left: 30.w,
+          left: 16.w,
+          right: 16.w,
         ),
         child: Stack(children: [
           Positioned(
@@ -71,12 +72,12 @@ class StudentDetails extends StatelessWidget {
                 120,
               ),
               buildStudentDetails(
-                title: AppLocalizations.of(context)!.family_name,
+                title: AppLocalizations.of(context)!.familyName,
                 isTitle: true,
                 value: student.lastName,
               ),
               buildStudentDetails(
-                title: AppLocalizations.of(context)!.first_name,
+                title: AppLocalizations.of(context)!.firstName,
                 isTitle: true,
                 value: student.firstName,
               ),
@@ -98,7 +99,7 @@ class StudentDetails extends StatelessWidget {
                 value: student.phone,
               ),
               buildStudentDetails(
-                title: AppLocalizations.of(context)!.email_address,
+                title: AppLocalizations.of(context)!.emailAddress,
                 value: student.email,
               ),
               buildStudentDetails(

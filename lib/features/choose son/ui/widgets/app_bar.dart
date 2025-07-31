@@ -5,6 +5,7 @@ import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/features/choose%20son/data/model/get_me_response.dart';
 import 'package:dirasati/features/choose%20son/ui/widgets/build_acount_icon.dart';
 import 'package:dirasati/features/notifications/logic/cubit/notifications_cubit.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,6 +22,7 @@ class MyAppBar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         top: 30.h,
+        right: 16.w,
         left: 16.w,
       ),
       child: Row(
@@ -31,7 +33,7 @@ class MyAppBar extends StatelessWidget {
             width: 50.w,
           ),
           Text(
-            'Dirassati',
+            AppLocalizations.of(context)!.appName,
             style: TextStyles.font24SkyBlueExtraBold,
           ),
           Spacer(),

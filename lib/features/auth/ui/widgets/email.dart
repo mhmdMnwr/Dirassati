@@ -40,7 +40,7 @@ class _EmailFieldState extends State<EmailField> {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return AppLocalizations.of(context)!.invalid_email;
+                return AppLocalizations.of(context)!.invalidEmail;
               }
             },
             controller: context.read<LoginCubit>().emailController,

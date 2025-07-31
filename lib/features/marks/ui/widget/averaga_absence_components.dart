@@ -1,40 +1,47 @@
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AverageAbsenceComponents {
-  static Widget avrgeButton({double average = 12.40}) {
-    return Align(
-        alignment: Alignment.center,
-        child: Container(
-          height: 60.h,
-          width: 190.w,
-          decoration: BoxDecoration(
-            color: average >= 10 ? Colors.green : Colors.red,
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(8),
-              bottomRight: Radius.circular(8),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 2,
-                blurRadius: 4,
-                offset: Offset(0, 2),
+  static Widget avrgeButton(
+      {double average = 12.40, required BuildContext context}) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 20.w),
+      child: Align(
+          alignment: Alignment.center,
+          child: Container(
+            height: 60.h,
+            width: 190.w,
+            decoration: BoxDecoration(
+              color: average >= 10 ? Colors.green : Colors.red,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(8),
+                bottomRight: Radius.circular(8),
               ),
-            ],
-          ),
-          child: Center(
-              child: Text('Average : ${average.toStringAsFixed(2)}',
-                  style: TextStyles.font16Whitebold)),
-        ));
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 2,
+                  blurRadius: 4,
+                  offset: Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Center(
+                child: Text(
+                    '${AppLocalizations.of(context)!.average} : ${average.toStringAsFixed(2)}',
+                    style: TextStyles.font16Whitebold)),
+          )),
+    );
   }
 
-  static Widget fundamentalAvregeText({double fAverege = 12.10}) {
+  static Widget fundamentalAvregeText(
+      {double fAverege = 12.10, required BuildContext context}) {
     return Row(
       children: [
         Text(
-          'Fundamental Average',
+          AppLocalizations.of(context)!.fundamentalAverage,
           style: TextStyles.font16BlackBold,
         ),
         Text(
@@ -45,11 +52,12 @@ abstract class AverageAbsenceComponents {
     );
   }
 
-  static Widget numberOfAbsenceText({int numOfAbc = 10}) {
+  static Widget numberOfAbsenceText(
+      {int numOfAbc = 10, required BuildContext context}) {
     return Row(
       children: [
         Text(
-          'Number Of Absence',
+          AppLocalizations.of(context)!.numberOfAbsence,
           style: TextStyles.font16BlackBold,
         ),
         Text(

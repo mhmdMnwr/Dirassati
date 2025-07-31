@@ -15,7 +15,7 @@ class ResetPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ModelAuthPage(
       image: IconsManager.resetpassword,
-      pageName: AppLocalizations.of(context)!.reset_password,
+      pageName: AppLocalizations.of(context)!.resetPassword,
       nextRoute: Routes.loginScreen,
       formKey: _resetFormKey,
       buttonText: AppLocalizations.of(context)!.confirm,

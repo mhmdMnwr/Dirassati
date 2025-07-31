@@ -18,7 +18,7 @@ class NoHomeWork extends StatelessWidget {
         Image.asset(IconsManager.noHomeWork),
         verticalSpace(10),
         Text(
-          AppLocalizations.of(context)!.no_homework,
+          AppLocalizations.of(context)!.noHomework,
           style: TextStyles.font22BlackBold,
           textAlign: TextAlign.center,
         ),

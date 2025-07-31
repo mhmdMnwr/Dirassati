@@ -1,5 +1,6 @@
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/styles.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,6 +14,7 @@ class WelcomBackMessage extends StatelessWidget {
       padding: EdgeInsets.only(
         top: 150.h,
         left: 16.w,
+        right: 16.w,
         bottom: 100.h,
       ),
       child: Row(
@@ -23,7 +25,7 @@ class WelcomBackMessage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Welcome Back!',
+                  AppLocalizations.of(context)!.welcomeBack,
                   style: TextStyles.font18BlueSemiBold,
                 ),
                 Text(
@@ -33,6 +35,7 @@ class WelcomBackMessage extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyles.font24SecBlueExtraBold,
                 ),
+                verticalSpace(12),
               ],
             ),
           ),

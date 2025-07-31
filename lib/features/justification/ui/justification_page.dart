@@ -9,6 +9,7 @@ import 'package:dirasati/features/justification/ui/widget/build_image.dart'; // 
 import 'package:dirasati/features/justification/ui/widget/build_justification_title.dart';
 import 'package:dirasati/features/justification/ui/widget/build_justify_button.dart';
 import 'package:dirasati/features/justification/ui/widget/reason_of_absence_field.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -63,8 +64,10 @@ class _JustificationPageState extends State<JustificationPage> {
     if (imageFiles.length >= maxImageLimit) {
       // Show a message if the limit is already reached
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Maximum $maxImageLimit images allowed.'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!
+              .maxImagesAllowed
+              .replaceAll('{count}', maxImageLimit.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -88,8 +91,10 @@ class _JustificationPageState extends State<JustificationPage> {
           // Show a message indicating not all files were added
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                  'Limit reached. Added $remainingSlots of $filesToAddCount selected images.'),
+              content: Text(AppLocalizations.of(context)!
+                  .limitReachedMessage
+                  .replaceAll('{added}', remainingSlots.toString())
+                  .replaceAll('{selected}', filesToAddCount.toString())),
               backgroundColor: Colors.orange,
             ),
           );
@@ -126,7 +131,8 @@ class _JustificationPageState extends State<JustificationPage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           BuildJustificationTitle(
-            subjectName: widget.absenceData.subjectName ?? 'Unknown Subject',
+            subjectName: widget.absenceData.subjectName ??
+                AppLocalizations.of(context)!.unknownSubject,
             absentSinceDate: widget.absenceData.absentSince,
           ),
 
@@ -134,7 +140,7 @@ class _JustificationPageState extends State<JustificationPage> {
           ReasonOfAbsenceField(
             raeasonOfAbsenceKey: reasonOfAbsenceKey,
             controller: _contentController,
-            hintText: 'reason of absence',
+            hintText: AppLocalizations.of(context)!.reasonOfAbsence,
             onChanged: (value) {},
           ),
           verticalSpace(10),

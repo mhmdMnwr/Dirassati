@@ -66,7 +66,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
           success: (data, hasMore) {
             if (notifications.isEmpty) {
               return Center(
-                child: Text(AppLocalizations.of(context)!.no_data),
+                child: Text(AppLocalizations.of(context)!.noData),
               );
             } else {
               return NotificationsListview(

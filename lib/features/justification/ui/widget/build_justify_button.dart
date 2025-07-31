@@ -10,6 +10,7 @@ import 'package:dirasati/features/justification/data/model/send_update_justifica
 import 'package:dirasati/features/justification/logic/cubit/absence_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_cubit.dart';
 import 'package:dirasati/features/justification/logic/cubit/upload_images_state.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -83,7 +84,9 @@ class _BuildJustifyButtonState extends State<BuildJustifyButton> {
           ),
           child: Center(
             child: Text(
-              widget.isEdit ? 'Edit' : 'Submit',
+              widget.isEdit
+                  ? AppLocalizations.of(context)!.edit
+                  : AppLocalizations.of(context)!.submit,
               style: TextStyles.font22Whitebold,
             ),
           ),

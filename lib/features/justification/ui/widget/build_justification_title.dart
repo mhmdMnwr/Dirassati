@@ -2,7 +2,7 @@ import 'package:dirasati/core/helpers/date_formatter.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/theming/styles.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildJustificationTitle extends StatelessWidget {
@@ -13,6 +13,8 @@ class BuildJustificationTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -29,7 +31,10 @@ class BuildJustificationTitle extends StatelessWidget {
         ),
         Spacer(),
         Padding(
-          padding: EdgeInsets.only(right: 30.w),
+          padding: EdgeInsets.only(
+            left: isRtl ? 30.w : 0,
+            right: isRtl ? 0 : 30.w,
+          ),
           child: Text(
             DateFormatterHelper.fomatedDate(absentSinceDate!),
             style: TextStyles.font16BlackBold,

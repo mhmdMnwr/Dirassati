@@ -23,7 +23,7 @@ class DirassatiApp extends StatelessWidget {
             designSize: const Size(412, 917),
             minTextAdapt: true,
             child: MaterialApp(
-              title: AppLocalizations.of(context)?.app_name ?? 'Dirassati',
+              title: AppLocalizations.of(context)?.appName ?? 'Dirassati',
               locale: locale, // Use the locale from LanguageCubit
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
@@ -33,7 +33,7 @@ class DirassatiApp extends StatelessWidget {
                 scaffoldBackgroundColor: Colors.white,
               ),
               debugShowCheckedModeBanner: false,
-              initialRoute: Routes.otpScreen,
+              initialRoute: Routes.chooseSonScreen,
               // isParentLoggedIn ? Routes.chooseSonScreen : Routes.loginScreen,
               onGenerateRoute: appRouter.generateRoute,
             ),

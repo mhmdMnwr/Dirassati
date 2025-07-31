@@ -38,70 +38,71 @@ abstract class AppLocalizations {
     Locale('fr')
   ];
 
-  String get app_name;
+  String get appName;
   String get hello;
+  String get welcomeBack;
   String get welcome;
-  String get log_in;
+  String get logIn;
   String get email;
   String get password;
-  String get forgot_password;
-  String get reset_password;
-  String get confirm_password;
-  String get old_password;
-  String get new_password;
-  String get enter_email;
-  String get enter_password;
-  String get enter_old_password;
-  String get enter_new_password;
-  String get confirm_new_password;
+  String get forgotPassword;
+  String get resetPassword;
+  String get confirmPassword;
+  String get oldPassword;
+  String get newPassword;
+  String get enterEmail;
+  String get enterPassword;
+  String get enterOldPassword;
+  String get enterNewPassword;
+  String get confirmNewPassword;
   String get account;
-  String get user_information;
-  String get change_password;
-  String get tuition_fees;
+  String get userInformation;
+  String get changePassword;
+  String get tuitionFees;
   String get notifications;
-  String get log_out;
-  String get family_name;
-  String get first_name;
-  String get last_name;
+  String get logOut;
+  String get familyName;
+  String get firstName;
+  String get lastName;
   String get birthday;
   String get gender;
   String get address;
   String get phone;
-  String get email_address;
+  String get emailAddress;
   String get level;
   String get announcement;
   String get schedule;
   String get marks;
-  String get home_work;
+  String get homeWork;
   String get absence;
-  String get daily_schedule;
-  String get exam_schedule;
-  String get schedule_not_available;
-  String get total_due;
-  String get total_to_pay;
-  String get next_amount_to_pay;
-  String get next_date_to_pay;
-  String get next_amount_to_pay_label;
-  String get next_date_to_pay_label;
-  String get unknown_student;
-  String get no_payment_information;
-  String get payment_error;
+  String get dailySchedule;
+  String get examSchedule;
+  String get scheduleNotAvailable;
+  String get totalDue;
+  String get totalToPay;
+  String get nextAmountToPay;
+  String get nextDateToPay;
+  String get nextAmountToPayLabel;
+  String get nextDateToPayLabel;
+  String get unknownStudent;
+  String get noPaymentInformation;
+  String get paymentError;
   String get day;
   String get days;
   String get dzd;
   String get cancel;
   String get edit;
-  String get no_data;
+  String get noData;
   String get retry;
-  String get cannot_be_empty;
-  String get valid_email;
-  String get password_min_length;
-  String get no_homework;
-  String get change_language;
-  String get select_language;
+  String get cannotBeEmpty;
+  String get validEmail;
+  String get passwordMinLength;
+  String get noHomework;
+  String get changeLanguage;
+  String get selectLanguage;
   String get english;
   String get francais;
-  String get logout_confirmation;
+  String get logoutConfirmation;
   String get yes;
   String get no;
   String get close;
@@ -110,17 +111,55 @@ abstract class AppLocalizations {
   String get average;
   String get grade;
 
-  String get invalid_email;
+  String get invalidEmail;
 
-  String get please_enter_credentials;
+  String get pleaseEnterCredentials;
 
-  String get send_code;
+  String get sendCode;
 
   String get confirm;
 
-  String get verification_code;
+  String get verificationCode;
 
-  String get passwords_do_not_match;
+  String get passwordsDoNotMatch;
+
+  String get passwordChangedSuccessfully;
+
+  String get currentPassword;
+
+  String get currentPasswordRequired;
+
+  String get newPasswordRequired;
+
+  String get confirmPasswordRequired;
+
+  String get passwordMinSixCharacters;
+
+  String get trimestre;
+
+  String get fundamentalAverage;
+
+  String get numberOfAbsence;
+
+  String get reasonOfAbsenceRequired;
+
+  String get addPhoto;
+
+  String get submit;
+
+  String get maxImagesAllowed;
+
+  String get limitReachedMessage;
+
+  String get unknownSubject;
+
+  String get reasonOfAbsence;
+
+  String get nothingToJustify;
+
+  String get sending;
+
+  String get justificationSent;
 }
 
 class _AppLocalizationsDelegate

@@ -15,7 +15,7 @@ class OtpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ModelAuthPage(
       image: IconsManager.otpPage,
-      pageName: AppLocalizations.of(context)!.verification_code,
+      pageName: AppLocalizations.of(context)!.verificationCode,
       nextRoute: Routes.rsetPasswordScreen,
       formKey: _verifyFormKey,
       buttonText: AppLocalizations.of(context)!.confirm,

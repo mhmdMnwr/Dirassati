@@ -86,7 +86,7 @@ class _ParentInformationDialogState extends State<ParentInformationDialog> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(AppLocalizations.of(context)!.user_information,
+                  Text(AppLocalizations.of(context)!.userInformation,
                       style: TextStyles.font22BlackBold),
                   verticalSpace(24.h),
 

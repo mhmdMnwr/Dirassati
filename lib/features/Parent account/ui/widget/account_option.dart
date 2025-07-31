@@ -50,13 +50,11 @@ class AccountOption extends StatelessWidget {
                   textAlign: isRTL ? TextAlign.right : TextAlign.left,
                 ),
               ),
-              Transform.flip(
-                flipX: isRTL, // Flip arrow for RTL
-                child: Icon(
-                  Icons.arrow_forward_ios,
-                  color: ColorsManager.mainBlue,
-                  size: 16.sp, // Slightly smaller arrow
-                ),
+              Icon(
+                isRTL ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+
+                color: ColorsManager.mainBlue,
+                size: 16.sp, // Slightly smaller arrow
               ),
             ],
           ),

@@ -71,7 +71,7 @@ class ModelAuthPage extends StatelessWidget {
                           },
                           child: Center(
                             child: Text(
-                              AppLocalizations.of(context)!.forgot_password,
+                              AppLocalizations.of(context)!.forgotPassword,
                               style: TextStyles.forgetPassStyle,
                             ),
                           ),

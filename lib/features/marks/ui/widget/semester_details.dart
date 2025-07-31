@@ -28,7 +28,12 @@ class SemesterDetailCard extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.only(left: 20.w),
+        padding: EdgeInsets.only(
+          left:
+              Directionality.of(context).toString().contains('rtl') ? 0 : 20.w,
+          right:
+              Directionality.of(context).toString().contains('rtl') ? 20.w : 0,
+        ),
         child: Column(
           children: [
             // Title + close button
@@ -44,11 +49,14 @@ class SemesterDetailCard extends StatelessWidget {
 
             verticalSpace(15),
 
-            AverageAbsenceComponents.fundamentalAvregeText(fAverege: mainAvg),
+            AverageAbsenceComponents.fundamentalAvregeText(
+                fAverege: mainAvg, context: context),
             verticalSpace(20),
-            AverageAbsenceComponents.numberOfAbsenceText(numOfAbc: absence),
+            AverageAbsenceComponents.numberOfAbsenceText(
+                numOfAbc: absence, context: context),
             verticalSpace(20),
-            AverageAbsenceComponents.avrgeButton(average: avg),
+            AverageAbsenceComponents.avrgeButton(
+                average: avg, context: context),
           ],
         ),
       ),

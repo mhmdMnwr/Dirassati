@@ -1,3 +1,5 @@
+import 'dart:math' show pi;
+
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/routing/routes.dart';
@@ -40,16 +42,24 @@ class SliverAppBarBuilders {
       builder: (context, constraints) {
         final expansionRatio = constraints.maxHeight / 200;
         final isExpanded = expansionRatio > 0.7;
+        final isRtl = Directionality.of(context) == TextDirection.rtl;
 
         return Align(
-          alignment: isExpanded ? Alignment.centerRight : Alignment.bottomRight,
+          alignment: isExpanded
+              ? (isRtl ? Alignment.centerLeft : Alignment.centerRight)
+              : (isRtl ? Alignment.bottomLeft : Alignment.bottomRight),
           child: Padding(
             padding: isExpanded
                 ? EdgeInsets.only(
-                    right: 16.0.w,
+                    left: isRtl ? 16.0.w : 0,
+                    right: isRtl ? 0 : 16.0.w,
                     bottom: 16.0.h,
                   )
-                : EdgeInsets.only(right: 20.w, top: 15.h),
+                : EdgeInsets.only(
+                    left: isRtl ? 20.w : 0,
+                    right: isRtl ? 0 : 20.w,
+                    top: 15.h,
+                  ),
             child: _titleRow(student, isExpanded),
           ),
         );
@@ -64,17 +74,26 @@ class SliverAppBarBuilders {
   }
 
   static Widget buildLeading(BuildContext context) {
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
+
     return InkWell(
       onTap: () {
         context.pushNamedAndRemoveUntil(Routes.chooseSonScreen,
             predicate: (route) => false);
       },
       child: Padding(
-        padding: EdgeInsets.only(left: 20.w, bottom: 20),
-        child: Image.asset(
-          IconsManager.backButton,
-          height: 50.sp,
-          width: 50.sp,
+        padding: EdgeInsets.only(
+          left: isRtl ? 0 : 20.w,
+          right: isRtl ? 20.w : 0,
+          bottom: 20,
+        ),
+        child: Transform.rotate(
+          angle: isRtl ? pi : 0,
+          child: Image.asset(
+            IconsManager.backButton,
+            height: 70.sp,
+            width: 70.sp,
+          ),
         ),
       ),
     );
