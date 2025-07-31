@@ -89,5 +89,22 @@
   "logout_confirmation": "Êtes-vous sûr de vouloir vous déconnecter ?",
   "yes": "Oui",
   "no": "Non",
-  "close": "Fermer"
+  "close": "Fermer",
+  "language_changed_successfully": "Langue changée avec succès!",
+  "language_changed_restart": "Langue changée. Redémarrage de l'application pour appliquer les modifications...",
+  "login_successful": "Connexion réussie",
+  "please_enter_credentials": "Veuillez saisir votre email et mot de passe",
+  "unknown_error": "Erreur inconnue",
+  "at_least_characters": "Au moins 2 caractères",
+  "max_characters": "Maximum 25 caractères",
+  "max_address_characters": "Maximum 50 caractères",
+  "pdf_error": "Une erreur inconnue s'est produite lors de la récupération du PDF.",
+  "pdf_error_no_message": "Échec de récupération du PDF : Aucun message d'erreur spécifique fourni.",
+  "select_language": "Sélectionner la langue",
+  "english": "Anglais",
+  "francais": "Français",
+  "password_lowercase": "Au moins 1 lettre minuscule",
+  "password_uppercase": "Au moins 1 lettre majuscule",
+  "password_special": "Au moins 1 caractère spécial",
+  "password_number": "Au moins 1 chiffre"
 }

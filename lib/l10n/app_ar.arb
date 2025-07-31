@@ -91,5 +91,22 @@
   "logout_confirmation": "هل أنت متأكد من أنك تريد تسجيل الخروج؟",
   "yes": "نعم",
   "no": "لا",
-  "close": "إغلاق"
+  "close": "إغلاق",
+  "language_changed_successfully": "تم تغيير اللغة بنجاح!",
+  "language_changed_restart": "تم تغيير اللغة. إعادة تشغيل التطبيق لتطبيق التغييرات...",
+  "login_successful": "تم تسجيل الدخول بنجاح",
+  "please_enter_credentials": "يرجى إدخال البريد الإلكتروني وكلمة المرور",
+  "unknown_error": "خطأ غير معروف",
+  "at_least_characters": "على الأقل حرفان",
+  "max_characters": "حد أقصى 25 حرف",
+  "max_address_characters": "حد أقصى 50 حرف",
+  "pdf_error": "حدث خطأ غير معروف أثناء جلب ملف PDF.",
+  "pdf_error_no_message": "فشل في جلب PDF: لم يتم توفير رسالة خطأ محددة.",
+  "select_language": "اختر اللغة",
+  "english": "الإنجليزية",
+  "francais": "الفرنسية",
+  "password_lowercase": "حرف صغير واحد على الأقل",
+  "password_uppercase": "حرف كبير واحد على الأقل",
+  "password_special": "رمز خاص واحد على الأقل", 
+  "password_number": "رقم واحد على الأقل"
 }

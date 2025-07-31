@@ -1,6 +1,7 @@
 import 'package:dirasati/core/di/dependency_injection.dart';
 import 'package:dirasati/core/helpers/extensions.dart';
 import 'package:dirasati/core/helpers/shared_pref_helper.dart';
+import 'package:dirasati/core/helpers/constants.dart';
 import 'package:dirasati/core/language/language_cubit.dart';
 import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/core/theming/colors.dart';
@@ -48,6 +49,8 @@ class AccountPage extends StatelessWidget {
 
   /// SliverAppBar with curved bottom and account header
   Widget _buildAppBar(BuildContext context) {
+    final isRTL = RTLHelper.isRTL(context);
+    
     return SliverAppBar(
       pinned: true,
       elevation: 0,
@@ -59,11 +62,16 @@ class AccountPage extends StatelessWidget {
         ),
       ),
       leading: _backButton(context),
-      title: Text(AppLocalizations.of(context)!.account,
-          style: TextStyles.font22Whitebold),
+      title: Text(
+        AppLocalizations.of(context)!.account,
+        style: TextStyles.font22Whitebold,
+        textAlign: isRTL ? TextAlign.right : TextAlign.left,
+      ),
       flexibleSpace: FlexibleSpaceBar(
         background: AccountHeader(
-          name: '${parentModel.firstName} ${parentModel.lastName}',
+          name: isRTL 
+            ? '${parentModel.lastName} ${parentModel.firstName}' // Arabic name order
+            : '${parentModel.firstName} ${parentModel.lastName}', // English/French name order
         ),
       ),
     );
@@ -71,17 +79,28 @@ class AccountPage extends StatelessWidget {
 
   /// List of account options as SliverList
   Widget _buildOptionsList(BuildContext context) {
+    final isRTL = RTLHelper.isRTL(context);
     final options = _buildOptions(context);
+    
     return SliverPadding(
-      padding: EdgeInsets.symmetric(vertical: 16.h),
+      padding: EdgeInsets.symmetric(
+        vertical: 16.h,
+        horizontal: 16.w, // Consistent horizontal padding
+      ),
       sliver: SliverList(
         delegate: SliverChildBuilderDelegate(
           (ctx, index) {
             return Column(
+              crossAxisAlignment: isRTL ? CrossAxisAlignment.end : CrossAxisAlignment.start,
               children: [
-                options[index],
+                options[index], // Remove extra padding wrapper
                 if (index < options.length - 1)
-                  Divider(indent: 16.w, endIndent: 16.w, height: 1),
+                  Divider(
+                    indent: 16.w, 
+                    endIndent: 16.w, 
+                    height: 1,
+                    thickness: 0.5,
+                  ),
               ],
             );
           },
@@ -141,7 +160,7 @@ class AccountPage extends StatelessWidget {
         AccountOption(
           icon: IconsManager
               .name, // Using name icon as it's more generic for settings
-          title: 'Change Language', // Will be localized after ARB regeneration
+          title: AppLocalizations.of(context)!.change_language,
           onTap: () => _showLanguageSelection(context),
         ),
         AccountOption(
@@ -154,25 +173,32 @@ class AccountPage extends StatelessWidget {
       ];
 
   Widget _backButton(BuildContext context) {
+    final isRTL = RTLHelper.isRTL(context);
+    
     return IconButton(
       onPressed: () {
         context.read<NotificationsCubit>().getCountNotifications();
         context.pop();
       },
-      icon: Image.asset(
-        IconsManager.backButton,
-        height: 40.h,
-        width: 40.w,
+      icon: Transform.flip(
+        flipX: isRTL, // Flip back button for RTL
+        child: Image.asset(
+          IconsManager.backButton,
+          height: 40.h,
+          width: 40.w,
+        ),
       ),
     );
   }
 
   void _logOut(BuildContext context) async {
     await SharedPrefHelper.clearAllData();
-    context.pushReplacementNamed(Routes.loginScreen).then((_) {});
+    context.pushNamedAndRemoveUntil(Routes.loginScreen , predicate: (route) => false).then((_) {});
   }
 
   void _showLanguageSelection(BuildContext context) {
+    final isRTL = RTLHelper.isRTL(context);
+    
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -181,15 +207,17 @@ class AccountPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.r),
           ),
           title: Text(
-            'Select Language', // Will be localized after ARB regeneration
+            AppLocalizations.of(context)!.select_language,
             style: TextStyles.font18DarkBlueBold,
+            textAlign: isRTL ? TextAlign.right : TextAlign.left,
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: isRTL ? CrossAxisAlignment.end : CrossAxisAlignment.start,
             children: [
               _buildLanguageOption(
                 context: context,
-                language: 'English',
+                language: AppLocalizations.of(context)!.english,
                 locale: const Locale('en'),
                 flag: '🇺🇸',
               ),
@@ -229,23 +257,31 @@ class AccountPage extends StatelessWidget {
     required Locale locale,
     required String flag,
   }) {
+    final isRTL = RTLHelper.isRTL(context);
+    
     return InkWell(
       onTap: () => _changeLanguage(context, locale),
       borderRadius: BorderRadius.circular(8.r),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
+        padding: EdgeInsets.symmetric(
+          vertical: 12.h, 
+          horizontal: 16.w, // Consistent padding for all options
+        ),
         child: Row(
+          textDirection: isRTL ? TextDirection.rtl : TextDirection.ltr,
           children: [
             Text(
               flag,
               style: TextStyle(fontSize: 24.sp),
             ),
             SizedBox(width: 12.w),
-            Text(
-              language,
-              style: TextStyles.font14DarkBlueMedium,
+            Expanded(
+              child: Text(
+                language,
+                style: TextStyles.font14DarkBlueMedium,
+                textAlign: isRTL ? TextAlign.right : TextAlign.left,
+              ),
             ),
-            const Spacer(),
             Icon(
               Icons.language,
               color: ColorsManager.mainBlue,
@@ -269,11 +305,25 @@ class AccountPage extends StatelessWidget {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Language changed successfully!'),
+            content: Text(
+              'Language changed successfully!',
+              textDirection: TextDirection.ltr, // Keep success message in LTR for consistency
+            ),
             backgroundColor: Colors.green,
             duration: const Duration(seconds: 2),
           ),
         );
+        
+        // Force immediate navigation refresh to apply language changes
+        // Navigate to login and then back to trigger full app rebuild
+        Future.delayed(const Duration(milliseconds: 500), () {
+          if (context.mounted) {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              Routes.chooseSonScreen,
+              (route) => false,
+            );
+          }
+        });
       }
     } catch (e) {
       // Fallback to SharedPreferences if LanguageCubit is not available
@@ -283,16 +333,23 @@ class AccountPage extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-                'Language changed. Please restart the app to see changes.'), // Will be localized after ARB regeneration
-            duration: const Duration(seconds: 3),
-            action: SnackBarAction(
-              label: 'Restart',
-              onPressed: () {
-                // Could implement app restart logic here
-              },
+              'Language changed. Restarting app to apply changes...',
+              textDirection: TextDirection.ltr, // Keep system messages in LTR
             ),
+            backgroundColor: Colors.green,
+            duration: const Duration(seconds: 2),
           ),
         );
+        
+        // Force app restart after language change
+        Future.delayed(const Duration(seconds: 1), () {
+          if (context.mounted) {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              Routes.loginScreen,
+              (route) => false,
+            );
+          }
+        });
       }
     }
   }

@@ -3,6 +3,7 @@ import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
 import 'package:dirasati/features/auth/ui/model_page.dart';
 import 'package:dirasati/features/auth/ui/widgets/email.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,10 +15,10 @@ class ForgetPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ModelAuthPage(
       image: IconsManager.forgotPassword,
-      pageName: '   Forgot \nPassword',
+      pageName: AppLocalizations.of(context)!.forgot_password,
       nextRoute: Routes.otpScreen,
       formKey: _forgetFormKey,
-      buttonText: 'Send Code',
+      buttonText: AppLocalizations.of(context)!.send_code,
       customField: EmailField(
         forgetFormKey: _forgetFormKey,
       ),

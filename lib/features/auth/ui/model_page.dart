@@ -4,6 +4,7 @@ import 'package:dirasati/core/routing/routes.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/core/widgets/app_text_button.dart';
 import 'package:dirasati/features/auth/ui/widgets/login_bloc_listener.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -70,7 +71,7 @@ class ModelAuthPage extends StatelessWidget {
                           },
                           child: Center(
                             child: Text(
-                              'Forgot Password?',
+                              AppLocalizations.of(context)!.forgot_password,
                               style: TextStyles.forgetPassStyle,
                             ),
                           ),

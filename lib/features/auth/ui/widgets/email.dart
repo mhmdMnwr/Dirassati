@@ -2,6 +2,7 @@ import 'package:dirasati/core/helpers/app_regulair_expression.dart';
 import 'package:dirasati/core/theming/icons.dart';
 import 'package:dirasati/core/widgets/app_text_form_field.dart';
 import 'package:dirasati/features/auth/logic/cubit/login_cubit.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,12 +35,12 @@ class _EmailFieldState extends State<EmailField> {
               width: 30.w,
               height: 30.h,
             ),
-            hintText: 'example@example.com',
+            hintText: AppLocalizations.of(context)!.email,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+                return AppLocalizations.of(context)!.invalid_email;
               }
             },
             controller: context.read<LoginCubit>().emailController,

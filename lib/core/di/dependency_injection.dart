@@ -3,6 +3,7 @@ import 'package:dirasati/core/Networking/api_service.dart';
 import 'package:dirasati/core/Networking/dio_factory.dart';
 import 'package:dirasati/core/Networking/fetch_pdf_api_service.dart';
 import 'package:dirasati/core/Networking/fetch_pdf_repo.dart';
+import 'package:dirasati/core/language/language_cubit.dart';
 import 'package:dirasati/features/HomeWork/data/repo/home_work_repo.dart';
 import 'package:dirasati/features/HomeWork/logic/cubit/home_work_cubit.dart';
 import 'package:dirasati/features/auth/data/repo/login_repo.dart';
@@ -33,6 +34,9 @@ Future<void> setupGetIt() async {
 
   getIt.registerLazySingleton<Dio>(() => dio);
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+
+  // Register LanguageCubit as singleton so it persists across the app
+  getIt.registerLazySingleton<LanguageCubit>(() => LanguageCubit());
 
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));

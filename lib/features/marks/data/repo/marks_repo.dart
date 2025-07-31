@@ -5,7 +5,7 @@ import 'package:dirasati/features/marks/data/model/marks_model.dart';
 import 'package:dirasati/features/marks/data/model/years_model.dart';
 
 class MarksRepository {
-  ApiService _apiService;
+  final ApiService _apiService;
   MarksRepository(this._apiService);
 
   Future<ApiResult<YearsResponse>> getStudentyears(String studentId) async {

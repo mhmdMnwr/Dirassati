@@ -1,19 +1,17 @@
 import 'app_localizations.dart';
 
-// ignore_for_file: type=lint
-
 /// The translations for Arabic (`ar`).
 class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get app_name => 'دراستي';
+  String get app_name => 'درصاتي';
 
   @override
   String get hello => 'مرحبا';
 
   @override
-  String get welcome => 'مرحبًا بك في تطبيقنا!';
+  String get welcome => 'مرحبا بك في تطبيقنا!';
 
   @override
   String get log_in => 'تسجيل الدخول';
@@ -25,7 +23,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get password => 'كلمة المرور';
 
   @override
-  String get forgot_password => 'نسيت كلمة المرور؟';
+  String get forgot_password => 'نسيت كلمة المرور';
 
   @override
   String get reset_password => 'إعادة تعيين كلمة المرور';
@@ -40,7 +38,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get new_password => 'كلمة المرور الجديدة';
 
   @override
-  String get enter_email => 'أدخل بريدك الإلكتروني';
+  String get enter_email => 'أدخل البريد الإلكتروني';
 
   @override
   String get enter_password => 'أدخل كلمة المرور';
@@ -94,7 +92,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phone => 'الهاتف';
 
   @override
-  String get email_address => 'البريد الإلكتروني';
+  String get email_address => 'عنوان البريد الإلكتروني';
 
   @override
   String get level => 'المستوى';
@@ -106,7 +104,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get schedule => 'الجدول الزمني';
 
   @override
-  String get marks => 'العلامات';
+  String get marks => 'الدرجات';
 
   @override
   String get home_work => 'الواجبات المنزلية';
@@ -121,34 +119,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exam_schedule => 'جدول الامتحانات';
 
   @override
-  String get schedule_not_available => 'هذا الجدول غير متوفر حاليًا.';
+  String get schedule_not_available => 'الجدول غير متوفر';
 
   @override
-  String get total_due => 'إجمالي المستحق';
+  String get total_due => 'المبلغ المستحق';
 
   @override
-  String get total_to_pay => 'إجمالي المبلغ للدفع';
+  String get total_to_pay => 'المبلغ المراد دفعه';
 
   @override
-  String get next_amount_to_pay => 'المبلغ التالي للدفع:';
+  String get next_amount_to_pay => 'المبلغ التالي للدفع';
 
   @override
-  String get next_date_to_pay => 'تاريخ الدفع التالي:';
+  String get next_date_to_pay => 'التاريخ التالي للدفع';
 
   @override
-  String get next_amount_to_pay_label => 'المبلغ التالي للدفع';
+  String get next_amount_to_pay_label => 'المبلغ التالي للدفع:';
 
   @override
-  String get next_date_to_pay_label => 'تاريخ الدفع التالي';
+  String get next_date_to_pay_label => 'التاريخ التالي للدفع:';
 
   @override
   String get unknown_student => 'طالب غير معروف';
 
   @override
-  String get no_payment_information => 'لم يتم العثور على معلومات الدفع.';
+  String get no_payment_information => 'لا توجد معلومات دفع متاحة';
 
   @override
-  String get payment_error => 'حدث خطأ أثناء تحميل معلومات الدفع.';
+  String get payment_error => 'خطأ في الدفع';
 
   @override
   String get day => 'يوم';
@@ -160,76 +158,40 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dzd => 'دج';
 
   @override
-  String get cannot_be_empty => 'لا يمكن أن يكون فارغًا';
-
-  @override
-  String get required_field => 'هذا الحقل مطلوب';
-
-  @override
-  String get invalid_email => 'يرجى إدخال بريد إلكتروني صحيح';
-
-  @override
-  String get password_too_short => 'يجب أن تكون كلمة المرور 6 أحرف على الأقل';
-
-  @override
-  String get passwords_do_not_match => 'كلمات المرور غير متطابقة';
-
-  @override
   String get cancel => 'إلغاء';
 
   @override
-  String get edit => 'تعديل';
-
-  @override
-  String get save => 'حفظ';
-
-  @override
-  String get confirm => 'تأكيد';
-
-  @override
-  String get retry => 'إعادة المحاولة';
-
-  @override
-  String get submit => 'إرسال';
-
-  @override
-  String get loading => 'جاري التحميل';
-
-  @override
-  String get success => 'نجح';
-
-  @override
-  String get error => 'خطأ';
-
-  @override
-  String get empty => 'فارغ';
+  String get edit => 'تحرير';
 
   @override
   String get no_data => 'لا توجد بيانات متاحة';
 
   @override
-  String get try_again => 'حاول مرة أخرى';
+  String get retry => 'إعادة المحاولة';
 
   @override
-  String get no_homework => 'لا توجد واجبات متاحة';
+  String get cannot_be_empty => 'لا يمكن أن يكون فارغًا';
 
   @override
-  String get homework_title => 'الواجبات';
+  String get valid_email => 'يرجى إدخال بريد إلكتروني صحيح';
 
   @override
-  String get semester => 'الفصل الدراسي';
+  String get password_min_length => 'على الأقل 8 أحرف';
 
   @override
-  String get year => 'السنة';
+  String get no_homework => 'لا توجد واجبات منزلية متاحة';
 
   @override
-  String get average => 'المتوسط';
+  String get change_language => 'تغيير اللغة';
 
   @override
-  String get grade => 'الدرجة';
+  String get select_language => 'اختر اللغة';
 
   @override
-  String get subject => 'المادة';
+  String get english => 'الإنجليزية';
+
+  @override
+  String get francais => 'الفرنسية';
 
   @override
   String get logout_confirmation => 'هل أنت متأكد من أنك تريد تسجيل الخروج؟';
@@ -242,4 +204,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get close => 'إغلاق';
+
+  @override
+  String get subject => 'المادة';
+
+  @override
+  String get year => 'السنة';
+
+  @override
+  String get average => 'المتوسط';
+
+  @override
+  String get grade => 'الدرجة';
+
+  @override
+  String get invalid_email => 'يرجى إدخال بريد إلكتروني صحيح';
+
+  @override
+  String get please_enter_credentials => 'يرجى إدخال البريد الإلكتروني وكلمة المرور';
+
+  @override
+  String get send_code => 'إرسال الرمز';
+
+  @override
+  String get confirm => 'تأكيد';
+
+  @override
+  String get verification_code => 'رمز التحقق';
+
+  @override
+  String get passwords_do_not_match => 'كلمات المرور غير متطابقة';
 }

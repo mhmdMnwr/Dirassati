@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dirasati/core/Networking/fetch_pdf_repo.dart';
 
 part 'fetch_pdf_state.dart';

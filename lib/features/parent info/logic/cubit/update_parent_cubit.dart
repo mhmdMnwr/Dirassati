@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dirasati/features/parent%20info/data/model/update_parent_request.dart';
 import 'package:dirasati/features/parent%20info/logic/cubit/update_parent_state.dart';
 import 'package:dirasati/features/parent%20info/data/repo/update_repo.dart';

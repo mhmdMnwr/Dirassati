@@ -1,7 +1,5 @@
 import 'app_localizations.dart';
 
-// ignore_for_file: type=lint
-
 /// The translations for English (`en`).
 class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
@@ -16,7 +14,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcome => 'Welcome to our app!';
 
   @override
-  String get log_in => 'LOG IN';
+  String get log_in => 'Log In';
 
   @override
   String get email => 'Email';
@@ -25,7 +23,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
-  String get forgot_password => 'Forgot Password?';
+  String get forgot_password => 'Forgot Password';
 
   @override
   String get reset_password => 'Reset Password';
@@ -40,10 +38,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get new_password => 'New Password';
 
   @override
-  String get enter_email => 'Enter your email';
+  String get enter_email => 'Enter email';
 
   @override
-  String get enter_password => 'Enter your password';
+  String get enter_password => 'Enter password';
 
   @override
   String get enter_old_password => 'Enter old password';
@@ -94,7 +92,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phone => 'Phone';
 
   @override
-  String get email_address => 'Email';
+  String get email_address => 'Email Address';
 
   @override
   String get level => 'Level';
@@ -109,7 +107,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marks => 'Marks';
 
   @override
-  String get home_work => 'Home work';
+  String get home_work => 'Home Work';
 
   @override
   String get absence => 'Absence';
@@ -121,58 +119,43 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exam_schedule => 'Exam Schedule';
 
   @override
-  String get schedule_not_available => 'This schedule is not available for now.';
+  String get schedule_not_available => 'Schedule not available';
 
   @override
   String get total_due => 'Total Due';
 
   @override
-  String get total_to_pay => 'Total to pay';
+  String get total_to_pay => 'Total to Pay';
 
   @override
-  String get next_amount_to_pay => 'Next Amount to Pay:';
+  String get next_amount_to_pay => 'Next Amount to Pay';
 
   @override
-  String get next_date_to_pay => 'Next Date to Pay:';
+  String get next_date_to_pay => 'Next Date to Pay';
 
   @override
-  String get next_amount_to_pay_label => 'Next amount to pay';
+  String get next_amount_to_pay_label => 'Next Amount to Pay:';
 
   @override
-  String get next_date_to_pay_label => 'Next Date to Pay';
+  String get next_date_to_pay_label => 'Next Date to Pay:';
 
   @override
   String get unknown_student => 'Unknown Student';
 
   @override
-  String get no_payment_information => 'No payment information found.';
+  String get no_payment_information => 'No payment information available';
 
   @override
-  String get payment_error => 'An error occurred while loading payment information.';
+  String get payment_error => 'Payment error';
 
   @override
-  String get day => 'day';
+  String get day => 'Day';
 
   @override
-  String get days => 'days';
+  String get days => 'Days';
 
   @override
   String get dzd => 'DZD';
-
-  @override
-  String get cannot_be_empty => 'Cannot be empty';
-
-  @override
-  String get required_field => 'This field is required';
-
-  @override
-  String get invalid_email => 'Please enter a valid email';
-
-  @override
-  String get password_too_short => 'Password must be at least 6 characters';
-
-  @override
-  String get passwords_do_not_match => 'Passwords do not match';
 
   @override
   String get cancel => 'Cancel';
@@ -181,55 +164,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get edit => 'Edit';
 
   @override
-  String get save => 'Save';
-
-  @override
-  String get confirm => 'Confirm';
+  String get no_data => 'No data available';
 
   @override
   String get retry => 'Retry';
 
   @override
-  String get submit => 'Submit';
+  String get cannot_be_empty => 'Cannot be empty';
 
   @override
-  String get loading => 'Loading';
+  String get valid_email => 'Please enter a valid email';
 
   @override
-  String get success => 'Success';
-
-  @override
-  String get error => 'Error';
-
-  @override
-  String get empty => 'Empty';
-
-  @override
-  String get no_data => 'No data available';
-
-  @override
-  String get try_again => 'Try again';
+  String get password_min_length => 'At least 8 characters long';
 
   @override
   String get no_homework => 'No homework available';
 
   @override
-  String get homework_title => 'Homework';
+  String get change_language => 'Change Language';
 
   @override
-  String get semester => 'Semester';
+  String get select_language => 'Select Language';
 
   @override
-  String get year => 'Year';
+  String get english => 'English';
 
   @override
-  String get average => 'Average';
-
-  @override
-  String get grade => 'Grade';
-
-  @override
-  String get subject => 'Subject';
+  String get francais => 'Français';
 
   @override
   String get logout_confirmation => 'Are you sure you want to log out?';
@@ -242,4 +204,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get close => 'Close';
+
+  @override
+  String get subject => 'Subject';
+
+  @override
+  String get year => 'Year';
+
+  @override
+  String get average => 'Average';
+
+  @override
+  String get grade => 'Grade';
+
+  @override
+  String get invalid_email => 'Please enter a valid email';
+
+  @override
+  String get please_enter_credentials => 'Please enter email and password';
+
+  @override
+  String get send_code => 'Send Code';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get verification_code => 'Verification Code';
+
+  @override
+  String get passwords_do_not_match => 'Passwords do not match';
 }

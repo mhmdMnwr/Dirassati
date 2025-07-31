@@ -1,4 +1,3 @@
-import 'package:dirasati/core/helpers/spacing.dart';
 import 'package:dirasati/core/theming/colors.dart';
 import 'package:dirasati/core/theming/styles.dart';
 import 'package:dirasati/core/widgets/notification_count_bloc_builder.dart';
@@ -21,30 +20,42 @@ class AccountOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
+    
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 4.h),
+        padding: EdgeInsets.symmetric(
+          horizontal: 24.w, // Consistent padding for all languages
+          vertical: 16.h,   // Better vertical spacing
+        ),
         child: SizedBox(
-          height: 100.h,
+          height: 60.h, // Reduced height for better proportions
           child: Row(
+            textDirection: isRTL ? TextDirection.rtl : TextDirection.ltr,
             children: [
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  Image.asset(icon, height: 50.h, width: 50.w),
+                  Image.asset(icon, height: 40.h, width: 40.w), // Slightly smaller icons
                   if (isNotification) NotificationCountBlocBuilder(),
                 ],
               ),
-              horizontalSpace(16),
+              SizedBox(width: 16.w), // Consistent spacing
               Expanded(
-                child: Text(title, style: TextStyles.font16BlackBold),
+                child: Text(
+                  title, 
+                  style: TextStyles.font16BlackBold,
+                  textAlign: isRTL ? TextAlign.right : TextAlign.left,
+                ),
               ),
-              Spacer(),
-              Padding(
-                padding: EdgeInsets.only(right: 8.0.w),
-                child: Icon(Icons.arrow_forward_ios,
-                    color: ColorsManager.mainBlue, size: 20.sp),
+              Transform.flip(
+                flipX: isRTL, // Flip arrow for RTL
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  color: ColorsManager.mainBlue, 
+                  size: 16.sp, // Slightly smaller arrow
+                ),
               ),
             ],
           ),

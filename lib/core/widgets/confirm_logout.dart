@@ -1,4 +1,5 @@
 import 'package:dirasati/core/helpers/spacing.dart';
+import 'package:dirasati/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +23,7 @@ Future<void> showLogoutConfirmationDialog({
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Are you sure you want to log out?',
+                AppLocalizations.of(context)!.logout_confirmation,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -39,7 +40,7 @@ Future<void> showLogoutConfirmationDialog({
                         ),
                       ),
                       onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context)!.cancel),
                     ),
                   ),
                   horizontalSpace(12),
@@ -56,7 +57,7 @@ Future<void> showLogoutConfirmationDialog({
                         Navigator.of(context).pop();
                         onConfirm();
                       },
-                      child: const Text('Confirm'),
+                      child: Text(AppLocalizations.of(context)!.yes),
                     ),
                   ),
                 ],
