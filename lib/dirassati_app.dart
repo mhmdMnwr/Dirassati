@@ -33,8 +33,9 @@ class DirassatiApp extends StatelessWidget {
                 scaffoldBackgroundColor: Colors.white,
               ),
               debugShowCheckedModeBanner: false,
-              initialRoute: Routes.chooseSonScreen,
-              // isParentLoggedIn ? Routes.chooseSonScreen : Routes.loginScreen,
+              initialRoute: isParentLoggedIn
+                  ? Routes.chooseSonScreen
+                  : Routes.loginScreen,
               onGenerateRoute: appRouter.generateRoute,
             ),
           );

@@ -67,7 +67,7 @@ class ListViewWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Image.asset(
-                    getLevelImage(int.parse(student.level.substring(0, 1))),
+                    getLevelImage(_safeParseLevelNumber(student.level)),
                     width: 113.w,
                     height: 169.h,
                   ),
@@ -110,6 +110,21 @@ class ListViewWidget extends StatelessWidget {
         return IconsManager.number5;
       default:
         return IconsManager.number1;
+    }
+  }
+
+  int _safeParseLevelNumber(String level) {
+    if (level.isEmpty) return 1;
+
+    // Extract only numeric characters
+    final numericOnly = level.replaceAll(RegExp(r'[^0-9]'), '');
+
+    if (numericOnly.isEmpty) return 1;
+
+    try {
+      return int.parse(numericOnly.substring(0, 1));
+    } catch (e) {
+      return 1; // Default level
     }
   }
 }
