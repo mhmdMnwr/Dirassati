@@ -296,4 +296,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get justificationSent => 'Justification sent successfully';
+
+  @override
+  String get arabic => 'Arabic';
+
+  @override
+  String get french => 'French';
+
+  @override
+  String get languageChanged => 'Language changed successfully';
+
+  @override
+  String get languageChangeRestart => 'Language changed. Please restart the app.';
 }

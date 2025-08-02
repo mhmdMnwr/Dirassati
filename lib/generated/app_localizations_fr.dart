@@ -300,4 +300,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get justificationSent => 'Justification envoyée avec succès';
+
+  @override
+  String get arabic => 'Arabe';
+
+  @override
+  String get french => 'Français';
+
+  @override
+  String get languageChanged => 'Langue changée avec succès';
+
+  @override
+  String get languageChangeRestart => 'Langue changée. Veuillez redémarrer l\'application.';
 }

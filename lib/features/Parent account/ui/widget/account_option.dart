@@ -51,7 +51,7 @@ class AccountOption extends StatelessWidget {
                 ),
               ),
               Icon(
-                isRTL ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+                Icons.arrow_forward_ios,
 
                 color: ColorsManager.mainBlue,
                 size: 16.sp, // Slightly smaller arrow

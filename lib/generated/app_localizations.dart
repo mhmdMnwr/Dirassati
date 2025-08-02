@@ -160,6 +160,14 @@ abstract class AppLocalizations {
   String get sending;
 
   String get justificationSent;
+
+  String get arabic;
+
+  String get french;
+
+  String get languageChanged;
+
+  String get languageChangeRestart;
 }
 
 class _AppLocalizationsDelegate
